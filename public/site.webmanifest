@@ -1,0 +1,17 @@
+{
+  "name": "siapdigital",
+  "short_name": "siapdigital",
+  "description": "Jasa pembuatan website custom, landing page, dan company profile.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9f9ff",
+  "theme_color": "#0058c3",
+  "icons": [
+    {
+      "src": "/images/logo-site.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
