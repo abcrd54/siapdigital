@@ -178,7 +178,7 @@ const projects = [
 
   {
     title: "Sistem Pengelola Air Desa",
-    tag: "CodeIgniter 4",
+    tag: "Laravel",
     year: "2023",
     image: "/images/air-desa.png",
     link: "#",
@@ -645,9 +645,9 @@ function App() {
                     Owner & Founder SIAPDIGITAL
                   </p>
                   <p className="mt-3 text-sm leading-6 text-muted">
-                    Fokus pada website, aplikasi, dan sistem custom yang
-                    disusun agar bisnis terlihat lebih profesional dan workflow
-                    client berjalan lebih efisien.
+                    Fokus pada website, aplikasi, dan sistem custom yang disusun
+                    agar bisnis terlihat lebih profesional dan workflow client
+                    berjalan lebih efisien.
                   </p>
                 </motion.div>
               </motion.div>
