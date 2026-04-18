@@ -154,7 +154,7 @@ const projects = [
 
   {
     title: "Sistem Pengambil Keputusan Supplier MOORA",
-    tag: "PHP Native",
+    tag: "Codeigniter 4",
     year: "2022",
     image: "/images/moora.png",
     link: "#",
