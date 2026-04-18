@@ -213,7 +213,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "08+", label: "years building digital experiences" },
+  { value: "6", label: "years building digital experiences" },
   { value: "27", label: "selected launches and revamps" },
   { value: "12", label: "brands and founders supported" },
 ];
@@ -318,7 +318,10 @@ for (let i = 0; i < testimonials.length; i += 3) {
   desktopTestimonialSlides.push(testimonials.slice(i, i + 3));
 }
 
-const projectTags = ["Semua", ...new Set(projects.map((project) => project.tag))];
+const projectTags = [
+  "Semua",
+  ...new Set(projects.map((project) => project.tag)),
+];
 
 const revealUp = {
   hidden: { opacity: 0, y: 40 },
@@ -532,7 +535,7 @@ function App() {
                 className="mb-8 inline-flex items-center gap-3 rounded-full bg-surface-low px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-primary"
               >
                 <Sparkles size={14} />
-                Owner-Led Brand Experience
+                Website & System Custom for Business
               </motion.div>
 
               <motion.h1
@@ -542,9 +545,9 @@ function App() {
                 transition={{ delay: 0.08 }}
                 className="max-w-3xl font-display text-5xl font-bold leading-[0.92] tracking-[-0.06em] text-ink sm:text-6xl lg:text-[5.8rem]"
               >
-                Crafting
-                <span className="block text-primary italic">Brand</span>
-                Experiences That Convert
+                Butuh Website
+                <span className="block text-primary italic">Custom</span>
+                yang Terlihat Serius dan Siap Dipakai Bisnis?
               </motion.h1>
 
               <motion.p
@@ -554,9 +557,10 @@ function App() {
                 transition={{ delay: 0.16 }}
                 className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg"
               >
-                siapdigital membantu brand tampil lebih tajam melalui website
-                yang terasa premium, cepat, dan dibuat dengan perhatian penuh
-                dari sisi visual hingga frontend execution.
+                siapdigital membantu bisnis membangun website, landing page,
+                aplikasi, dan sistem custom yang tampil meyakinkan, mudah
+                dipakai, dan dirancang sesuai kebutuhan operasional maupun
+                target penjualan.
               </motion.p>
 
               <motion.div
@@ -570,14 +574,14 @@ function App() {
                   href="#work"
                   className="liquid-button inline-flex items-center gap-2 rounded-2xl px-7 py-4 text-sm font-semibold text-white shadow-[0_24px_48px_rgba(0,88,195,0.22)] transition hover:-translate-y-1"
                 >
-                  Explore Work
+                  Lihat Portfolio
                   <ArrowUpRight size={16} />
                 </a>
                 <a
                   href="#services"
                   className="ghost-border inline-flex items-center gap-2 rounded-2xl bg-white/80 px-7 py-4 text-sm font-semibold text-primary transition hover:bg-surface-low"
                 >
-                  Why siapdigital?
+                  Kenapa siapdigital?
                 </a>
               </motion.div>
 
@@ -641,9 +645,9 @@ function App() {
                     Owner & Founder SIAPDIGITAL
                   </p>
                   <p className="mt-3 text-sm leading-6 text-muted">
-                    Berpengalaman di dunia digital sejak 2019, telah menangani
-                    berbagai project website, aplikasi, dan sistem custom untuk
-                    beragam kebutuhan bisnis.
+                    Fokus pada website, aplikasi, dan sistem custom yang
+                    disusun agar bisnis terlihat lebih profesional dan workflow
+                    client berjalan lebih efisien.
                   </p>
                 </motion.div>
               </motion.div>
