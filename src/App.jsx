@@ -62,6 +62,61 @@ const projects = [
       "Landing page dan sistem booking untuk mini soccer dengan alur reservasi yang lebih jelas, tampilan yang modern, dan CTA yang diarahkan untuk membantu user melakukan booking lebih cepat.",
   },
   {
+    title: "Landing Page + Sistem Booking Klinik",
+    tag: "Next.js",
+    year: "2026",
+    image: "/images/klinik.png",
+    link: "#",
+    summary:
+      "Website profil klinik yang dilengkapi sistem booking untuk memudahkan pasien melihat layanan dan melakukan reservasi secara online.",
+    description:
+      "Landing page klinik dengan tampilan modern dan alur booking yang jelas agar calon pasien bisa mengenal layanan, memilih jadwal, dan melakukan reservasi dengan lebih cepat dan nyaman.",
+  },
+  {
+    title: "Landing Page + Sistem Ekspedisi Pengiriman",
+    tag: "Next.js",
+    year: "2026",
+    image: "/images/ekspedisi.png",
+    link: "https://ekspedisi-lokal.vercel.app/",
+    summary:
+      "Website company profile ekspedisi yang dilengkapi sistem pengiriman untuk mempermudah proses pemesanan dan pelacakan layanan.",
+    description:
+      "Landing page dan sistem ekspedisi untuk membantu pengguna mengenal layanan pengiriman, melakukan pemesanan, dan mengakses alur pengiriman dengan tampilan yang lebih modern dan terstruktur.",
+  },
+  {
+    title: "Custom Plugin Transaksi Polyline",
+    tag: "WordPress",
+    year: "2026",
+    image: "/images/custom.png",
+    link: "https://polyline.id/",
+    summary:
+      "Pengembangan plugin WordPress khusus untuk mendukung kebutuhan transaksi dan alur operasional yang lebih fleksibel.",
+    description:
+      "Custom plugin WordPress yang dirancang untuk menyesuaikan kebutuhan transaksi pada website Polyline, sehingga proses operasional menjadi lebih efisien, terintegrasi, dan mudah dikelola.",
+  },
+  {
+    title: "Aplikasi Driver Realtime Integrasi Sistem Pengiriman",
+    tag: "Next.js",
+    year: "2026",
+    image: "/images/apps.jpeg",
+    link: "#",
+    summary:
+      "Aplikasi driver realtime yang terintegrasi dengan sistem pengiriman untuk memantau status tugas dan proses distribusi secara langsung.",
+    description:
+      "Aplikasi operasional driver yang terhubung dengan sistem pengiriman untuk membantu monitoring tugas, update status secara realtime, dan meningkatkan efisiensi proses distribusi di lapangan.",
+  },
+  {
+    title: "Landing Page Website Naturawood",
+    tag: "Next.js",
+    year: "2026",
+    image: "/images/naturawood.png",
+    link: "https://naturawood.vercel.app/",
+    summary:
+      "Landing page produk kayu dengan tampilan elegan untuk memperkenalkan brand dan menampilkan katalog layanan secara profesional.",
+    description:
+      "Website landing page untuk Naturawood dengan desain yang bersih dan natural, difokuskan untuk membangun branding, menampilkan produk, dan meningkatkan kepercayaan calon pelanggan.",
+  },
+  {
     title: "Website Katalog Furniture Woodenfurn",
     tag: "WordPress",
     year: "2023",
@@ -263,6 +318,8 @@ for (let i = 0; i < testimonials.length; i += 3) {
   desktopTestimonialSlides.push(testimonials.slice(i, i + 3));
 }
 
+const projectTags = ["Semua", ...new Set(projects.map((project) => project.tag))];
+
 const revealUp = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -281,10 +338,15 @@ function App() {
   const [desktopTestimonialIndex, setDesktopTestimonialIndex] = useState(0);
   const [mobileTestimonialIndex, setMobileTestimonialIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeProjectTag, setActiveProjectTag] = useState("Semua");
   const hasProjectLink =
     selectedProject?.link &&
     selectedProject.link.trim() !== "" &&
     selectedProject.link.trim() !== "#";
+  const filteredProjects =
+    activeProjectTag === "Semua"
+      ? projects
+      : projects.filter((project) => project.tag === activeProjectTag);
 
   const showPrevTestimonials = () => {
     setDesktopTestimonialIndex((current) => Math.max(0, current - 1));
@@ -619,7 +681,7 @@ function App() {
           className="px-4 py-24 sm:px-6 lg:px-10"
         >
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+            <div className="mx-auto max-w-3xl text-center">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
                   Portfolio
@@ -628,15 +690,36 @@ function App() {
                   Selected portfolio from siapdigital.
                 </h2>
               </div>
-              <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
+              <p className="mt-6 text-base leading-8 text-muted sm:text-lg">
                 Beberapa contoh arah visual dan presentasi digital yang
                 menunjukkan bagaimana siapdigital membantu brand tampil lebih
                 kuat, lebih rapi, dan lebih siap meyakinkan client.
               </p>
             </div>
 
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              {projectTags.map((tag) => {
+                const isActive = activeProjectTag === tag;
+
+                return (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => setActiveProjectTag(tag)}
+                    className={`rounded-full px-5 py-3 text-sm font-semibold transition ${
+                      isActive
+                        ? "bg-[#141b2b] text-white shadow-[0_14px_30px_rgba(20,27,43,0.18)]"
+                        : "bg-surface-low text-muted hover:bg-white hover:text-ink"
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
+            </div>
+
             <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {projects.map((project, index) => (
+              {filteredProjects.map((project, index) => (
                 <motion.button
                   key={project.title}
                   type="button"
