@@ -96,7 +96,7 @@ const projects = [
   },
   {
     title: "Aplikasi Driver Realtime Integrasi Sistem Pengiriman",
-    tag: "Next.js",
+    tag: "Flutter",
     year: "2026",
     image: "/images/apps.jpeg",
     link: "#",
