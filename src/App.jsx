@@ -66,7 +66,7 @@ const projects = [
     tag: "Next.js",
     year: "2026",
     image: "/images/klinik.png",
-    link: "#",
+    link: "https://klinik-taupe.vercel.app/",
     summary:
       "Website profil klinik yang dilengkapi sistem booking untuk memudahkan pasien melihat layanan dan melakukan reservasi secara online.",
     description:
@@ -154,7 +154,7 @@ const projects = [
 
   {
     title: "Sistem Pengambil Keputusan Supplier MOORA",
-    tag: "Codeigniter 4",
+    tag: "CodeIgniter 4",
     year: "2022",
     image: "/images/moora.png",
     link: "#",
