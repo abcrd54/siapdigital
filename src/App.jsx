@@ -323,18 +323,62 @@ const projectTags = [
   ...new Set(projects.map((project) => project.tag)),
 ];
 
+const techStacks = [
+  {
+    name: "WordPress",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg",
+  },
+  {
+    name: "PHP",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+  },
+  {
+    name: "Laravel",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+  },
+  {
+    name: "CodeIgniter",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg",
+  },
+  {
+    name: "Next.js",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  },
+  {
+    name: "React.js",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  },
+  {
+    name: "Vue.js",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+  },
+  {
+    name: "Flutter",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
+  },
+  {
+    name: "Tailwind CSS",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  {
+    name: "Bootstrap",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
+  },
+];
+
 const revealUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 function App() {
   const heroCardRef = useRef(null);
   const sectionRefs = useRef([]);
+  const projectTabRefs = useRef([]);
   const [openFaq, setOpenFaq] = useState(1);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -390,15 +434,15 @@ function App() {
 
         gsap.fromTo(
           section,
-          { opacity: 0, y: 56 },
+          { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 0.72,
             ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: "top 82%",
+              start: "top 88%",
             },
           },
         );
@@ -447,6 +491,19 @@ function App() {
     observers.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const activeIndex = projectTags.findIndex((tag) => tag === activeProjectTag);
+    const activeTab = projectTabRefs.current[activeIndex];
+
+    if (!activeTab) return;
+
+    activeTab.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [activeProjectTag]);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-ink">
@@ -701,16 +758,19 @@ function App() {
               </p>
             </div>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              {projectTags.map((tag) => {
+            <div className="mx-auto mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center md:overflow-visible">
+              {projectTags.map((tag, index) => {
                 const isActive = activeProjectTag === tag;
 
                 return (
                   <button
                     key={tag}
+                    ref={(el) => {
+                      projectTabRefs.current[index] = el;
+                    }}
                     type="button"
                     onClick={() => setActiveProjectTag(tag)}
-                    className={`rounded-full px-5 py-3 text-sm font-semibold transition ${
+                    className={`shrink-0 snap-start rounded-full px-5 py-3 text-sm font-semibold transition ${
                       isActive
                         ? "bg-[#141b2b] text-white shadow-[0_14px_30px_rgba(20,27,43,0.18)]"
                         : "bg-surface-low text-muted hover:bg-white hover:text-ink"
@@ -730,8 +790,8 @@ function App() {
                   onClick={() => setSelectedProject(project)}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{ duration: 0.7, delay: index * 0.12 }}
+                  viewport={{ once: true, amount: 0.22 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
                   whileHover={{ y: -10 }}
                   className="group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
                 >
@@ -1206,6 +1266,33 @@ function App() {
       </main>
 
       <footer className="px-0 pb-0 pt-6">
+        <div className="overflow-hidden py-6 lg:py-8">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 22,
+              ease: "linear",
+              repeat: Number.POSITIVE_INFINITY,
+            }}
+            className="flex min-w-max items-center gap-8 px-6 lg:gap-14 lg:px-10"
+          >
+            {[...techStacks, ...techStacks].map((tech, index) => (
+              <div
+                key={`${tech.name}-${index}`}
+                className="flex h-12 w-12 shrink-0 items-center justify-center lg:h-14 lg:w-14"
+              >
+                <img
+                  src={tech.logo}
+                  alt={tech.name}
+                  title={tech.name}
+                  loading="lazy"
+                  className="h-8 w-8 object-contain lg:h-10 lg:w-10"
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
         <div className="grid w-full gap-10 rounded-none bg-surface-low px-5 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-10">
           <div>
             <div className="font-display text-2xl font-bold tracking-[-0.05em]">
