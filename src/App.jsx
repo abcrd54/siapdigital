@@ -52,7 +52,7 @@ const highlights = [
 const projects = [
   {
     title: "Landing Page + Sistem Booking Mini Soccer",
-    tag: "Portfolio Project",
+    tag: "Next.js",
     year: "2026",
     image: "/images/minsoc.png",
     link: "https://booking-minsoc-six.vercel.app/",
@@ -62,59 +62,75 @@ const projects = [
       "Landing page dan sistem booking untuk mini soccer dengan alur reservasi yang lebih jelas, tampilan yang modern, dan CTA yang diarahkan untuk membantu user melakukan booking lebih cepat.",
   },
   {
-    title: "Atelier Flow",
-    tag: "Portfolio Project",
-    year: "2025",
-    image: "/dummy/project-atelier.svg",
+    title: "Website Katalog Furniture Woodenfurn",
+    tag: "WordPress",
+    year: "2023",
+    image: "/images/woodenfurn.png",
     link: "#",
     summary:
-      "Showcase digital dengan komposisi rapi, whitespace luas, dan transisi yang menjaga kesan elegan.",
+      "Website katalog furniture untuk menampilkan produk custom furniture dengan tampilan profesional dan mudah diakses calon customer.",
     description:
-      "Project showcase dengan gaya editorial, ritme whitespace yang lega, dan susunan konten yang dibangun untuk menonjolkan kesan elegan serta premium.",
+      "Website company profile dan katalog furniture dengan fokus pada branding, showcase produk, serta memudahkan calon customer melihat layanan dan melakukan konsultasi.",
   },
+
   {
-    title: "Northstar Identity",
-    tag: "Portfolio Project",
-    year: "2026",
-    image: "/dummy/project-northstar.svg",
+    title: "Website Katalog Kaligrafi Elsurayya Art",
+    tag: "WordPress",
+    year: "2023",
+    image: "/images/elsurayyaart.png",
     link: "#",
     summary:
-      "Platform brand untuk studio strategi yang membutuhkan tone modern, tenang, dan terasa presisi.",
+      "Website katalog produk kaligrafi premium untuk menampilkan karya seni ukir dengan tampilan elegan dan eksklusif.",
     description:
-      "Website brand untuk studio strategi dengan tone visual yang modern, tenang, dan presisi, cocok untuk memperkuat positioning bisnis yang ingin terlihat profesional.",
+      "Website portfolio dan katalog produk kaligrafi dengan desain premium untuk meningkatkan branding, menampilkan koleksi karya, dan mempermudah inquiry customer.",
   },
+
   {
-    title: "Project Placeholder 04",
-    tag: "Portfolio Project",
-    year: "2026",
-    image: "/dummy/project-lumina.svg",
+    title: "Inventory Management FIFO",
+    tag: "PHP Native",
+    year: "2022",
+    image: "/images/fifo.png",
     link: "#",
     summary:
-      "Placeholder project untuk company profile atau landing page yang nanti bisa Anda isi sendiri.",
+      "Sistem inventory management berbasis web dengan metode FIFO untuk membantu pengelolaan stok barang lebih akurat.",
     description:
-      "Card placeholder ini disiapkan untuk kebutuhan konten berikutnya. Anda bisa mengganti judul, tahun, gambar, deskripsi, dan link sesuai project nyata yang ingin ditampilkan.",
+      "Aplikasi manajemen inventory dengan fitur stok masuk, stok keluar, laporan persediaan, serta perhitungan metode FIFO untuk efisiensi operasional bisnis.",
   },
+
   {
-    title: "Project Placeholder 05",
-    tag: "Portfolio Project",
-    year: "2026",
-    image: "/dummy/hero-editorial.svg",
+    title: "Sistem Pengambil Keputusan Supplier MOORA",
+    tag: "PHP Native",
+    year: "2022",
+    image: "/images/moora.png",
     link: "#",
     summary:
-      "Placeholder project dengan visual editorial untuk kebutuhan showcase berikutnya.",
+      "Sistem pendukung keputusan untuk menentukan supplier terbaik menggunakan metode MOORA berbasis web.",
     description:
-      "Slot portfolio tambahan untuk project berikutnya. Cocok dipakai untuk landing page, website brand, company profile, atau project presentasi produk.",
+      "Aplikasi decision support system untuk membantu proses seleksi supplier berdasarkan beberapa kriteria seperti harga, kualitas, pelayanan, dan pengiriman.",
   },
+
   {
-    title: "Project Placeholder 06",
-    tag: "Portfolio Project",
-    year: "2026",
-    image: "/dummy/project-atelier.svg",
+    title: "Sistem Bimbel Pracalis",
+    tag: "CodeIgniter 4",
+    year: "2023",
+    image: "/images/pracalis.png",
     link: "#",
     summary:
-      "Placeholder project terakhir agar grid portfolio menjadi 6 card dan siap diisi.",
+      "Platform manajemen bimbingan belajar untuk mengelola peserta, materi, konsultasi, dan dashboard admin.",
     description:
-      "Card ini disediakan sebagai slot keenam pada section portfolio. Tinggal ganti kontennya nanti saat project final sudah siap dipublikasikan.",
+      "Sistem informasi bimbingan belajar berbasis web dengan fitur dashboard admin, pengelolaan user, materi pembelajaran, konsultasi, dan monitoring aktivitas.",
+  },
+
+  {
+    title: "Sistem Pengelola Air Desa",
+    tag: "CodeIgniter 4",
+    year: "2023",
+    image: "/images/air-desa.png",
+    link: "#",
+    summary:
+      "Sistem pengelolaan layanan air desa untuk membantu administrasi pelanggan, tagihan, dan operasional petugas.",
+    description:
+      "Aplikasi manajemen layanan air desa berbasis web dengan fitur data pelanggan, data petugas, pembayaran tagihan, laporan, dan dashboard monitoring.",
   },
 ];
 
@@ -563,7 +579,9 @@ function App() {
                     Owner & Founder SIAPDIGITAL
                   </p>
                   <p className="mt-3 text-sm leading-6 text-muted">
-                    Berpengalaman di dunia digital sejak 2019, telah menangani berbagai project website, aplikasi, dan sistem custom untuk beragam kebutuhan bisnis.
+                    Berpengalaman di dunia digital sejak 2019, telah menangani
+                    berbagai project website, aplikasi, dan sistem custom untuk
+                    beragam kebutuhan bisnis.
                   </p>
                 </motion.div>
               </motion.div>
@@ -630,12 +648,15 @@ function App() {
                   whileHover={{ y: -10 }}
                   className="group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
                 >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-[340px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.06] sm:h-[380px]"
-                    />
+                  <div className="relative h-[340px] overflow-hidden bg-gray-100 sm:h-[380px]">
+                    <div className="flex h-full w-full items-center justify-center p-4">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="block max-h-full max-w-full object-contain transition duration-700 group-hover:scale-[1.06]"
+                      />
+                    </div>
+
                     <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
                       <span className="rounded-full bg-white/86 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm">
                         {project.tag}
@@ -644,8 +665,10 @@ function App() {
                         {project.year}
                       </span>
                     </div>
+
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#141b2b]/32 to-transparent" />
                   </div>
+
                   <div className="bg-[linear-gradient(180deg,#ffffff_0%,#f7f8ff_100%)] px-6 pb-6 pt-6">
                     <h3 className="mt-4 font-display text-2xl font-bold tracking-[-0.04em]">
                       {project.title}
@@ -653,6 +676,7 @@ function App() {
                     <p className="mt-4 text-sm leading-7 text-muted">
                       {project.summary}
                     </p>
+
                     {project.link && project.link.trim() !== "#" ? (
                       <a
                         href={project.link}
@@ -1191,7 +1215,7 @@ function App() {
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="h-full min-h-[280px] w-full object-cover"
+                  className="h-full min-h-[280px] w-full object-contain object-center bg-neutral-100"
                 />
               </div>
 
