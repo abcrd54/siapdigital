@@ -8,7 +8,6 @@ import {
   Clock3,
   Mail,
   Menu,
-  MessageCircle,
   MessageCircleMore,
   MonitorSmartphone,
   MapPin,
@@ -16,6 +15,7 @@ import {
   Sparkles,
   Star,
   Wallet,
+  X,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -24,17 +24,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 function WhatsAppIcon({ className = "", size = 18 }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
+    <img
+      src="/images/whatsapp.svg"
+      alt=""
+      aria-hidden="true"
       width={size}
       height={size}
-      aria-hidden="true"
-      className={className}
-      fill="currentColor"
-    >
-      <path d="M19.11 17.2c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.59.14-.17.27-.68.87-.83 1.05-.15.18-.31.2-.58.07-.27-.14-1.13-.42-2.15-1.35-.8-.71-1.34-1.59-1.5-1.86-.15-.27-.02-.42.12-.56.12-.12.27-.31.41-.46.14-.15.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.59-1.43-.81-1.96-.21-.51-.42-.44-.58-.45l-.49-.01c-.17 0-.45.06-.68.31-.23.25-.89.87-.89 2.11s.91 2.44 1.03 2.61c.12.16 1.78 2.71 4.31 3.8.6.26 1.07.42 1.44.54.61.19 1.17.16 1.61.1.49-.07 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.07-.11-.24-.18-.5-.32Z" />
-      <path d="M16.01 3.2c-7.06 0-12.78 5.72-12.78 12.78 0 2.26.59 4.47 1.72 6.41L3.2 28.8l6.58-1.72a12.74 12.74 0 0 0 6.23 1.6h.01c7.06 0 12.78-5.72 12.78-12.78S23.07 3.2 16.01 3.2Zm0 23.37h-.01a10.62 10.62 0 0 1-5.42-1.49l-.39-.23-3.9 1.02 1.04-3.8-.25-.39a10.63 10.63 0 1 1 8.93 4.89Z" />
-    </svg>
+      className={`shrink-0 brightness-0 invert ${className}`}
+    />
   );
 }
 
@@ -61,6 +58,8 @@ const projects = [
     link: "https://booking-minsoc-six.vercel.app/",
     summary:
       "Website presentasi dan sistem booking mini soccer dengan alur yang jelas untuk membantu user melakukan reservasi lebih cepat.",
+    description:
+      "Landing page dan sistem booking untuk mini soccer dengan alur reservasi yang lebih jelas, tampilan yang modern, dan CTA yang diarahkan untuk membantu user melakukan booking lebih cepat.",
   },
   {
     title: "Atelier Flow",
@@ -70,6 +69,8 @@ const projects = [
     link: "#",
     summary:
       "Showcase digital dengan komposisi rapi, whitespace luas, dan transisi yang menjaga kesan elegan.",
+    description:
+      "Project showcase dengan gaya editorial, ritme whitespace yang lega, dan susunan konten yang dibangun untuk menonjolkan kesan elegan serta premium.",
   },
   {
     title: "Northstar Identity",
@@ -79,6 +80,41 @@ const projects = [
     link: "#",
     summary:
       "Platform brand untuk studio strategi yang membutuhkan tone modern, tenang, dan terasa presisi.",
+    description:
+      "Website brand untuk studio strategi dengan tone visual yang modern, tenang, dan presisi, cocok untuk memperkuat positioning bisnis yang ingin terlihat profesional.",
+  },
+  {
+    title: "Project Placeholder 04",
+    tag: "Portfolio Project",
+    year: "2026",
+    image: "/dummy/project-lumina.svg",
+    link: "#",
+    summary:
+      "Placeholder project untuk company profile atau landing page yang nanti bisa Anda isi sendiri.",
+    description:
+      "Card placeholder ini disiapkan untuk kebutuhan konten berikutnya. Anda bisa mengganti judul, tahun, gambar, deskripsi, dan link sesuai project nyata yang ingin ditampilkan.",
+  },
+  {
+    title: "Project Placeholder 05",
+    tag: "Portfolio Project",
+    year: "2026",
+    image: "/dummy/hero-editorial.svg",
+    link: "#",
+    summary:
+      "Placeholder project dengan visual editorial untuk kebutuhan showcase berikutnya.",
+    description:
+      "Slot portfolio tambahan untuk project berikutnya. Cocok dipakai untuk landing page, website brand, company profile, atau project presentasi produk.",
+  },
+  {
+    title: "Project Placeholder 06",
+    tag: "Portfolio Project",
+    year: "2026",
+    image: "/dummy/project-atelier.svg",
+    link: "#",
+    summary:
+      "Placeholder project terakhir agar grid portfolio menjadi 6 card dan siap diisi.",
+    description:
+      "Card ini disediakan sebagai slot keenam pada section portfolio. Tinggal ganti kontennya nanti saat project final sudah siap dipublikasikan.",
   },
 ];
 
@@ -128,16 +164,43 @@ const faqs = [
     q: "Apakah bisa dibuat sesuai brand dan kebutuhan bisnis saya?",
     a: "Bisa. Setiap project diarahkan mengikuti identitas brand, target audience, dan tujuan bisnis supaya hasilnya terasa relevan dan tidak generik.",
   },
+  {
+    q: "Apakah saya bisa request revisi selama proses pengerjaan?",
+    a: "Bisa. Revisi dilakukan di tahap yang sudah disepakati agar hasil akhir tetap sesuai kebutuhan tanpa membuat proses project menjadi berantakan.",
+  },
+  {
+    q: "Apakah siapdigital bisa membantu domain dan hosting?",
+    a: "Bisa. Jika dibutuhkan, siapdigital dapat membantu memberi arahan pembelian domain, setup hosting, hingga proses website siap online.",
+  },
+  {
+    q: "Apakah website yang dibuat bisa dioptimasi untuk SEO?",
+    a: "Ya. Struktur dasar website akan dibuat rapi, cepat, dan lebih siap untuk SEO on-page seperti heading, meta information, performa, dan keterbacaan konten.",
+  },
+  {
+    q: "Apakah setelah website selesai masih bisa dibantu maintenance?",
+    a: "Bisa. Setelah website selesai, support lanjutan atau maintenance tetap bisa dibicarakan sesuai kebutuhan update, perbaikan, atau pengembangan berikutnya.",
+  },
+  {
+    q: "Bagaimana sistem pembayaran project di siapdigital?",
+    a: "Pembayaran biasanya dilakukan bertahap sesuai kesepakatan di awal project, sehingga proses kerja lebih jelas untuk kedua belah pihak dan progress tetap terjaga.",
+  },
+  {
+    q: "Kalau saya belum punya konten lengkap, apakah project tetap bisa dimulai?",
+    a: "Bisa. Project tetap dapat dimulai dari arah desain, struktur halaman, dan kebutuhan utama terlebih dahulu, lalu konten bisa dilengkapi sambil proses berjalan.",
+  },
 ];
 
 const marquee = [
-  "React",
-  "Tailwind CSS",
-  "Framer Motion",
-  "GSAP",
-  "Dummy Lokal",
-  "Brand Website",
-  "Interactive Storytelling",
+  "Aplikasi Mobile",
+  "English-Indonesia",
+  "Landing Page",
+  "Company Profile",
+  "Mobile-first",
+  "SEO-friendly",
+  "Fast-loading Frontend",
+  "WhatsApp CTA",
+  "Motion yang Halus",
+  "Visual Brand Premium",
 ];
 
 const testimonials = [
@@ -201,6 +264,11 @@ function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [desktopTestimonialIndex, setDesktopTestimonialIndex] = useState(0);
   const [mobileTestimonialIndex, setMobileTestimonialIndex] = useState(0);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const hasProjectLink =
+    selectedProject?.link &&
+    selectedProject.link.trim() !== "" &&
+    selectedProject.link.trim() !== "#";
 
   const showPrevTestimonials = () => {
     setDesktopTestimonialIndex((current) => Math.max(0, current - 1));
@@ -258,6 +326,20 @@ function App() {
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    if (!selectedProject) return undefined;
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setSelectedProject(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [selectedProject]);
 
   useEffect(() => {
     const sectionIds = ["home", "work", "services", "faq", "about"];
@@ -417,8 +499,7 @@ function App() {
                   href="#services"
                   className="ghost-border inline-flex items-center gap-2 rounded-2xl bg-white/80 px-7 py-4 text-sm font-semibold text-primary transition hover:bg-surface-low"
                 >
-                  See Process
-                  <Play size={16} />
+                  Why siapdigital?
                 </a>
               </motion.div>
 
@@ -462,7 +543,7 @@ function App() {
                 <div className="rounded-[2.5rem] bg-surface-high p-4 shadow-[var(--shadow-ambient)]">
                   <div className="overflow-hidden rounded-[2rem] bg-surface-deep">
                     <img
-                      src="/dummy/portrait-owner.svg"
+                      src="/images/owner.png"
                       alt="Owner portrait placeholder"
                       className="h-full w-full object-cover"
                     />
@@ -479,11 +560,10 @@ function App() {
                   className="absolute -bottom-6 -left-6 max-w-[220px] rounded-[1.75rem] bg-white p-5 shadow-[var(--shadow-ambient)]"
                 >
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-                    Visual Direction
+                    Owner & Founder SIAPDIGITAL
                   </p>
                   <p className="mt-3 text-sm leading-6 text-muted">
-                    Grid longgar, headline besar, dan blok visual yang terasa
-                    seperti halaman editorial untuk brand premium.
+                    Berpengalaman di dunia digital sejak 2019, telah menangani berbagai project website, aplikasi, dan sistem custom untuk beragam kebutuhan bisnis.
                   </p>
                 </motion.div>
               </motion.div>
@@ -537,16 +617,18 @@ function App() {
               </p>
             </div>
 
-            <div className="mt-14 grid gap-8 lg:grid-cols-3">
+            <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {projects.map((project, index) => (
-                <motion.article
+                <motion.button
                   key={project.title}
+                  type="button"
+                  onClick={() => setSelectedProject(project)}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.7, delay: index * 0.12 }}
                   whileHover={{ y: -10 }}
-                  className="group overflow-hidden rounded-[2.2rem] bg-white shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
+                  className="group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
                 >
                   <div className="relative overflow-hidden">
                     <img
@@ -571,26 +653,23 @@ function App() {
                     <p className="mt-4 text-sm leading-7 text-muted">
                       {project.summary}
                     </p>
-                    <a
-                      href={project.link}
-                      target={
-                        project.link.startsWith("http") ? "_blank" : undefined
-                      }
-                      rel={
-                        project.link.startsWith("http")
-                          ? "noreferrer"
-                          : undefined
-                      }
-                      className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
-                    >
-                      View Project
-                      <ArrowUpRight
-                        size={15}
-                        className="transition group-hover:translate-x-1 group-hover:-translate-y-1"
-                      />
-                    </a>
+                    {project.link && project.link.trim() !== "#" ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                        className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
+                      >
+                        Demo
+                        <ArrowUpRight
+                          size={15}
+                          className="transition group-hover:translate-x-1 group-hover:-translate-y-1"
+                        />
+                      </a>
+                    ) : null}
                   </div>
-                </motion.article>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -796,8 +875,8 @@ function App() {
           }}
           className="px-4 py-24 sm:px-6 lg:px-10"
         >
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
                 FAQ
               </p>
@@ -810,7 +889,7 @@ function App() {
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="mt-12 grid gap-4 lg:grid-cols-2 lg:items-start">
               {faqs.map((faq, index) => {
                 const active = openFaq === index;
                 return (
@@ -861,16 +940,16 @@ function App() {
           className="px-4 py-24 sm:px-6 lg:px-10"
         >
           <div className="mx-auto grid max-w-7xl gap-8">
-            <div className="grid gap-8 rounded-[2.5rem] bg-surface-deep p-8 text-white sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:p-12">
-              <div>
+            <div className="rounded-[2.5rem] bg-surface-deep p-8 text-white sm:p-10 lg:p-12">
+              <div className="mx-auto max-w-4xl text-center">
                 <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/60">
                   About siapdigital
                 </p>
-                <h2 className="mt-5 max-w-3xl font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
+                <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
                   Brand digital yang dibangun untuk membuat website terasa lebih
                   serius.
                 </h2>
-                <p className="mt-6 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
+                <p className="mt-6 text-base leading-8 text-white/70 sm:text-lg">
                   siapdigital lahir dari kebutuhan untuk menghadirkan website
                   yang tidak hanya terlihat bagus, tetapi juga terasa relevan
                   untuk bisnis. Brand ini dipimpin langsung oleh owner dengan
@@ -879,7 +958,7 @@ function App() {
                   meyakinkan.
                 </p>
 
-                <div className="mt-10 space-y-4">
+                <div className="mx-auto mt-10 max-w-3xl space-y-4 text-left">
                   {highlights.map((item) => (
                     <div
                       key={item}
@@ -892,21 +971,6 @@ function App() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="flex justify-start lg:justify-end">
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="w-full max-w-[330px] rounded-[2rem] border border-white/14 bg-white/8 p-3 shadow-[0_24px_50px_rgba(0,0,0,0.18)] backdrop-blur-sm"
-                >
-                  <div className="overflow-hidden rounded-[1.6rem] border border-white/10">
-                    <img
-                      src="/dummy/portrait-owner.svg"
-                      alt="Owner portrait placeholder"
-                      className="aspect-[4/5] w-full object-cover"
-                    />
-                  </div>
-                </motion.div>
               </div>
             </div>
 
@@ -1014,16 +1078,16 @@ function App() {
                   className="liquid-button inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-1"
                 >
                   Start Your Project
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon size={16} />
                 </a>
-                <a
+                {/* <a
                   href="https://wa.me/62895426290208"
                   target="_blank"
                   rel="noreferrer"
                   className="ghost-border inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-7 py-4 text-sm font-semibold text-white"
                 >
                   Chat on WhatsApp
-                </a>
+                </a> */}
               </div>
             </motion.div>
           </div>
@@ -1099,6 +1163,76 @@ function App() {
         <WhatsAppIcon size={18} />
         WhatsApp
       </a>
+
+      {selectedProject ? (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#141b2b]/70 px-4 py-8 backdrop-blur-sm">
+          <div
+            className="absolute inset-0"
+            onClick={() => setSelectedProject(null)}
+            aria-hidden="true"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_80px_rgba(20,27,43,0.24)]"
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedProject(null)}
+              className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#141b2b]/82 text-white transition hover:bg-primary"
+              aria-label="Close project detail"
+            >
+              <X size={18} />
+            </button>
+
+            <div className="grid max-h-[85vh] overflow-y-auto lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="bg-surface-low">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="h-full min-h-[280px] w-full object-cover"
+                />
+              </div>
+
+              <div className="flex flex-col justify-between p-6 sm:p-8">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="rounded-full bg-surface-low px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+                      {selectedProject.tag}
+                    </span>
+                    <span className="rounded-full bg-[#141b2b] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+                      {selectedProject.year}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 font-display text-3xl font-bold tracking-[-0.04em] text-ink">
+                    {selectedProject.title}
+                  </h3>
+
+                  <p className="mt-6 text-sm leading-7 text-muted sm:text-base">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {hasProjectLink ? (
+                  <div className="mt-8">
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
+                    >
+                      Direct Link
+                      <ArrowUpRight size={15} />
+                    </a>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      ) : null}
     </div>
   );
 }
