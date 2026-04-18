@@ -41,12 +41,13 @@ const navItems = [
   { label: "Services", href: "#services", id: "services" },
   { label: "FAQ", href: "#faq", id: "faq" },
   { label: "About", href: "#about", id: "about" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 const highlights = [
-  "Owner-led creative direction",
-  "Frontend craft and performance",
-  "Motion that supports conversion",
+  "Arah visual yang terasa custom, bukan template generik",
+  "Struktur website rapi untuk presentasi brand dan kebutuhan bisnis",
+  "Eksekusi frontend yang cepat, halus, dan nyaman di semua device",
 ];
 
 const projects = [
@@ -467,29 +468,35 @@ function App() {
   }, [selectedProject]);
 
   useEffect(() => {
-    const sectionIds = ["home", "work", "services", "faq", "about"];
-    const observers = sectionIds
+    const sectionIds = navItems.map((item) => item.id);
+    const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+      const headerOffset = 140;
+      const viewportAnchor = window.innerHeight * 0.28;
+      const scrollPosition = window.scrollY + headerOffset + viewportAnchor;
 
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
+      let currentSection = sectionIds[0];
+
+      sections.forEach((section) => {
+        if (scrollPosition >= section.offsetTop) {
+          currentSection = section.id;
         }
-      },
-      {
-        rootMargin: "-22% 0px -55% 0px",
-        threshold: [0.2, 0.35, 0.5, 0.7],
-      },
-    );
+      });
 
-    observers.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   useEffect(() => {
@@ -1117,16 +1124,17 @@ function App() {
                   About siapdigital
                 </p>
                 <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
-                  Brand digital yang dibangun untuk membuat website terasa lebih
-                  serius.
+                  siapdigital membantu brand tampil lebih profesional, lebih
+                  dipercaya, dan lebih siap meyakinkan client.
                 </h2>
                 <p className="mt-6 text-base leading-8 text-white/70 sm:text-lg">
-                  siapdigital lahir dari kebutuhan untuk menghadirkan website
-                  yang tidak hanya terlihat bagus, tetapi juga terasa relevan
-                  untuk bisnis. Brand ini dipimpin langsung oleh owner dengan
-                  fokus pada visual yang kuat, struktur yang rapi, dan
-                  pengalaman digital yang membantu client tampil lebih
-                  meyakinkan.
+                  siapdigital dibangun untuk menghadirkan website yang tidak
+                  berhenti di tampilan bagus saja, tetapi benar-benar disusun
+                  agar brand terlihat lebih serius, lebih rapi, dan lebih
+                  relevan dengan kebutuhan bisnis. Setiap project diarahkan
+                  langsung oleh owner dengan perhatian pada visual, alur
+                  halaman, dan eksekusi frontend yang membuat pengalaman client
+                  terasa lebih kuat sejak kesan pertama.
                 </p>
 
                 <div className="mx-auto mt-10 max-w-3xl space-y-4 text-left">
@@ -1303,10 +1311,10 @@ function App() {
               yang siap diganti ke konten siapdigital.
             </p>
             <a
-              href="mailto:hello@siapdigital.local"
+              href="mailto:siapdigital@gmail.com"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
             >
-              hello@siapdigital.local
+              siapdigital@gmail.com
               <ArrowUpRight size={15} />
             </a>
           </div>
@@ -1340,12 +1348,7 @@ function App() {
               Studio Base
             </div>
             <p className="mt-4 text-sm leading-7 text-muted">
-              Jakarta Selatan
-              <br />
-              Indonesia
-            </p>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
-              Owner-led brand website
+              Jepara
             </p>
           </div>
         </div>
