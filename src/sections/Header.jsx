@@ -1,5 +1,6 @@
-import { Menu } from "lucide-react";
+import { MenuIcon } from "../components/AppIcons";
 import OptimizedImage from "../components/OptimizedImage";
+import OptimizedPicture from "../components/OptimizedPicture";
 import { navItems } from "../data/siteData";
 
 function Header({ activeSection, menuOpen, setMenuOpen }) {
@@ -7,13 +8,14 @@ function Header({ activeSection, menuOpen, setMenuOpen }) {
     <header className="fixed inset-x-0 top-0 z-50 px-0 py-0">
       <div className="glass-panel ghost-border grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 rounded-none px-5 py-4 shadow-[0_18px_50px_rgba(20,27,43,0.08)] sm:px-6 lg:px-10">
         <a href="#home" className="ml-2 flex items-center justify-self-start lg:ml-4">
-          <OptimizedImage
-            src="/images/logo-site-176.webp"
-            srcSet="/images/logo-site-176.webp 176w, /images/logo-site-352.webp 352w"
-            sizes="176px"
+          <OptimizedPicture
+            src="/images/logo-site-160.webp"
+            srcSet="/images/logo-site-160.webp 160w, /images/logo-site-320.webp 320w"
+            avifSrcSet="/images/logo-site-160.avif 160w, /images/logo-site-320.avif 320w"
+            sizes="160px"
             alt="siapdigital"
-            width={176}
-            height={44}
+            width={160}
+            height={42}
             loading="eager"
             fetchPriority="high"
             className="h-10 w-auto object-contain sm:h-11"
@@ -44,7 +46,7 @@ function Header({ activeSection, menuOpen, setMenuOpen }) {
           onClick={() => setMenuOpen((value) => !value)}
           aria-label="Toggle menu"
         >
-          <Menu size={20} />
+          <MenuIcon width={20} height={20} />
         </button>
       </div>
 

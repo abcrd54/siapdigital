@@ -52,35 +52,29 @@ function App({ page }) {
   }, [selectedProject]);
 
   useEffect(() => {
-    const sectionIds = navItems.map((item) => item.id);
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
       .filter(Boolean);
 
-    const updateActiveSection = () => {
-      const headerOffset = 140;
-      const viewportAnchor = window.innerHeight * 0.28;
-      const scrollPosition = window.scrollY + headerOffset + viewportAnchor;
+    if (!sections.length) return undefined;
 
-      let currentSection = sectionIds[0];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-      sections.forEach((section) => {
-        if (scrollPosition >= section.offsetTop) {
-          currentSection = section.id;
-        }
-      });
+        if (!visibleEntries.length) return;
+        setActiveSection(visibleEntries[0].target.id);
+      },
+      {
+        rootMargin: "-18% 0px -55% 0px",
+        threshold: [0.2, 0.35, 0.5, 0.7],
+      },
+    );
 
-      setActiveSection(currentSection);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-
-    return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
-    };
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (

@@ -1,5 +1,6 @@
-import { ArrowUpRight, Sparkles, Star } from "lucide-react";
+import { ArrowUpRightIcon, SparklesIcon, StarIcon } from "../components/AppIcons";
 import OptimizedImage from "../components/OptimizedImage";
+import OptimizedPicture from "../components/OptimizedPicture";
 import { marquee, stats } from "../data/siteData";
 
 function HeroSection({ page }) {
@@ -28,7 +29,7 @@ function HeroSection({ page }) {
             className="enter-up mb-8 inline-flex items-center gap-3 rounded-full bg-surface-low px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-primary"
             style={{ animationDelay: "0ms" }}
           >
-            <Sparkles size={14} />
+            <SparklesIcon width={14} height={14} />
             {page.heroBadge}
           </div>
 
@@ -57,7 +58,7 @@ function HeroSection({ page }) {
               className="liquid-button inline-flex items-center gap-2 rounded-2xl px-7 py-4 text-sm font-semibold text-white shadow-[0_24px_48px_rgba(0,88,195,0.22)] transition hover:-translate-y-1"
             >
               {page.heroPrimaryCta.label}
-              <ArrowUpRight size={16} />
+              <ArrowUpRightIcon width={16} height={16} />
             </a>
             <a
               href={page.heroSecondaryCta.href}
@@ -96,13 +97,14 @@ function HeroSection({ page }) {
           >
             <div className="rounded-[2.5rem] bg-surface-high p-4 shadow-[var(--shadow-ambient)]">
               <div className="overflow-hidden rounded-[2rem] bg-surface-deep">
-                <OptimizedImage
-                  src="/images/owner-420.webp"
-                  srcSet="/images/owner-420.webp 420w, /images/owner-840.webp 840w"
-                  sizes="(min-width: 1024px) 420px, 85vw"
+                <OptimizedPicture
+                  src="/images/owner-340.webp"
+                  srcSet="/images/owner-340.webp 340w, /images/owner-680.webp 680w"
+                  avifSrcSet="/images/owner-340.avif 340w, /images/owner-680.avif 680w"
+                  sizes="(min-width: 1024px) 340px, 82vw"
                   alt="Portrait owner siapdigital"
-                  width={840}
-                  height={1080}
+                  width={680}
+                  height={906}
                   loading="eager"
                   fetchPriority="high"
                   className="h-full w-full object-cover"
@@ -131,7 +133,7 @@ function HeroSection({ page }) {
               key={`${item}-${index}`}
               className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-muted"
             >
-              <Star size={14} className="text-primary" />
+              <StarIcon width={14} height={14} className="text-primary" />
               {item}
             </div>
           ))}

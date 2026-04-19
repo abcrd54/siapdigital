@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRightIcon } from "../components/AppIcons";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { serviceLandingLinks } from "../data/pageData";
 import { techStacks } from "../data/siteData";
@@ -34,7 +34,7 @@ function Footer() {
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
             >
               siapdigital@gmail.com
-              <ArrowUpRight size={15} />
+              <ArrowUpRightIcon width={15} height={15} />
             </a>
           </div>
 

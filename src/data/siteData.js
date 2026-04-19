@@ -1,10 +1,3 @@
-import {
-  Clock3,
-  MessageCircleMore,
-  MonitorSmartphone,
-  Wallet,
-} from "lucide-react";
-
 export const navItems = [
   { label: "Home", href: "#home", id: "home" },
   { label: "Work", href: "#work", id: "work" },
@@ -152,29 +145,6 @@ export const projects = [
       "Sistem pengelolaan layanan air desa untuk membantu administrasi pelanggan, tagihan, dan operasional petugas.",
     description:
       "Aplikasi manajemen layanan air desa berbasis web dengan fitur data pelanggan, data petugas, pembayaran tagihan, laporan, dan dashboard monitoring.",
-  },
-];
-
-export const services = [
-  {
-    title: "Pengerjaan Cepat",
-    body: "Workflow siapdigital dibuat ringkas dan terarah supaya project bisa berjalan cepat tanpa mengorbankan kualitas hasil.",
-    icon: Clock3,
-  },
-  {
-    title: "Konsultasi Gratis",
-    body: "Client bisa berdiskusi lebih dulu untuk menyamakan kebutuhan, arah desain, dan solusi website yang paling cocok.",
-    icon: MessageCircleMore,
-  },
-  {
-    title: "Harga Terbaik",
-    body: "siapdigital menjaga penawaran tetap kompetitif dengan hasil yang tetap rapi, modern, dan relevan untuk bisnis.",
-    icon: Wallet,
-  },
-  {
-    title: "Website Kekinian",
-    body: "Tampilan website dibuat modern, mobile friendly, dan up to date supaya brand terlihat lebih meyakinkan di mata client.",
-    icon: MonitorSmartphone,
   },
 ];
 

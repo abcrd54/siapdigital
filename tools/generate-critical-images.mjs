@@ -7,15 +7,19 @@ const jobs = [
   {
     input: "logo-site.png",
     outputs: [
-      { file: "logo-site-176.webp", width: 176, quality: 82 },
-      { file: "logo-site-352.webp", width: 352, quality: 84 },
+      { file: "logo-site-160.avif", width: 160, quality: 56, format: "avif" },
+      { file: "logo-site-320.avif", width: 320, quality: 58, format: "avif" },
+      { file: "logo-site-160.webp", width: 160, quality: 76, format: "webp" },
+      { file: "logo-site-320.webp", width: 320, quality: 78, format: "webp" },
     ],
   },
   {
     input: "owner.webp",
     outputs: [
-      { file: "owner-420.webp", width: 420, quality: 78 },
-      { file: "owner-840.webp", width: 840, quality: 80 },
+      { file: "owner-340.avif", width: 340, quality: 54, format: "avif" },
+      { file: "owner-680.avif", width: 680, quality: 56, format: "avif" },
+      { file: "owner-340.webp", width: 340, quality: 72, format: "webp" },
+      { file: "owner-680.webp", width: 680, quality: 74, format: "webp" },
     ],
   },
 ];
@@ -25,10 +29,16 @@ for (const job of jobs) {
 
   for (const output of job.outputs) {
     const target = path.join(inputDir, output.file);
-    await sharp(source)
-      .resize({ width: output.width, withoutEnlargement: true })
-      .webp({ quality: output.quality, effort: 6 })
-      .toFile(target);
+    const pipeline = sharp(source).resize({
+      width: output.width,
+      withoutEnlargement: true,
+    });
+
+    if (output.format === "avif") {
+      await pipeline.avif({ quality: output.quality, effort: 7 }).toFile(target);
+    } else {
+      await pipeline.webp({ quality: output.quality, effort: 6 }).toFile(target);
+    }
 
     console.log(`${job.input} -> ${output.file}`);
   }

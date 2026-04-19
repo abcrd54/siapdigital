@@ -1,4 +1,4 @@
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRightIcon, XIcon } from "../components/AppIcons";
 import OptimizedImage from "../components/OptimizedImage";
 
 function ProjectModal({ selectedProject, setSelectedProject }) {
@@ -23,7 +23,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
           className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#141b2b]/82 text-white transition hover:bg-primary"
           aria-label="Close project detail"
         >
-          <X size={18} />
+          <XIcon width={18} height={18} />
         </button>
 
         <div className="grid max-h-[85vh] overflow-y-auto lg:grid-cols-[1.1fr_0.9fr]">
@@ -67,7 +67,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
                   className="inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
                 >
                   Direct Link
-                  <ArrowUpRight size={15} />
+                  <ArrowUpRightIcon width={15} height={15} />
                 </a>
               </div>
             ) : null}
