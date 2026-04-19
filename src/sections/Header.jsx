@@ -38,7 +38,7 @@ function Header({ activeSection, menuOpen, setMenuOpen }) {
 
         <button
           type="button"
-          className="rounded-full p-2 text-ink md:hidden"
+          className="justify-self-end rounded-full p-2 text-ink md:hidden"
           onClick={() => setMenuOpen((value) => !value)}
           aria-label="Toggle menu"
         >
