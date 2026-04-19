@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
+import Reveal from "../components/Reveal";
 import { projectTags, projects } from "../data/siteData";
 
 function PortfolioSection({ setSelectedProject }) {
@@ -24,7 +24,7 @@ function PortfolioSection({ setSelectedProject }) {
   }, [activeProjectTag]);
 
   return (
-    <section id="work" className="px-4 py-24 sm:px-6 lg:px-10">
+    <section className="px-4 py-24 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
@@ -64,15 +64,12 @@ function PortfolioSection({ setSelectedProject }) {
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {filteredProjects.map((project, index) => (
-            <motion.button
+            <Reveal
+              as="button"
               key={project.title}
               type="button"
               onClick={() => setSelectedProject(project)}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -10 }}
+              delay={index * 80}
               className="group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
             >
               <div className="relative h-[340px] overflow-hidden bg-gray-100 sm:h-[380px]">
@@ -121,7 +118,7 @@ function PortfolioSection({ setSelectedProject }) {
                   </a>
                 ) : null}
               </div>
-            </motion.button>
+            </Reveal>
           ))}
         </div>
       </div>

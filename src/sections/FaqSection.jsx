@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Reveal from "../components/Reveal";
 import { faqs } from "../data/siteData";
 
 function FaqSection() {
@@ -27,13 +27,11 @@ function FaqSection() {
             const active = openFaq === index;
 
             return (
-              <motion.button
+              <Reveal
+                as="button"
                 key={faq.q}
                 type="button"
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.6 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                delay={index * 80}
                 onClick={() => setOpenFaq(active ? -1 : index)}
                 className={`w-full rounded-[1.6rem] p-6 text-left transition ${
                   active
@@ -65,7 +63,7 @@ function FaqSection() {
                     <p className="text-sm leading-7 text-muted">{faq.a}</p>
                   </div>
                 </div>
-              </motion.button>
+              </Reveal>
             );
           })}
         </div>

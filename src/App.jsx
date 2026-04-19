@@ -1,22 +1,42 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import Header from "./sections/Header";
 import HeroSection from "./sections/HeroSection";
-import PortfolioSection from "./sections/PortfolioSection";
-import ServicesSection from "./sections/ServicesSection";
+import SeoContentSection from "./sections/SeoContentSection";
 import ProjectModal from "./sections/ProjectModal";
 import Footer from "./sections/Footer";
 import DeferredSection from "./components/DeferredSection";
 import { navItems } from "./data/siteData";
 
+const PortfolioSection = lazy(() => import("./sections/PortfolioSection"));
+const ServicesSection = lazy(() => import("./sections/ServicesSection"));
 const TestimonialsSection = lazy(() => import("./sections/TestimonialsSection"));
 const FaqSection = lazy(() => import("./sections/FaqSection"));
 const AboutSection = lazy(() => import("./sections/AboutSection"));
 const ContactSection = lazy(() => import("./sections/ContactSection"));
 
-function App() {
+function App({ page }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [selectedProject, setSelectedProject] = useState(null);
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    const resetScroll = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    };
+
+    resetScroll();
+    const rafId = window.requestAnimationFrame(resetScroll);
+    window.addEventListener("pageshow", resetScroll);
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.removeEventListener("pageshow", resetScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (!selectedProject) return undefined;
@@ -74,9 +94,20 @@ function App() {
       />
 
       <main>
-        <HeroSection />
-        <PortfolioSection setSelectedProject={setSelectedProject} />
-        <ServicesSection />
+        <HeroSection page={page} />
+        <SeoContentSection page={page} />
+
+        <DeferredSection id="work" minHeightClass="min-h-[1200px]">
+          <Suspense fallback={null}>
+            <PortfolioSection setSelectedProject={setSelectedProject} />
+          </Suspense>
+        </DeferredSection>
+
+        <DeferredSection id="services" minHeightClass="min-h-[640px] bg-surface-low">
+          <Suspense fallback={null}>
+            <ServicesSection />
+          </Suspense>
+        </DeferredSection>
 
         <DeferredSection minHeightClass="min-h-[640px] bg-surface-mid">
           <Suspense fallback={null}>

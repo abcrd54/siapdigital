@@ -1,16 +1,11 @@
-import { motion } from "framer-motion";
+import Reveal from "../components/Reveal";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 
 function ContactSection() {
   return (
     <section className="px-4 pb-16 sm:px-6 lg:px-10 lg:pb-24">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.8rem] bg-surface-deep px-6 py-14 text-center text-white sm:px-10 lg:px-16">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8 }}
-        >
+        <Reveal className="">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/60">
             Custom Website
           </p>
@@ -33,7 +28,7 @@ function ContactSection() {
               <WhatsAppIcon size={16} />
             </a>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

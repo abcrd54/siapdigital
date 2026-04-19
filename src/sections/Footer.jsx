@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 import WhatsAppIcon from "../components/WhatsAppIcon";
+import { serviceLandingLinks } from "../data/pageData";
 import { techStacks } from "../data/siteData";
 
 function Footer() {
@@ -8,11 +8,7 @@ function Footer() {
     <>
       <footer className="px-0 pb-0 pt-6">
         <div className="overflow-hidden py-6 lg:py-8">
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 22, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
-            className="flex min-w-max items-center gap-4 px-6 lg:gap-6 lg:px-10"
-          >
+          <div className="marquee-track marquee-track-slow flex min-w-max items-center gap-4 px-6 lg:gap-6 lg:px-10">
             {[...techStacks, ...techStacks].map((tech, index) => (
               <div
                 key={`${tech}-${index}`}
@@ -21,7 +17,7 @@ function Footer() {
                 {tech}
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         <div className="grid w-full gap-10 rounded-none bg-surface-low px-5 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-10">
@@ -59,10 +55,11 @@ function Footer() {
               Channels
             </div>
             <div className="mt-4 flex flex-col gap-3 text-sm font-semibold text-muted">
-              <a href="#">Instagram</a>
-              <a href="#">LinkedIn</a>
-              <a href="#">Behance</a>
-              <a href="#">Dribbble</a>
+              {serviceLandingLinks.map((item) => (
+                <a key={item.href} href={item.href}>
+                  {item.label}
+                </a>
+              ))}
             </div>
           </div>
 

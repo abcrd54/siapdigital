@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
 
@@ -17,12 +16,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
         onClick={() => setSelectedProject(null)}
         aria-hidden="true"
       />
-      <motion.div
-        initial={{ opacity: 0, y: 24, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_80px_rgba(20,27,43,0.24)]"
-      >
+      <div className="enter-up relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_80px_rgba(20,27,43,0.24)]">
         <button
           type="button"
           onClick={() => setSelectedProject(null)}
@@ -79,7 +73,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
             ) : null}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
+import Reveal from "../components/Reveal";
 import { desktopTestimonialSlides, testimonials } from "../data/siteData";
 
 function TestimonialsSection() {
@@ -13,24 +13,19 @@ function TestimonialsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.7 }}
+            <Reveal
+              as="p"
               className="text-sm font-bold uppercase tracking-[0.24em] text-primary"
             >
               Testimonials
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 36 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.8, delay: 0.08 }}
+            </Reveal>
+            <Reveal
+              as="h2"
+              delay={80}
               className="mt-4 font-display text-3xl font-bold leading-tight tracking-[-0.04em] text-ink sm:text-5xl"
             >
               Feedback yang memperkuat kepercayaan client.
-            </motion.h2>
+            </Reveal>
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
@@ -62,9 +57,11 @@ function TestimonialsSection() {
         </div>
 
         <div className="mt-10 hidden overflow-hidden md:block">
-          <motion.div
-            animate={{ x: `-${desktopTestimonialIndex * 100}%` }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          <div
+            style={{
+              transform: `translateX(-${desktopTestimonialIndex * 100}%)`,
+              transition: "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
             className="flex"
           >
             {desktopTestimonialSlides.map((slide, slideIndex) => (
@@ -99,13 +96,15 @@ function TestimonialsSection() {
                 ))}
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         <div className="mt-10 overflow-hidden md:hidden">
-          <motion.div
-            animate={{ x: `-${mobileTestimonialIndex * 100}%` }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          <div
+            style={{
+              transform: `translateX(-${mobileTestimonialIndex * 100}%)`,
+              transition: "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
             className="flex"
           >
             {testimonials.map((item) => (
@@ -132,7 +131,7 @@ function TestimonialsSection() {
                 </article>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         <div className="mt-6 flex items-center justify-between gap-4 md:hidden">

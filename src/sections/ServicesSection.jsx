@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import Reveal from "../components/Reveal";
 import { services } from "../data/siteData";
 
 function ServicesSection() {
   return (
-    <section id="services" className="bg-surface-low px-4 py-24 sm:px-6 lg:px-10">
+    <section className="bg-surface-low px-4 py-24 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -16,13 +16,9 @@ function ServicesSection() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {services.map((service, index) => (
-              <motion.div
+              <Reveal
                 key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.65, delay: index * 0.1 }}
-                whileHover={{ backgroundColor: "#dce2f7" }}
+                delay={index * 100}
                 className="ghost-border rounded-[1.75rem] bg-white p-7"
               >
                 <div className="mb-6 inline-flex rounded-2xl bg-surface-low p-3 text-primary">
@@ -32,7 +28,7 @@ function ServicesSection() {
                   {service.title}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-muted">{service.body}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
