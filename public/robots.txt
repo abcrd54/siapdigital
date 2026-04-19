@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://siapdigital.web.id/sitemap.xml
