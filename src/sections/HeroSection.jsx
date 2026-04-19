@@ -96,7 +96,9 @@ function HeroSection() {
                 <div className="font-display text-3xl font-bold tracking-[-0.05em] text-ink">
                   {stat.value}
                 </div>
-                <p className="mt-2 text-sm leading-6 text-muted">{stat.label}</p>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </motion.div>
@@ -118,7 +120,7 @@ function HeroSection() {
             <div className="rounded-[2.5rem] bg-surface-high p-4 shadow-[var(--shadow-ambient)]">
               <div className="overflow-hidden rounded-[2rem] bg-surface-deep">
                 <OptimizedImage
-                  src="/dummy/portrait-owner.svg"
+                  src="/images/owner.webp"
                   alt="Portrait owner siapdigital"
                   width={840}
                   height={1080}
@@ -154,7 +156,11 @@ function HeroSection() {
       <div className="mt-0 flex w-full overflow-hidden rounded-none bg-surface-low py-4">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 18, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+          transition={{
+            duration: 18,
+            ease: "linear",
+            repeat: Number.POSITIVE_INFINITY,
+          }}
           className="flex min-w-max gap-10 px-8"
         >
           {[...marquee, ...marquee].map((item, index) => (
