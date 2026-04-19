@@ -97,7 +97,9 @@ function HeroSection({ page }) {
             <div className="rounded-[2.5rem] bg-surface-high p-4 shadow-[var(--shadow-ambient)]">
               <div className="overflow-hidden rounded-[2rem] bg-surface-deep">
                 <OptimizedImage
-                  src="/images/owner.webp"
+                  src="/images/owner-420.webp"
+                  srcSet="/images/owner-420.webp 420w, /images/owner-840.webp 840w"
+                  sizes="(min-width: 1024px) 420px, 85vw"
                   alt="Portrait owner siapdigital"
                   width={840}
                   height={1080}

@@ -7,6 +7,7 @@ function OptimizedImage({
   loading = "lazy",
   sizes,
   src,
+  srcSet,
   width,
   ...rest
 }) {
@@ -20,6 +21,7 @@ function OptimizedImage({
       decoding={decoding}
       fetchPriority={fetchPriority}
       sizes={sizes}
+      srcSet={srcSet}
       className={className}
       {...rest}
     />

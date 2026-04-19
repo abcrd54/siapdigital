@@ -8,7 +8,9 @@ function Header({ activeSection, menuOpen, setMenuOpen }) {
       <div className="glass-panel ghost-border grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 rounded-none px-5 py-4 shadow-[0_18px_50px_rgba(20,27,43,0.08)] sm:px-6 lg:px-10">
         <a href="#home" className="ml-2 flex items-center justify-self-start lg:ml-4">
           <OptimizedImage
-            src="/images/logo-site.png"
+            src="/images/logo-site-176.webp"
+            srcSet="/images/logo-site-176.webp 176w, /images/logo-site-352.webp 352w"
+            sizes="176px"
             alt="siapdigital"
             width={176}
             height={44}

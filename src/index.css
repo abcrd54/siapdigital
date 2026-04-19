@@ -2,7 +2,8 @@
 
 @theme {
   --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-body:
+    "Segoe UI", "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
 
   --color-background: #f9f9ff;
   --color-surface: #ffffff;
