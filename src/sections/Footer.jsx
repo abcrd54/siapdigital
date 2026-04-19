@@ -77,7 +77,7 @@ function Footer() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat WhatsApp siapdigital"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full bg-[#25D366] px-5 py-4 text-sm font-semibold text-white shadow-[0_20px_40px_rgba(37,211,102,0.35)] transition hover:-translate-y-1"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full bg-[#128C4A] px-5 py-4 text-sm font-semibold text-white shadow-[0_20px_40px_rgba(18,140,74,0.32)] transition hover:-translate-y-1 hover:bg-[#0f7a40]"
       >
         <WhatsAppIcon size={18} />
         WhatsApp
