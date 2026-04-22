@@ -4,7 +4,7 @@ import sharp from "sharp";
 
 const inputDir = path.resolve("public/images");
 const exts = new Set([".png", ".jpg", ".jpeg"]);
-const keepOriginal = new Set(["logo-site.png"]);
+const keepOriginal = new Set();
 
 const entries = await fs.readdir(inputDir, { withFileTypes: true });
 const targets = entries

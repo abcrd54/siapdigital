@@ -5,7 +5,7 @@ function ContactSection() {
   return (
     <section className="px-4 pb-16 sm:px-6 lg:px-10 lg:pb-24">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.8rem] bg-surface-deep px-6 py-14 text-center text-white sm:px-10 lg:px-16">
-        <Reveal className="">
+        <Reveal direction="scale" className="">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/60">
             Custom Website
           </p>
@@ -22,7 +22,7 @@ function ContactSection() {
               href="https://wa.me/62895426290208"
               target="_blank"
               rel="noreferrer"
-              className="liquid-button inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-1"
+              className="liquid-button shine-sweep inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-1"
             >
               Start Your Project
               <WhatsAppIcon size={16} />

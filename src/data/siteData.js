@@ -8,9 +8,9 @@ export const navItems = [
 ];
 
 export const highlights = [
-  "Arah visual yang terasa custom, bukan template generik",
-  "Struktur website rapi untuk presentasi brand dan kebutuhan bisnis",
-  "Eksekusi frontend yang cepat, halus, dan nyaman di semua device",
+  "Bisa diskusi dari ide mentah sampai jadi struktur website",
+  "Tampilan dibuat custom agar tidak terasa seperti template pasaran",
+  "Arah halaman jelas: kenalkan bisnis, bangun percaya, lalu ajak chat",
 ];
 
 export const projects = [
@@ -149,31 +149,31 @@ export const projects = [
 ];
 
 export const stats = [
-  { value: "6", label: "years building digital experiences" },
-  { value: "27", label: "selected launches and revamps" },
-  { value: "12", label: "brands and founders supported" },
+  { value: "6+", label: "tahun bantu bikin website dan sistem" },
+  { value: "27+", label: "project website, aplikasi, dan sistem" },
+  { value: "12+", label: "brand dan owner bisnis pernah dibantu" },
 ];
 
 export const faqs = [
   {
     q: "Berapa lama proses pembuatan website di siapdigital?",
-    a: "Timeline bergantung pada ruang lingkup project, tetapi landing page atau company profile biasanya dapat disiapkan dalam 1 sampai 3 minggu.",
+    a: "Tergantung kebutuhan. Untuk landing page atau company profile sederhana, biasanya bisa dikerjakan sekitar 1 sampai 3 minggu setelah materi dan arah halaman jelas.",
   },
   {
     q: "Apakah siapdigital hanya mengerjakan landing page?",
-    a: "Tidak. Struktur website bisa dikembangkan ke company profile, halaman layanan, portfolio, case study, hingga website multi-page.",
+    a: "Tidak. Kamu bisa custom landing page, company profile, portfolio, halaman layanan, sampai sistem web sederhana sesuai kebutuhan bisnis.",
   },
   {
     q: "Apakah website tetap cepat dan nyaman di mobile?",
-    a: "Ya. siapdigital mengutamakan animasi yang terukur dan frontend yang rapi supaya website tetap nyaman diakses di desktop maupun mobile.",
+    a: "Ya. Mayoritas orang buka dari HP, jadi tampilan mobile, ukuran gambar, dan performa selalu jadi perhatian utama.",
   },
   {
     q: "Apakah bisa dibuat sesuai brand dan kebutuhan bisnis saya?",
-    a: "Bisa. Setiap project diarahkan mengikuti identitas brand, target audience, dan tujuan bisnis supaya hasilnya terasa relevan dan tidak generik.",
+    a: "Bisa. Justru itu tujuan custom di siapdigital: website disusun mengikuti karakter brand, jenis layanan, target pelanggan, dan tujuan bisnis kamu.",
   },
   {
     q: "Apakah saya bisa request revisi selama proses pengerjaan?",
-    a: "Bisa. Revisi dilakukan di tahap yang sudah disepakati agar hasil akhir tetap sesuai kebutuhan tanpa membuat proses project menjadi berantakan.",
+    a: "Bisa. Revisi tetap ada, hanya perlu dibuat bertahap dan jelas supaya prosesnya rapi dan hasil akhirnya sesuai arah yang disepakati.",
   },
   {
     q: "Apakah siapdigital bisa membantu domain dan hosting?",
@@ -193,21 +193,21 @@ export const faqs = [
   },
   {
     q: "Kalau saya belum punya konten lengkap, apakah project tetap bisa dimulai?",
-    a: "Bisa. Project tetap dapat dimulai dari arah desain, struktur halaman, dan kebutuhan utama terlebih dahulu, lalu konten bisa dilengkapi sambil proses berjalan.",
+    a: "Bisa. Kita bisa mulai dari struktur halaman dan poin penting dulu. Nanti konten bisa dirapikan sambil proses desain dan development berjalan.",
   },
 ];
 
 export const marquee = [
-  "Aplikasi Mobile",
-  "English-Indonesia",
+  "Custom Website",
   "Landing Page",
   "Company Profile",
-  "Mobile-first",
-  "SEO-friendly",
-  "Fast-loading Frontend",
-  "WhatsApp CTA",
-  "Motion yang Halus",
-  "Visual Brand Premium",
+  "Website UMKM",
+  "Mobile Friendly",
+  "SEO Dasar",
+  "Cepat Dibuka",
+  "CTA WhatsApp",
+  "Bisa Diskusi Dulu",
+  "Desain Sesuai Brand",
 ];
 
 export const testimonials = [
@@ -215,37 +215,37 @@ export const testimonials = [
     name: "Dimas Pratama",
     role: "Founder, Studio Meraki",
     quote:
-      "Presentasinya terasa matang. Visual, ritme scroll, dan cara project ditampilkan langsung membangun trust untuk brand kami.",
+      "Yang paling membantu adalah arah websitenya jadi jelas. Dari awal cuma ide kasar, akhirnya jadi halaman yang enak dipresentasikan ke client.",
   },
   {
     name: "Nadia Kurnia",
     role: "Creative Lead, Homa",
     quote:
-      "Yang paling kuat adalah presentasinya terasa custom, bukan template generik yang hanya dipoles sedikit.",
+      "Tampilannya terasa dibuat untuk brand kami, bukan template yang cuma diganti warna dan logo.",
   },
   {
     name: "Rizky Ananta",
     role: "Product Designer",
     quote:
-      "Layout dan motion-nya bikin brand kami terlihat lebih bernilai. Sangat cocok untuk bisnis yang ingin tampil lebih serius.",
+      "Website jadi terlihat lebih serius dan mudah dijelaskan ke calon pelanggan. CTA WhatsApp juga lebih kelihatan.",
   },
   {
     name: "Tasha Livia",
     role: "Brand Strategist",
     quote:
-      "Transisinya halus, mobile-nya tetap enak, dan storytelling brand jadi lebih jelas daripada website company profile biasa.",
+      "Versi mobile-nya nyaman dibuka. Ini penting karena mayoritas calon pelanggan kami buka link dari WhatsApp.",
   },
   {
     name: "Bayu Mahesa",
     role: "Independent Developer",
     quote:
-      "Struktur komponennya rapi. Mudah diubah ke konten client tanpa perlu bongkar ulang layout dan flow utama.",
+      "Proses diskusinya enak. Kebutuhan kami diterjemahkan jadi struktur halaman yang lebih rapi dan mudah dipahami.",
   },
   {
     name: "Alicia Dewi",
     role: "Marketing Director",
     quote:
-      "Kesan pertamanya premium. Hero dan testimonial slider-nya langsung memberi kesan brand yang aktif dan meyakinkan.",
+      "Kesan pertama websitenya lebih meyakinkan. Cocok untuk bisnis yang ingin naik level dari sekadar profil biasa.",
   },
 ];
 

@@ -5,6 +5,7 @@ function Reveal({
   children,
   className = "",
   delay = 0,
+  direction = "up",
   threshold = 0.2,
   ...rest
 }) {
@@ -30,7 +31,7 @@ function Reveal({
 
   return createElement(as, {
     ref,
-    className: `reveal-up ${visible ? "is-visible" : ""} ${className}`.trim(),
+    className: `reveal-motion reveal-${direction} ${visible ? "is-visible" : ""} ${className}`.trim(),
     style: { transitionDelay: `${delay}ms` },
     ...rest,
     children,

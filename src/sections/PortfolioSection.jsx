@@ -69,8 +69,9 @@ function PortfolioSection({ setSelectedProject }) {
               key={project.title}
               type="button"
               onClick={() => setSelectedProject(project)}
+              direction="fade"
               delay={index * 80}
-              className="group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
+              className="hover-lift group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
             >
               <div className="relative h-[340px] overflow-hidden bg-gray-100 sm:h-[380px]">
                 <div className="flex h-full w-full items-center justify-center p-4">
@@ -108,7 +109,7 @@ function PortfolioSection({ setSelectedProject }) {
                     target="_blank"
                     rel="noreferrer"
                     onClick={(event) => event.stopPropagation()}
-                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
+                    className="shine-sweep mt-6 inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
                   >
                     Demo
                     <ArrowUpRight

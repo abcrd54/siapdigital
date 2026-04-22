@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { ArrowUpRight, Mail, MapPin, Sparkles } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { highlights } from "../data/siteData";
 
 function AboutSection() {
+  const [mapLoaded, setMapLoaded] = useState(false);
+
   return (
     <section className="px-4 py-24 sm:px-6 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-8">
@@ -38,12 +41,28 @@ function AboutSection() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
-          <div className="overflow-hidden rounded-[2rem] bg-surface p-3 shadow-[0_18px_30px_rgba(20,27,43,0.04)]">
+          <div className="relative overflow-hidden rounded-[2rem] bg-surface p-3 shadow-[0_18px_30px_rgba(20,27,43,0.04)]">
+            {!mapLoaded ? (
+              <div className="absolute inset-3 z-10 grid min-h-[360px] place-items-center rounded-[1.4rem] bg-surface-low">
+                <div className="px-6 text-center">
+                  <div className="mx-auto mb-4 h-12 w-12 rounded-full border-4 border-primary/20 border-t-primary map-spinner" />
+                  <p className="text-sm font-semibold text-ink">
+                    Memuat lokasi siapdigital...
+                  </p>
+                  <p className="mt-2 text-xs leading-6 text-muted">
+                    Peta Google Maps akan tampil sebentar lagi.
+                  </p>
+                </div>
+              </div>
+            ) : null}
             <iframe
               title="Google Maps location"
               src="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396&z=16&output=embed"
-              className="h-full min-h-[360px] w-full rounded-[1.4rem]"
+              className={`h-full min-h-[360px] w-full rounded-[1.4rem] transition duration-500 ${
+                mapLoaded ? "opacity-100" : "opacity-0"
+              }`}
               loading="lazy"
+              onLoad={() => setMapLoaded(true)}
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>

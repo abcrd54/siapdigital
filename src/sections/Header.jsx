@@ -3,19 +3,19 @@ import OptimizedImage from "../components/OptimizedImage";
 import OptimizedPicture from "../components/OptimizedPicture";
 import { navItems } from "../data/siteData";
 
-function Header({ activeSection, menuOpen, setMenuOpen }) {
+function Header({ activeSection, menuOpen, setActiveSection, setMenuOpen }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-0 py-0">
       <div className="glass-panel ghost-border grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 rounded-none px-5 py-4 shadow-[0_18px_50px_rgba(20,27,43,0.08)] sm:px-6 lg:px-10">
         <a href="#home" className="ml-2 flex items-center justify-self-start lg:ml-4">
           <OptimizedPicture
-            src="/images/logo-site-160.webp"
-            srcSet="/images/logo-site-160.webp 160w, /images/logo-site-320.webp 320w"
-            avifSrcSet="/images/logo-site-160.avif 160w, /images/logo-site-320.avif 320w"
-            sizes="160px"
+            src="/images/siapdigital-logo-180.webp"
+            srcSet="/images/siapdigital-logo-180.webp 180w, /images/siapdigital-logo-360.webp 360w"
+            avifSrcSet="/images/siapdigital-logo-180.avif 180w, /images/siapdigital-logo-360.avif 360w"
+            sizes="180px"
             alt="siapdigital"
-            width={160}
-            height={42}
+            width={180}
+            height={45}
             loading="eager"
             fetchPriority="high"
             className="h-10 w-auto object-contain sm:h-11"
@@ -27,6 +27,7 @@ function Header({ activeSection, menuOpen, setMenuOpen }) {
             <a
               key={item.label}
               href={item.href}
+              onClick={() => setActiveSection(item.id)}
               className={`text-[15px] font-semibold tracking-[0.01em] transition lg:text-base ${
                 activeSection === item.id
                   ? "text-primary"
@@ -58,7 +59,10 @@ function Header({ activeSection, menuOpen, setMenuOpen }) {
                 key={item.label}
                 href={item.href}
                 className="text-sm font-semibold text-muted"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  setActiveSection(item.id);
+                  setMenuOpen(false);
+                }}
               >
                 {item.label}
               </a>

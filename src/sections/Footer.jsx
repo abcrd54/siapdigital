@@ -1,4 +1,5 @@
 import { ArrowUpRightIcon } from "../components/AppIcons";
+import OptimizedPicture from "../components/OptimizedPicture";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { serviceLandingLinks } from "../data/pageData";
 import { techStacks } from "../data/siteData";
@@ -22,25 +23,35 @@ function Footer() {
 
         <div className="grid w-full gap-10 rounded-none bg-surface-low px-5 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-10">
           <div>
-            <div className="font-display text-2xl font-bold tracking-[-0.05em]">
-              siapdigital
-            </div>
+            <OptimizedPicture
+              src="/images/siapdigital-logo-180.webp"
+              srcSet="/images/siapdigital-logo-180.webp 180w, /images/siapdigital-logo-360.webp 360w"
+              avifSrcSet="/images/siapdigital-logo-180.avif 180w, /images/siapdigital-logo-360.avif 360w"
+              sizes="180px"
+              alt="siapdigital"
+              width={180}
+              height={45}
+              className="h-11 w-auto object-contain"
+            />
             <p className="mt-4 max-w-md text-sm leading-7 text-muted">
-              Website brand dengan visual editorial, animasi aktif, dan struktur
-              yang lebih ringan untuk load awal.
+              Mau bikin website custom yang lebih rapi, cepat, dan sesuai kebutuhan
+              bisnis? Siapdigital bantu dari diskusi awal sampai website siap
+              dibagikan ke calon pelanggan.
             </p>
             <a
-              href="mailto:siapdigital@gmail.com"
+              href="https://wa.me/62895426290208"
+              target="_blank"
+              rel="noreferrer"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
             >
-              siapdigital@gmail.com
+              Diskusi custom website
               <ArrowUpRightIcon width={15} height={15} />
             </a>
           </div>
 
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-              Navigation
+              Navigasi
             </div>
             <div className="mt-4 flex flex-col gap-3 text-sm font-semibold text-muted">
               <a href="#work">Work</a>
@@ -52,7 +63,7 @@ function Footer() {
 
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-              Channels
+              Layanan SEO
             </div>
             <div className="mt-4 flex flex-col gap-3 text-sm font-semibold text-muted">
               {serviceLandingLinks.map((item) => (
@@ -65,7 +76,7 @@ function Footer() {
 
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-              Studio Base
+              Lokasi
             </div>
             <p className="mt-4 text-sm leading-7 text-muted">Jepara</p>
           </div>

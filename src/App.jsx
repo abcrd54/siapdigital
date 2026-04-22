@@ -5,6 +5,7 @@ import SeoContentSection from "./sections/SeoContentSection";
 import ProjectModal from "./sections/ProjectModal";
 import Footer from "./sections/Footer";
 import DeferredSection from "./components/DeferredSection";
+import PageLoader from "./components/PageLoader";
 import { navItems } from "./data/siteData";
 
 const PortfolioSection = lazy(() => import("./sections/PortfolioSection"));
@@ -18,6 +19,7 @@ function App({ page }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [pageReady, setPageReady] = useState(false);
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -39,6 +41,29 @@ function App({ page }) {
   }, []);
 
   useEffect(() => {
+    const heroImages = Array.from(
+      document.querySelectorAll("#home img[loading='eager']"),
+    );
+
+    const waitForImage = (image) => {
+      if (image.complete) return Promise.resolve();
+
+      return new Promise((resolve) => {
+        image.addEventListener("load", resolve, { once: true });
+        image.addEventListener("error", resolve, { once: true });
+      });
+    };
+
+    const minVisibleTime = new Promise((resolve) => {
+      window.setTimeout(resolve, 420);
+    });
+
+    Promise.all([...heroImages.map(waitForImage), minVisibleTime]).then(() => {
+      setPageReady(true);
+    });
+  }, []);
+
+  useEffect(() => {
     if (!selectedProject) return undefined;
 
     const handleEscape = (event) => {
@@ -52,38 +77,56 @@ function App({ page }) {
   }, [selectedProject]);
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter(Boolean);
+    let ticking = false;
 
-    if (!sections.length) return undefined;
+    const updateActiveSection = () => {
+      const sections = navItems
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (!sections.length) return;
 
-        if (!visibleEntries.length) return;
-        setActiveSection(visibleEntries[0].target.id);
-      },
-      {
-        rootMargin: "-18% 0px -55% 0px",
-        threshold: [0.2, 0.35, 0.5, 0.7],
-      },
-    );
+      const anchorLine = window.scrollY + window.innerHeight * 0.32;
+      let currentSection = sections[0].id;
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+      for (const section of sections) {
+        if (section.offsetTop <= anchorLine) {
+          currentSection = section.id;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    const requestUpdate = () => {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateActiveSection();
+        ticking = false;
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
   }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-ink">
+      <PageLoader hidden={pageReady} />
       <div className="pointer-events-none fixed inset-0 editorial-grid opacity-60" />
 
       <Header
         activeSection={activeSection}
         menuOpen={menuOpen}
+        setActiveSection={setActiveSection}
         setMenuOpen={setMenuOpen}
       />
 
