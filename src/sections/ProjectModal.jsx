@@ -1,7 +1,7 @@
 import { ArrowUpRightIcon, XIcon } from "../components/AppIcons";
 import OptimizedImage from "../components/OptimizedImage";
 
-function ProjectModal({ selectedProject, setSelectedProject }) {
+function ProjectModal({ lang, selectedProject, setSelectedProject }) {
   const hasProjectLink =
     selectedProject?.link &&
     selectedProject.link.trim() !== "" &&
@@ -10,7 +10,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
   if (!selectedProject) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#141b2b]/70 px-4 py-8 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[80] flex items-center justify-center bg-[#141b2b]/70 px-4 py-8 backdrop-blur-sm">
       <div
         className="absolute inset-0"
         onClick={() => setSelectedProject(null)}
@@ -54,7 +54,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
               </h3>
 
               <p className="mt-6 text-sm leading-7 text-muted sm:text-base">
-                {selectedProject.description}
+                {selectedProject.description[lang]}
               </p>
             </div>
 
@@ -66,7 +66,7 @@ function ProjectModal({ selectedProject, setSelectedProject }) {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
                 >
-                  Direct Link
+                  {lang === "id" ? "Buka Project" : "Open Project"}
                   <ArrowUpRightIcon width={15} height={15} />
                 </a>
               </div>

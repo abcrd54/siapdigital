@@ -2,102 +2,99 @@ export const pageConfigs = {
   home: {
     key: "home",
     path: "/",
-    title: "Siapdigital",
-    heroBadge: "Custom Website yang Bisa Kamu Ajak Diskusi",
-    heroTitleLines: ["Punya ide website?", "Custom di siapdigital", "biar tampil rapi, cepat, dan siap dipakai bisnis"],
-    heroDescription:
-      "Ceritakan dulu kebutuhanmu. Siapdigital bantu susun website, landing page, atau sistem custom yang enak dilihat, mudah dipakai, dan jelas arahnya untuk calon pelanggan.",
-    heroPrimaryCta: { href: "#contact", label: "Diskusi Custom Website" },
-    heroSecondaryCta: { href: "#work", label: "Lihat Contoh Project" },
-    seoSectionEyebrow: "Jasa Website Jepara",
-    seoSectionTitle: "Custom website murah Jepara untuk bisnis yang ingin mulai tampil lebih profesional.",
-    seoSectionBody:
-      "Mulai dari landing page, company profile, sampai sistem web sederhana, setiap halaman dibuat dengan alur yang mudah dipahami. Kamu bisa diskusi dari kebutuhan paling dasar dulu, lalu kami bantu rapikan menjadi website yang siap ditunjukkan ke calon client.",
-    seoPoints: [
-      "Bisa mulai dari ide kasar, nanti dibantu susun struktur dan arah tampilannya.",
-      "Desain dibuat menyesuaikan brand, bukan sekadar tempel template.",
-      "Website dibuat ringan, mobile friendly, dan siap diarahkan ke WhatsApp.",
-    ],
+    title: "Jasa Website dan Aplikasi untuk UMKM, Brand, dan Bisnis",
+    heroBadge: {
+      id: "SiapDigital | Website & App Development",
+      en: "SiapDigital | Website & App Development",
+    },
+    heroTitleLines: {
+      id: [
+        "Website dan aplikasi",
+        "untuk brand yang ingin",
+        "terlihat lebih profesional dan lebih dipercaya",
+      ],
+      en: [
+        "Websites and apps",
+        "for brands that want to",
+        "look more professional and more trusted",
+      ],
+    },
+    heroDescription: {
+      id: "SiapDigital membantu bisnis membangun website dan aplikasi agar brand terlihat lebih rapi, menambah trust calon customer, dan membuat informasi penting lebih mudah diakses siapa pun.",
+      en: "SiapDigital helps businesses build websites and apps that make the brand look more polished, build customer trust, and keep important information easy for anyone to access.",
+    },
+    heroPrimaryCta: {
+      href: "#contact",
+      label: { id: "Konsultasi Project", en: "Start A Project" },
+    },
+    heroSecondaryCta: {
+      href: "#packages",
+      label: { id: "Lihat Paket", en: "See Packages" },
+    },
   },
   jasaWebsiteJepara: {
     key: "jasa-website-jepara",
     path: "/jasa-website-jepara/",
     title: "Jasa Pembuatan Website Jepara",
-    heroBadge: "Jasa Pembuatan Website Jepara",
-    heroTitleLines: ["Bisnis di Jepara", "butuh website?", "Yuk custom website yang rapi dan gampang dipakai"],
-    heroDescription:
-      "Siapdigital bantu bisnis Jepara punya website yang lebih meyakinkan, dari tampilan, isi halaman, sampai alur kontak ke WhatsApp.",
-    heroPrimaryCta: { href: "#contact", label: "Konsultasi Gratis" },
-    heroSecondaryCta: { href: "#work", label: "Lihat Hasil Kerja" },
-    seoSectionEyebrow: "Website Jepara",
-    seoSectionTitle: "Website untuk bisnis Jepara yang ingin terlihat siap, bukan asal online.",
-    seoSectionBody:
-      "Cocok untuk UMKM, jasa, furniture, toko, studio, atau bisnis lokal yang sering ditanya profil usaha, katalog layanan, dan kontak. Website dibuat agar calon pelanggan lebih cepat paham dan lebih mudah menghubungi kamu.",
-    seoPoints: [
-      "Cocok untuk bisnis lokal Jepara yang ingin terlihat lebih kredibel.",
-      "Struktur konten dirancang untuk WhatsApp CTA dan lead generation.",
-      "Bisa dikembangkan dari landing page sederhana ke website multi halaman.",
-    ],
+    heroBadge: { id: "Jasa Pembuatan Website Jepara", en: "Website Service Jepara" },
+    heroTitleLines: {
+      id: ["Bisnis di Jepara", "butuh website?", "Kami bantu buat yang rapi dan mudah dipakai"],
+      en: ["Businesses in Jepara", "need a website?", "We build clean sites that are easy to use"],
+    },
+    heroDescription: {
+      id: "SiapDigital membantu bisnis Jepara punya website yang lebih meyakinkan dan lebih mudah dipakai calon customer.",
+      en: "SiapDigital helps businesses in Jepara build more convincing websites that are easier for customers to use.",
+    },
+    heroPrimaryCta: { href: "#contact", label: { id: "Konsultasi Gratis", en: "Free Consultation" } },
+    heroSecondaryCta: { href: "#work", label: { id: "Lihat Hasil Kerja", en: "View Work" } },
   },
   customWebsiteMurahJepara: {
     key: "custom-website-murah-jepara",
     path: "/custom-website-murah-jepara/",
     title: "Custom Website Murah Jepara",
-    heroBadge: "Custom Website Murah Jepara",
-    heroTitleLines: ["Butuh", "Custom Website Murah Jepara", "yang tetap terlihat niat dan profesional?"],
-    heroDescription:
-      "Kamu bisa mulai dari paket yang sederhana dulu. Siapdigital bantu bikin website yang tetap rapi, jelas, dan enak dibuka di HP tanpa biaya yang terasa berat.",
-    heroPrimaryCta: { href: "#contact", label: "Tanya Estimasi Harga" },
-    heroSecondaryCta: { href: "#services", label: "Lihat Keunggulan" },
-    seoSectionEyebrow: "Website Custom Murah",
-    seoSectionTitle: "Budget bisa efisien, tapi website tetap harus kelihatan serius.",
-    seoSectionBody:
-      "Website murah bukan berarti asal jadi. Kami bantu pilih scope yang paling penting dulu: halaman utama, penjelasan layanan, portfolio, dan CTA WhatsApp. Setelah bisnis berkembang, website bisa dikembangkan lagi.",
-    seoPoints: [
-      "Solusi untuk bisnis yang baru mulai membangun kehadiran online.",
-      "Tetap memakai struktur custom, bukan sekadar ganti teks dari template generik.",
-      "Bisa dimulai dari scope kecil lalu dikembangkan bertahap sesuai kebutuhan.",
-    ],
+    heroBadge: { id: "Custom Website Murah Jepara", en: "Affordable Custom Website Jepara" },
+    heroTitleLines: {
+      id: ["Butuh website", "yang lebih rapi", "tanpa biaya yang terasa berat?"],
+      en: ["Need a website", "that feels more professional", "without a heavy budget?"],
+    },
+    heroDescription: {
+      id: "Mulai dari paket sederhana dulu. SiapDigital bantu bikin website yang tetap enak dilihat dan mudah dipakai.",
+      en: "Start with a simple package. SiapDigital helps you build a site that still looks clean and works well.",
+    },
+    heroPrimaryCta: { href: "#contact", label: { id: "Tanya Estimasi Harga", en: "Ask For Pricing" } },
+    heroSecondaryCta: { href: "#packages", label: { id: "Lihat Paket", en: "See Packages" } },
   },
   landingPageJepara: {
     key: "jasa-landing-page-jepara",
     path: "/jasa-landing-page-jepara/",
     title: "Jasa Landing Page Jepara",
-    heroBadge: "Jasa Landing Page Jepara",
-    heroTitleLines: ["Mau promosi?", "Landing Page Jepara", "bisa bantu calon pelanggan langsung paham dan klik"],
-    heroDescription:
-      "Landing page cocok untuk campaign, iklan, atau penawaran khusus. Isi halaman dibuat singkat, jelas, dan diarahkan supaya orang mau chat, booking, atau tanya lebih lanjut.",
-    heroPrimaryCta: { href: "#contact", label: "Diskusi Landing Page" },
-    heroSecondaryCta: { href: "#work", label: "Lihat Portfolio" },
-    seoSectionEyebrow: "Landing Page Bisnis",
-    seoSectionTitle: "Satu halaman yang fokus menjelaskan penawaran dan mengajak orang bertindak.",
-    seoSectionBody:
-      "Tidak semua kebutuhan harus langsung website besar. Untuk promosi produk, jasa, event, atau campaign iklan, landing page bisa jadi pilihan yang lebih cepat dan fokus.",
-    seoPoints: [
-      "Cocok untuk campaign iklan Meta Ads atau Google Ads.",
-      "Konten dibuat lebih singkat, fokus, dan mudah discan di mobile.",
-      "CTA bisa diarahkan ke WhatsApp, form, atau booking.",
-    ],
+    heroBadge: { id: "Jasa Landing Page Jepara", en: "Landing Page Service Jepara" },
+    heroTitleLines: {
+      id: ["Mau promosi", "lebih jelas?", "Landing page bisa bantu orang cepat paham dan klik"],
+      en: ["Want promotion", "to feel clearer?", "A landing page helps people understand and act faster"],
+    },
+    heroDescription: {
+      id: "Landing page cocok untuk penawaran, campaign, atau iklan yang butuh halaman singkat dan fokus.",
+      en: "A landing page is ideal for offers, campaigns, or ads that need a short and focused page.",
+    },
+    heroPrimaryCta: { href: "#contact", label: { id: "Diskusi Landing Page", en: "Discuss A Landing Page" } },
+    heroSecondaryCta: { href: "#work", label: { id: "Lihat Portfolio", en: "View Portfolio" } },
   },
   companyProfileJepara: {
     key: "jasa-company-profile-jepara",
     path: "/jasa-company-profile-jepara/",
     title: "Jasa Website Company Profile Jepara",
-    heroBadge: "Website Company Profile Jepara",
-    heroTitleLines: ["Company profile", "untuk bisnis Jepara", "yang ingin lebih dipercaya saat dikenalkan ke client"],
-    heroDescription:
-      "Tampilkan profil usaha, layanan, portfolio, alamat, dan kontak dalam satu website yang rapi. Cocok untuk bisnis yang sering kirim link ke calon client atau partner.",
-    heroPrimaryCta: { href: "#contact", label: "Buat Company Profile" },
-    heroSecondaryCta: { href: "#about", label: "Tentang Siapdigital" },
-    seoSectionEyebrow: "Company Profile",
-    seoSectionTitle: "Buat calon client lebih yakin sebelum menghubungi kamu.",
-    seoSectionBody:
-      "Company profile yang rapi membantu bisnis terlihat lebih siap. Saat orang menerima link website kamu, mereka bisa langsung melihat siapa kamu, apa layananmu, contoh hasil kerja, dan bagaimana cara menghubungi.",
-    seoPoints: [
-      "Membantu bisnis Jepara terlihat lebih serius saat dipresentasikan ke client.",
-      "Bisa menampilkan profil, layanan, portfolio, legalitas, dan kontak.",
-      "Cocok untuk pabrik, kontraktor, studio, supplier, dan bisnis jasa.",
-    ],
+    heroBadge: { id: "Website Company Profile Jepara", en: "Company Profile Website Jepara" },
+    heroTitleLines: {
+      id: ["Company profile", "untuk bisnis", "yang ingin terlihat lebih dipercaya"],
+      en: ["Company profile", "for businesses", "that want to look more credible"],
+    },
+    heroDescription: {
+      id: "Tampilkan profil usaha, layanan, portfolio, dan kontak dalam satu website yang rapi.",
+      en: "Show your business profile, services, portfolio, and contact details in one clean website.",
+    },
+    heroPrimaryCta: { href: "#contact", label: { id: "Buat Company Profile", en: "Build A Company Profile" } },
+    heroSecondaryCta: { href: "#about", label: { id: "Tentang SiapDigital", en: "About SiapDigital" } },
   },
 };
 

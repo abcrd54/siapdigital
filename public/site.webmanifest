@@ -1,12 +1,18 @@
 {
   "name": "siapdigital",
   "short_name": "siapdigital",
-  "description": "Jasa custom website murah Jepara untuk bisnis, UMKM, landing page, dan company profile.",
+  "description": "SiapDigital adalah jasa pembuatan website dan aplikasi untuk bisnis, landing page, company profile, dan sistem custom.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f9f9ff",
-  "theme_color": "#0058c3",
+  "background_color": "#f3f6fb",
+  "theme_color": "#4b647a",
   "icons": [
+    {
+      "src": "/images/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/images/favicon-192.webp",
       "sizes": "192x192",

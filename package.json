@@ -11,6 +11,9 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
     "@fontsource/space-grotesk": "^5.2.6",
+    "@lordicon/element": "^2.2.0",
+    "aos": "^2.3.4",
+    "flag-icons": "^7.5.0",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

@@ -1,4 +1,8 @@
-function PageLoader({ hidden }) {
+import { siteCopy } from "../data/content";
+
+function PageLoader({ hidden, lang = "id" }) {
+  const copy = siteCopy[lang];
+
   return (
     <div
       className={`page-loader fixed inset-0 z-[100] grid place-items-center bg-[#f9f9ff] transition duration-500 ${
@@ -22,7 +26,7 @@ function PageLoader({ hidden }) {
             siapdigital
           </p>
           <p className="mt-2 text-sm font-medium text-muted">
-            Menyiapkan halaman custom website...
+            {copy.loader}
           </p>
         </div>
         <div className="loader-bar h-1.5 w-56 overflow-hidden rounded-full bg-surface-mid">

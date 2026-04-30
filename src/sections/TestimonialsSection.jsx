@@ -1,79 +1,39 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
-import Reveal from "../components/Reveal";
-import { desktopTestimonialSlides, testimonials } from "../data/siteData";
+import { sharedProjectData, siteCopy } from "../data/content";
 
-function TestimonialsSection() {
-  const [desktopTestimonialIndex, setDesktopTestimonialIndex] = useState(0);
-  const [mobileTestimonialIndex, setMobileTestimonialIndex] = useState(0);
+function TestimonialsSection({ lang }) {
+  const copy = siteCopy[lang].testimonials;
+  const testimonials = sharedProjectData.testimonials[lang];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const prev = () =>
+    setActiveIndex((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+  const next = () =>
+    setActiveIndex((current) => (current === testimonials.length - 1 ? 0 : current + 1));
 
   return (
-    <section className="overflow-hidden bg-surface-mid px-4 py-20 sm:px-6 sm:py-24 lg:px-10">
+    <section className="border-y border-slate-900/8 bg-surface-mid px-4 py-20 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-2xl">
-            <Reveal
-              as="p"
-              className="text-sm font-bold uppercase tracking-[0.24em] text-primary"
-            >
-              Testimonials
-            </Reveal>
-            <Reveal
-              as="h2"
-              delay={80}
-              className="mt-4 font-display text-3xl font-bold leading-tight tracking-[-0.04em] text-ink sm:text-5xl"
-            >
-              Feedback yang memperkuat kepercayaan client.
-            </Reveal>
+        <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
+          <div data-aos="fade-up">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
+              {copy.eyebrow}
+            </p>
+            <h2 className="mt-5 max-w-xl font-display text-4xl font-bold tracking-[-0.05em] text-ink sm:text-5xl">
+              {copy.title}
+            </h2>
           </div>
 
-          <div className="hidden items-center gap-3 md:flex">
-            <button
-              type="button"
-              onClick={() =>
-                setDesktopTestimonialIndex((current) => Math.max(0, current - 1))
-              }
-              disabled={desktopTestimonialIndex === 0}
-              className="rounded-full bg-white p-3 text-ink shadow-[0_16px_30px_rgba(20,27,43,0.06)] transition disabled:cursor-not-allowed disabled:opacity-35"
-              aria-label="Previous testimonials"
-            >
-              <ArrowLeft size={18} />
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setDesktopTestimonialIndex((current) =>
-                  Math.min(desktopTestimonialSlides.length - 1, current + 1),
-                )
-              }
-              disabled={desktopTestimonialIndex === desktopTestimonialSlides.length - 1}
-              className="rounded-full bg-white p-3 text-ink shadow-[0_16px_30px_rgba(20,27,43,0.06)] transition disabled:cursor-not-allowed disabled:opacity-35"
-              aria-label="Next testimonials"
-            >
-              <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-
-        <div className="mt-10 hidden overflow-hidden md:block">
-          <div
-            style={{
-              transform: `translateX(-${desktopTestimonialIndex * 100}%)`,
-              transition: "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)",
-            }}
-            className="flex"
-          >
-            {desktopTestimonialSlides.map((slide, slideIndex) => (
+          <div data-aos="fade-up" data-aos-delay="80" className="border border-slate-900/8 bg-white p-6 shadow-[0_18px_36px_rgba(15,23,42,0.05)] sm:p-7">
+            <div className="overflow-hidden">
               <div
-                key={`desktop-slide-${slideIndex}`}
-                className="grid w-full shrink-0 grid-cols-3 gap-6"
+                className="flex transition duration-500 ease-out"
+                style={{ transform: `translateX(-${activeIndex * 100}%)` }}
               >
-                {slide.map((item) => (
-                  <article
-                    key={item.name}
-                    className="h-full rounded-[2rem] bg-white p-7 shadow-[0_20px_40px_rgba(20,27,43,0.05)]"
-                  >
+                {testimonials.map((item, index) => (
+                  <article key={`${item.name}-${index}`} className="w-full shrink-0">
                     <div className="flex items-center gap-3">
                       <OptimizedImage
                         src="/dummy/avatar-founder.svg"
@@ -91,77 +51,47 @@ function TestimonialsSection() {
                         </div>
                       </div>
                     </div>
-                    <p className="mt-6 text-base leading-8 text-muted">{item.quote}</p>
+                    <p className="mt-6 max-w-2xl text-base leading-8 text-muted">{item.quote}</p>
                   </article>
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        <div className="mt-10 overflow-hidden md:hidden">
-          <div
-            style={{
-              transform: `translateX(-${mobileTestimonialIndex * 100}%)`,
-              transition: "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)",
-            }}
-            className="flex"
-          >
-            {testimonials.map((item) => (
-              <div key={`mobile-${item.name}`} className="w-full shrink-0">
-                <article className="rounded-[2rem] bg-white p-6 shadow-[0_20px_40px_rgba(20,27,43,0.05)]">
-                  <div className="flex items-center gap-3">
-                    <OptimizedImage
-                      src="/dummy/avatar-founder.svg"
-                      alt={item.name}
-                      width={56}
-                      height={56}
-                      className="h-14 w-14 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-display text-lg font-bold tracking-[-0.04em] text-ink">
-                        {item.name}
-                      </div>
-                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-                        {item.role}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="mt-6 text-sm leading-7 text-muted">{item.quote}</p>
-                </article>
+            <div className="mt-8 flex items-center justify-between gap-4">
+              <div className="flex gap-2">
+                {testimonials.map((item, index) => (
+                  <button
+                    key={item.name}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className={`h-2.5 w-8 transition ${
+                      activeIndex === index ? "bg-ink" : "bg-slate-200"
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="mt-6 flex items-center justify-between gap-4 md:hidden">
-          <button
-            type="button"
-            onClick={() =>
-              setMobileTestimonialIndex((current) => Math.max(0, current - 1))
-            }
-            disabled={mobileTestimonialIndex === 0}
-            className="rounded-full bg-white p-3 text-ink shadow-[0_16px_30px_rgba(20,27,43,0.06)] transition disabled:cursor-not-allowed disabled:opacity-35"
-            aria-label="Previous testimonials"
-          >
-            <ArrowLeft size={18} />
-          </button>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">
-            {mobileTestimonialIndex + 1} / {testimonials.length}
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={prev}
+                  className="inline-flex border border-slate-900/8 bg-white p-3 text-ink transition hover:bg-slate-50"
+                  aria-label="Previous testimonial"
+                >
+                  <ArrowLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  onClick={next}
+                  className="inline-flex border border-slate-900/8 bg-white p-3 text-ink transition hover:bg-slate-50"
+                  aria-label="Next testimonial"
+                >
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+            </div>
           </div>
-          <button
-            type="button"
-            onClick={() =>
-              setMobileTestimonialIndex((current) =>
-                Math.min(testimonials.length - 1, current + 1),
-              )
-            }
-            disabled={mobileTestimonialIndex === testimonials.length - 1}
-            className="rounded-full bg-white p-3 text-ink shadow-[0_16px_30px_rgba(20,27,43,0.06)] transition disabled:cursor-not-allowed disabled:opacity-35"
-            aria-label="Next testimonials"
-          >
-            <ArrowRight size={18} />
-          </button>
         </div>
       </div>
     </section>

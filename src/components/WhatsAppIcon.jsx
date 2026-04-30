@@ -1,6 +1,6 @@
 import OptimizedImage from "./OptimizedImage";
 
-function WhatsAppIcon({ className = "", size = 18 }) {
+function WhatsAppIcon({ className = "", size = 18, invert = false }) {
   return (
     <OptimizedImage
       src="/images/whatsapp.svg"
@@ -9,7 +9,7 @@ function WhatsAppIcon({ className = "", size = 18 }) {
       width={size}
       height={size}
       loading="eager"
-      className={`shrink-0 brightness-0 invert ${className}`}
+      className={`shrink-0 ${invert ? "brightness-0 invert" : ""} ${className}`}
     />
   );
 }

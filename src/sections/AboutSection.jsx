@@ -1,133 +1,177 @@
 import { useState } from "react";
-import { ArrowUpRight, Mail, MapPin, Sparkles } from "lucide-react";
-import OptimizedImage from "../components/OptimizedImage";
+import LordIcon from "../components/LordIcon";
 import WhatsAppIcon from "../components/WhatsAppIcon";
-import { highlights } from "../data/siteData";
+import { siteCopy } from "../data/content";
 
-function AboutSection() {
+function AboutSection({ lang }) {
   const [mapLoaded, setMapLoaded] = useState(false);
+  const copy = siteCopy[lang].about;
 
   return (
-    <section className="px-4 py-24 sm:px-6 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-8">
-        <div className="rounded-[2.5rem] bg-surface-deep p-8 text-white sm:p-10 lg:p-12">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/60">
-              About siapdigital
+    <section className="border-y border-slate-900/8 bg-surface px-4 py-20 sm:px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
+          <div data-aos="fade-up">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
+              {copy.eyebrow}
             </p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
-              siapdigital membantu brand tampil lebih profesional, lebih
-              dipercaya, dan lebih siap meyakinkan client.
+            <h2 className="mt-5 max-w-xl font-display text-4xl font-bold tracking-[-0.05em] text-ink sm:text-5xl">
+              {copy.title}
             </h2>
-            <p className="mt-6 text-base leading-8 text-white/70 sm:text-lg">
-              siapdigital dibangun untuk menghadirkan website yang tidak
-              berhenti di tampilan bagus saja, tetapi benar-benar disusun agar
-              brand terlihat lebih serius, lebih rapi, dan lebih relevan dengan
-              kebutuhan bisnis.
+            <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
+              {copy.body}
             </p>
 
-            <div className="mx-auto mt-10 max-w-3xl space-y-4 text-left">
-              {highlights.map((item) => (
+            <div className="mt-8 grid gap-3">
+              {copy.highlights.map((item, index) => (
                 <div
                   key={item}
-                  className="flex items-center justify-between rounded-[1.4rem] bg-white/6 px-5 py-4"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 60}
+                  className="border border-slate-900/8 bg-white px-5 py-4 text-sm leading-7 text-muted shadow-[0_14px_30px_rgba(15,23,42,0.04)]"
                 >
-                  <span className="text-sm font-medium text-white/80">{item}</span>
-                  <ArrowUpRight size={16} className="text-white/80" />
+                  {item}
                 </div>
               ))}
             </div>
           </div>
-        </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
-          <div className="relative overflow-hidden rounded-[2rem] bg-surface p-3 shadow-[0_18px_30px_rgba(20,27,43,0.04)]">
-            {!mapLoaded ? (
-              <div className="absolute inset-3 z-10 grid min-h-[360px] place-items-center rounded-[1.4rem] bg-surface-low">
-                <div className="px-6 text-center">
-                  <div className="mx-auto mb-4 h-12 w-12 rounded-full border-4 border-primary/20 border-t-primary map-spinner" />
-                  <p className="text-sm font-semibold text-ink">
-                    Memuat lokasi siapdigital...
+          <div className="grid gap-5">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <a
+                data-aos="fade-up"
+                href="https://wa.me/62895426290208"
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-col items-center border border-slate-900/8 bg-white p-6 text-center shadow-[0_16px_32px_rgba(15,23,42,0.05)] transition hover:-translate-y-1"
+              >
+                <div className="mb-5 inline-flex items-center justify-center text-[#25D366]">
+                  <WhatsAppIcon size={60} />
+                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
+                  {copy.whatsappLabel}
+                </p>
+                <p className="mt-3 text-sm leading-7 text-muted">0895426290208</p>
+              </a>
+
+              <a
+                data-aos="fade-up"
+                data-aos-delay="60"
+                href="mailto:siapdigital@gmail.com"
+                className="flex flex-col items-center border border-slate-900/8 bg-white p-6 text-center shadow-[0_16px_32px_rgba(15,23,42,0.05)] transition hover:-translate-y-1"
+              >
+                <div className="mb-5 inline-flex items-center justify-center text-primary">
+                  <LordIcon
+                    src="/lordicons/extension-morph.json"
+                    size={60}
+                    trigger="in-reveal"
+                    colors="primary:#2563ff,secondary:#0f172a"
+                    state="hover-swirl"
+                  />
+                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
+                  {copy.emailLabel}
+                </p>
+                <p className="mt-3 text-sm leading-7 text-muted">siapdigital@gmail.com</p>
+              </a>
+
+              <div
+                data-aos="fade-up"
+                data-aos-delay="120"
+                className="flex flex-col items-center border border-slate-900/8 bg-[#0f172a] p-6 text-center text-white shadow-[0_16px_32px_rgba(15,23,42,0.08)]"
+              >
+                <div className="mb-5 inline-flex items-center justify-center text-white">
+                  <LordIcon
+                    src="/lordicons/search-morph.json"
+                    size={60}
+                    trigger="in-reveal"
+                    colors="primary:#ffffff,secondary:#8fb8ff"
+                    state="hover-1"
+                  />
+                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/60">
+                  {lang === "id" ? "Quick Response" : "Quick Response"}
+                </p>
+                <div className="mt-3 font-display text-4xl font-bold tracking-[-0.05em]">
+                  &lt; 1h
+                </div>
+                <p className="mt-3 text-sm leading-7 text-white/74">
+                  {lang === "id"
+                    ? "Untuk diskusi awal dan estimasi project."
+                    : "For initial discussion and project estimates."}
+                </p>
+              </div>
+            </div>
+
+            <div
+              data-aos="fade-up"
+              data-aos-delay="160"
+              className="grid gap-5 border border-slate-900/8 bg-white p-5 shadow-[0_20px_48px_rgba(15,23,42,0.06)] lg:grid-cols-[1.08fr_0.92fr]"
+            >
+              <div className="relative min-h-[320px] overflow-hidden border border-slate-900/8 bg-surface-low">
+                {!mapLoaded ? (
+                  <div className="absolute inset-0 z-10 grid place-items-center bg-surface-low">
+                    <div className="px-6 text-center">
+                      <div className="mx-auto mb-4 h-12 w-12 rounded-full border-4 border-primary/20 border-t-primary map-spinner" />
+                      <p className="text-sm font-semibold text-ink">{copy.mapLoadingTitle}</p>
+                      <p className="mt-2 text-xs leading-6 text-muted">{copy.mapLoadingBody}</p>
+                    </div>
+                  </div>
+                ) : null}
+                <iframe
+                  title="Google Maps location"
+                  src="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396&z=16&output=embed"
+                  className={`h-full min-h-[320px] w-full transition duration-500 ${
+                    mapLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  loading="lazy"
+                  onLoad={() => setMapLoaded(true)}
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              <div className="grid gap-4">
+                <a
+                  href="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex flex-col items-center border border-slate-900/8 bg-slate-50 p-5 text-center transition hover:-translate-y-1"
+                >
+                  <div className="mb-5 inline-flex items-center justify-center text-primary">
+                    <LordIcon
+                      src="/lordicons/home.json"
+                      size={60}
+                      trigger="in-reveal"
+                      colors="primary:#2563ff,secondary:#0f172a"
+                      state="hover"
+                    />
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
+                    {copy.addressLabel}
                   </p>
-                  <p className="mt-2 text-xs leading-6 text-muted">
-                    Peta Google Maps akan tampil sebentar lagi.
+                  <p className="mt-3 text-sm leading-7 text-muted">
+                    Bawu RT 30 RW 06
+                    <br />
+                    Batealit Jepara
                   </p>
+                </a>
+
+                <div className="flex flex-col items-center border border-slate-900/8 bg-slate-50 p-5 text-center">
+                  <div className="mb-5 inline-flex items-center justify-center text-primary">
+                    <LordIcon
+                      src="/lordicons/puzzle.json"
+                      size={60}
+                      trigger="in-reveal"
+                      colors="primary:#ef5d86,secondary:#0f172a"
+                      state="hover-rotate"
+                    />
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
+                    {copy.storyLabel}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-muted">{copy.brandStory}</p>
                 </div>
               </div>
-            ) : null}
-            <iframe
-              title="Google Maps location"
-              src="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396&z=16&output=embed"
-              className={`h-full min-h-[360px] w-full rounded-[1.4rem] transition duration-500 ${
-                mapLoaded ? "opacity-100" : "opacity-0"
-              }`}
-              loading="lazy"
-              onLoad={() => setMapLoaded(true)}
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-
-          <div className="grid gap-4">
-            <a
-              href="https://wa.me/62895426290208"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-[1.75rem] bg-surface p-6 shadow-[0_18px_30px_rgba(20,27,43,0.04)] transition hover:-translate-y-1"
-            >
-              <div className="mb-4 inline-flex rounded-2xl bg-[#25D366]/12 p-3 text-[#25D366]">
-                <WhatsAppIcon size={18} />
-              </div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-                WhatsApp
-              </p>
-              <p className="mt-4 text-sm leading-7 text-muted">0895426290208</p>
-            </a>
-
-            <a
-              href="mailto:siapdigital@gmail.com"
-              className="rounded-[1.75rem] bg-surface p-6 shadow-[0_18px_30px_rgba(20,27,43,0.04)] transition hover:-translate-y-1"
-            >
-              <div className="mb-4 inline-flex rounded-2xl bg-surface-low p-3 text-primary">
-                <Mail size={18} />
-              </div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-                Email
-              </p>
-              <p className="mt-4 text-sm leading-7 text-muted">
-                siapdigital@gmail.com
-              </p>
-            </a>
-
-            <a
-              href="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-[1.75rem] bg-surface p-6 shadow-[0_18px_30px_rgba(20,27,43,0.04)] transition hover:-translate-y-1"
-            >
-              <div className="mb-4 inline-flex rounded-2xl bg-surface-low p-3 text-primary">
-                <MapPin size={18} />
-              </div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-                Address
-              </p>
-              <p className="mt-4 text-sm leading-7 text-muted">
-                Bawu RT 30 RW 06
-                <br />
-                Batealit Jepara
-              </p>
-            </a>
-
-            <div className="rounded-[1.75rem] bg-surface-low p-6">
-              <div className="mb-4 inline-flex rounded-2xl bg-white p-3 text-primary shadow-[0_12px_24px_rgba(20,27,43,0.06)]">
-                <Sparkles size={18} />
-              </div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-                Brand Story
-              </p>
-              <p className="mt-4 text-sm leading-7 text-muted">
-                siapdigital menggabungkan rasa visual yang tajam dengan eksekusi
-                frontend yang serius.
-              </p>
             </div>
           </div>
         </div>

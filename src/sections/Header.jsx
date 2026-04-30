@@ -1,13 +1,21 @@
 import { MenuIcon } from "../components/AppIcons";
-import OptimizedImage from "../components/OptimizedImage";
 import OptimizedPicture from "../components/OptimizedPicture";
-import { navItems } from "../data/siteData";
 
-function Header({ activeSection, menuOpen, setActiveSection, setMenuOpen }) {
+function Header({
+  activeSection,
+  homeHref,
+  isPortfolioPage,
+  lang,
+  menuOpen,
+  navItems,
+  setActiveSection,
+  setLang,
+  setMenuOpen,
+}) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-0 py-0">
-      <div className="glass-panel ghost-border grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 rounded-none px-5 py-4 shadow-[0_18px_50px_rgba(20,27,43,0.08)] sm:px-6 lg:px-10">
-        <a href="#home" className="ml-2 flex items-center justify-self-start lg:ml-4">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-900/8 bg-white/82 backdrop-blur-xl">
+      <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:grid-cols-[auto_1fr_auto_auto] lg:px-8">
+        <a href={homeHref} className="flex items-center justify-self-start">
           <OptimizedPicture
             src="/images/siapdigital-logo-180.webp"
             srcSet="/images/siapdigital-logo-180.webp 180w, /images/siapdigital-logo-360.webp 360w"
@@ -18,20 +26,18 @@ function Header({ activeSection, menuOpen, setActiveSection, setMenuOpen }) {
             height={45}
             loading="eager"
             fetchPriority="high"
-            className="h-10 w-auto object-contain sm:h-11"
+            className="h-9 w-auto object-contain sm:h-10"
           />
         </a>
 
-        <nav className="hidden items-center justify-center gap-9 md:flex">
+        <nav className="hidden items-center justify-center gap-8 md:flex">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setActiveSection(item.id)}
-              className={`text-[15px] font-semibold tracking-[0.01em] transition lg:text-base ${
-                activeSection === item.id
-                  ? "text-primary"
-                  : "text-muted hover:text-primary"
+              className={`text-[14px] font-semibold uppercase tracking-[0.18em] transition lg:text-[15px] ${
+                activeSection === item.id ? "text-primary" : "text-muted hover:text-ink"
               }`}
             >
               {item.label}
@@ -39,11 +45,42 @@ function Header({ activeSection, menuOpen, setActiveSection, setMenuOpen }) {
           ))}
         </nav>
 
-        <div className="hidden md:block" />
+        <div className="hidden items-center gap-3 md:flex">
+          {isPortfolioPage ? (
+            <a
+              href="/"
+              className="inline-flex items-center justify-center border border-slate-900/10 bg-surface-low px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-white"
+            >
+              {lang === "id" ? "Kembali ke Home" : "Back to Home"}
+            </a>
+          ) : null}
+          <div className="flex items-center border border-slate-900/8 bg-slate-50">
+            <button
+              type="button"
+              onClick={() => setLang("id")}
+              aria-label="Switch language to Indonesian"
+              className={`inline-flex items-center justify-center px-3 py-2 transition ${
+                lang === "id" ? "bg-[#2563ff] text-white" : "text-muted hover:text-ink"
+              }`}
+            >
+              <span aria-hidden="true" className="fi fi-id text-lg leading-none" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              aria-label="Switch language to English"
+              className={`inline-flex items-center justify-center px-3 py-2 transition ${
+                lang === "en" ? "bg-[#2563ff] text-white" : "text-muted hover:text-ink"
+              }`}
+            >
+              <span aria-hidden="true" className="fi fi-gb text-lg leading-none" />
+            </button>
+          </div>
+        </div>
 
         <button
           type="button"
-          className="justify-self-end rounded-full p-2 text-ink md:hidden"
+          className="justify-self-end p-2 text-ink md:hidden"
           onClick={() => setMenuOpen((value) => !value)}
           aria-label="Toggle menu"
         >
@@ -52,13 +89,13 @@ function Header({ activeSection, menuOpen, setActiveSection, setMenuOpen }) {
       </div>
 
       {menuOpen ? (
-        <div className="w-full bg-surface px-5 py-5 shadow-[var(--shadow-ambient)] sm:px-6 md:hidden">
-          <div className="flex flex-col gap-4">
+        <div className="border-t border-slate-900/8 bg-white px-4 py-5 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:px-6 md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-semibold text-muted"
+                className="text-sm font-semibold uppercase tracking-[0.18em] text-muted"
                 onClick={() => {
                   setActiveSection(item.id);
                   setMenuOpen(false);
@@ -67,6 +104,43 @@ function Header({ activeSection, menuOpen, setActiveSection, setMenuOpen }) {
                 {item.label}
               </a>
             ))}
+
+            <div className="mt-2 flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setLang("id")}
+                aria-label="Switch language to Indonesian"
+                className={`inline-flex items-center justify-center px-4 py-2 ${
+                  lang === "id" ? "bg-[#2563ff] text-white" : "bg-surface-low text-muted"
+                }`}
+              >
+                <span aria-hidden="true" className="fi fi-id text-lg leading-none" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                aria-label="Switch language to English"
+                className={`inline-flex items-center justify-center px-4 py-2 ${
+                  lang === "en" ? "bg-[#2563ff] text-white" : "bg-surface-low text-muted"
+                }`}
+              >
+                <span aria-hidden="true" className="fi fi-gb text-lg leading-none" />
+              </button>
+            </div>
+
+            <a
+              href={isPortfolioPage ? "/" : "#contact"}
+              className="mt-2 inline-flex w-full items-center justify-center border border-slate-900/10 bg-surface-low px-5 py-3 text-sm font-semibold text-ink"
+              onClick={() => setMenuOpen(false)}
+            >
+              {isPortfolioPage
+                ? lang === "id"
+                  ? "Kembali ke Home"
+                  : "Back to Home"
+                : lang === "id"
+                  ? "Ke Kontak"
+                  : "Go To Contact"}
+            </a>
           </div>
         </div>
       ) : null}

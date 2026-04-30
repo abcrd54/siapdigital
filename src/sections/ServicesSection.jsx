@@ -1,65 +1,110 @@
-import {
-  Clock3,
-  MessageCircleMore,
-  MonitorSmartphone,
-  Wallet,
-} from "lucide-react";
-import Reveal from "../components/Reveal";
+import LordIcon from "../components/LordIcon";
+import { siteCopy } from "../data/content";
 
-const services = [
+const icons = [
   {
-    title: "Bisa Diskusi Dulu",
-    body: "Kamu tidak harus datang dengan brief yang sempurna. Ceritakan kebutuhanmu, nanti dibantu susun arah website yang paling masuk akal.",
-    icon: Clock3,
+    src: "/lordicons/coins.json",
+    colors: "primary:#e58a1f,secondary:#0f172a",
+    state: "hover-spend",
   },
   {
-    title: "Custom Sesuai Bisnis",
-    body: "Struktur, tampilan, dan CTA disesuaikan dengan jenis bisnis, target pelanggan, dan tujuan utama website kamu.",
-    icon: MessageCircleMore,
+    src: "/lordicons/extension.json",
+    colors: "primary:#7c5cff,secondary:#0f172a",
+    state: "hover-swirl",
   },
   {
-    title: "Harga Fleksibel",
-    body: "Scope bisa disesuaikan. Kalau baru mulai, kita bisa fokus dulu ke halaman yang paling penting dan dikembangkan bertahap.",
-    icon: Wallet,
+    src: "/lordicons/account.json",
+    colors: "primary:#11a67a,secondary:#0f172a",
+    state: "hover-1",
   },
   {
-    title: "Siap Dipakai",
-    body: "Website dibuat mobile friendly, ringan, dan diarahkan ke aksi yang jelas seperti chat WhatsApp, booking, atau inquiry.",
-    icon: MonitorSmartphone,
+    src: "/lordicons/puzzle.json",
+    colors: "primary:#ef5d86,secondary:#0f172a",
+    state: "hover-rotate",
+  },
+];
+const reasonThemes = [
+  {
+    card: "bg-[linear-gradient(180deg,#fff6ee_0%,#fffdf9_100%)]",
+    panel: "bg-[#ffe5ca]",
+    glow: "bg-[#f7b466]",
+  },
+  {
+    card: "bg-[linear-gradient(180deg,#f4f2ff_0%,#fefcff_100%)]",
+    panel: "bg-[#e7defe]",
+    glow: "bg-[#9e84f6]",
+  },
+  {
+    card: "bg-[linear-gradient(180deg,#eefaf6_0%,#fbfffe_100%)]",
+    panel: "bg-[#dbf3e9]",
+    glow: "bg-[#4ebe95]",
+  },
+  {
+    card: "bg-[linear-gradient(180deg,#fff2f6_0%,#fffdfd_100%)]",
+    panel: "bg-[#ffdce6]",
+    glow: "bg-[#ef8ba8]",
   },
 ];
 
-function ServicesSection() {
+function ServicesSection({ lang }) {
+  const copy = siteCopy[lang].services;
+
   return (
-    <section className="bg-surface-low px-4 py-24 sm:px-6 lg:px-10">
+    <section className="border-y border-slate-900/8 bg-surface-low px-4 py-20 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
+        <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr]">
+          <div data-aos="fade-up" className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
-              Kenapa custom di siapdigital
+              {copy.eyebrow}
             </p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl">
-              Website tidak cuma bagus dilihat, tapi juga jelas arahnya.
+            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] text-ink sm:text-5xl">
+              {copy.title}
             </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {services.map((service, index) => (
-              <Reveal
-                key={service.title}
-                direction={index % 2 === 0 ? "left" : "right"}
-                delay={index * 100}
-                className="hover-lift ghost-border rounded-[1.75rem] bg-white p-7"
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="80"
+            className="max-w-2xl self-end text-base leading-8 text-muted sm:text-lg"
+          >
+            {lang === "id"
+              ? "Section ini saya sederhanakan supaya orang langsung paham value SiapDigital tanpa harus membaca terlalu banyak panel teknis."
+              : "This section is simplified so people can understand SiapDigital's value immediately without reading too many technical panels."}
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {copy.items.map((item, index) => {
+            const icon = icons[index];
+            const theme = reasonThemes[index % reasonThemes.length];
+
+            return (
+              <article
+                key={item.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 70}
+                className={`relative overflow-hidden border border-slate-900/8 p-6 text-center shadow-[0_18px_40px_rgba(15,23,42,0.05)] ${theme.card}`}
               >
-                <div className="mb-6 inline-flex rounded-2xl bg-surface-low p-3 text-primary">
-                  <service.icon size={20} />
+                <div className={`reason-glow absolute right-4 top-4 h-18 w-18 rounded-full blur-2xl ${theme.glow}`} />
+                <div className="relative flex flex-col items-center">
+                  <div className="inline-flex items-center justify-center text-ink">
+                    <LordIcon
+                      src={icon.src}
+                      size={78}
+                      trigger="in-reveal"
+                      colors={icon.colors}
+                      state={icon.state}
+                    />
+                  </div>
+
+                  <h3 className="mt-6 font-display text-[2rem] font-bold tracking-[-0.05em] text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-muted">{item.body}</p>
                 </div>
-                <h3 className="font-display text-2xl font-bold tracking-[-0.04em]">
-                  {service.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-muted">{service.body}</p>
-              </Reveal>
-            ))}
-          </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

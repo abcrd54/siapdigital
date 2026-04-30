@@ -1,59 +1,66 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
-import Reveal from "../components/Reveal";
-import { projectTags, projects } from "../data/siteData";
+import { sharedProjectData, siteCopy } from "../data/content";
 
-function PortfolioSection({ setSelectedProject }) {
-  const [activeProjectTag, setActiveProjectTag] = useState("Semua");
+const portfolioThemes = [
+  "bg-[linear-gradient(180deg,#fffaf4_0%,#ffffff_100%)]",
+  "bg-[linear-gradient(180deg,#f6f4ff_0%,#ffffff_100%)]",
+  "bg-[linear-gradient(180deg,#f2fbf7_0%,#ffffff_100%)]",
+  "bg-[linear-gradient(180deg,#fff3f5_0%,#ffffff_100%)]",
+];
+
+function PortfolioSection({ lang, onOpenPortfolioBrowser, setSelectedProject }) {
+  const copy = siteCopy[lang].portfolio;
+  const allProjects = sharedProjectData.projects;
+  const projectTags = [copy.filterAll, ...new Set(allProjects.map((project) => project.tag))];
+  const [activeProjectTag, setActiveProjectTag] = useState(copy.filterAll);
   const filteredProjects =
-    activeProjectTag === "Semua"
-      ? projects
-      : projects.filter((project) => project.tag === activeProjectTag);
+    activeProjectTag === copy.filterAll
+      ? allProjects
+      : allProjects.filter((project) => project.tag === activeProjectTag);
+  const projects = filteredProjects.slice(0, 4);
 
   useEffect(() => {
-    const activeTab = document.querySelector(
-      `[data-project-tag="${CSS.escape(activeProjectTag)}"]`,
-    );
-
-    activeTab?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
-  }, [activeProjectTag]);
+    setActiveProjectTag(copy.filterAll);
+  }, [copy.filterAll]);
 
   return (
-    <section className="px-4 py-24 sm:px-6 lg:px-10">
+    <section className="px-4 py-20 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
-            Portfolio
-          </p>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl">
-            Selected portfolio from siapdigital.
-          </h2>
-          <p className="mt-6 text-base leading-8 text-muted sm:text-lg">
-            Beberapa contoh arah visual dan presentasi digital yang menunjukkan
-            bagaimana siapdigital membantu brand tampil lebih kuat, lebih rapi,
-            dan lebih siap meyakinkan client.
+        <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr]">
+          <div data-aos="fade-up">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-primary">
+              {copy.eyebrow}
+            </p>
+            <h2 className="mt-5 max-w-xl font-display text-4xl font-bold tracking-[-0.05em] text-ink sm:text-5xl">
+              {copy.title}
+            </h2>
+          </div>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="80"
+            className="max-w-2xl self-end text-base leading-8 text-muted sm:text-lg"
+          >
+            {copy.body}
           </p>
         </div>
 
-        <div className="mx-auto mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:justify-center md:overflow-visible">
-          {projectTags.map((tag) => {
+        <div className="mt-8 flex flex-wrap gap-3">
+          {projectTags.map((tag, index) => {
             const isActive = activeProjectTag === tag;
 
             return (
               <button
                 key={tag}
                 type="button"
-                data-project-tag={tag}
+                data-aos="fade-up"
+                data-aos-delay={index * 40}
                 onClick={() => setActiveProjectTag(tag)}
-                className={`shrink-0 snap-start rounded-full px-5 py-3 text-sm font-semibold transition ${
+                className={`border px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition ${
                   isActive
-                    ? "bg-[#141b2b] text-white shadow-[0_14px_30px_rgba(20,27,43,0.18)]"
-                    : "bg-surface-low text-muted hover:bg-white hover:text-ink"
+                    ? "border-ink bg-ink text-white"
+                    : "border-slate-900/8 bg-white text-muted hover:text-ink"
                 }`}
               >
                 {tag}
@@ -62,65 +69,62 @@ function PortfolioSection({ setSelectedProject }) {
           })}
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <Reveal
-              as="button"
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project, index) => (
+            <button
               key={project.title}
               type="button"
+              data-aos="fade-up"
+              data-aos-delay={index * 60}
               onClick={() => setSelectedProject(project)}
-              direction="fade"
-              delay={index * 80}
-              className="hover-lift group overflow-hidden rounded-[2.2rem] bg-white text-left shadow-[0_24px_50px_rgba(20,27,43,0.08)]"
+              className={`group overflow-hidden border border-slate-900/8 text-left shadow-[0_18px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 ${portfolioThemes[index % portfolioThemes.length]}`}
             >
-              <div className="relative h-[340px] overflow-hidden bg-gray-100 sm:h-[380px]">
-                <div className="flex h-full w-full items-center justify-center p-4">
+              <div className="relative h-[280px] overflow-hidden bg-white/60">
+                <div className="flex h-full w-full items-center justify-center p-5">
                   <OptimizedImage
                     src={project.image}
                     alt={project.title}
                     width={1200}
                     height={900}
-                    sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
-                    className="block max-h-full max-w-full object-contain transition duration-700 group-hover:scale-[1.06]"
+                    sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 100vw"
+                    className="block max-h-full max-w-full object-contain transition duration-700 group-hover:scale-[1.04]"
                   />
                 </div>
 
                 <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
-                  <span className="rounded-full bg-white/86 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm">
+                  <span className="border border-white/10 bg-white/90 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
                     {project.tag}
                   </span>
-                  <span className="rounded-full bg-[#141b2b]/78 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+                  <span className="bg-[#141b2b]/86 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
                     {project.year}
                   </span>
                 </div>
-
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#141b2b]/32 to-transparent" />
               </div>
 
-              <div className="bg-[linear-gradient(180deg,#ffffff_0%,#f7f8ff_100%)] px-6 pb-6 pt-6">
-                <h3 className="mt-4 font-display text-2xl font-bold tracking-[-0.04em]">
+              <div className="px-6 pb-6 pt-6">
+                <h3 className="font-display text-2xl font-bold tracking-[-0.04em] text-ink">
                   {project.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-muted">{project.summary}</p>
+                <p className="mt-4 text-sm leading-7 text-muted">{project.summary[lang]}</p>
 
-                {project.link && project.link.trim() !== "#" ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={(event) => event.stopPropagation()}
-                    className="shine-sweep mt-6 inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
-                  >
-                    Demo
-                    <ArrowUpRight
-                      size={15}
-                      className="transition group-hover:translate-x-1 group-hover:-translate-y-1"
-                    />
-                  </a>
-                ) : null}
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                  {copy.demoLabel}
+                  <ArrowUpRight size={15} />
+                </div>
               </div>
-            </Reveal>
+            </button>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={onOpenPortfolioBrowser}
+            className="inline-flex items-center gap-2 border border-slate-900/10 bg-white px-6 py-4 text-sm font-semibold text-ink transition hover:bg-surface-low"
+          >
+            {copy.moreLabel}
+            <ArrowUpRight size={15} />
+          </button>
         </div>
       </div>
     </section>

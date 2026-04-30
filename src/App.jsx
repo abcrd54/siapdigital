@@ -1,25 +1,54 @@
 import { lazy, Suspense, useEffect, useState } from "react";
+import AOS from "aos";
 import Header from "./sections/Header";
 import HeroSection from "./sections/HeroSection";
-import SeoContentSection from "./sections/SeoContentSection";
 import ProjectModal from "./sections/ProjectModal";
+import PortfolioBrowserModal from "./sections/PortfolioBrowserModal";
+import TemplateListModal from "./sections/TemplateListModal";
 import Footer from "./sections/Footer";
 import DeferredSection from "./components/DeferredSection";
 import PageLoader from "./components/PageLoader";
-import { navItems } from "./data/siteData";
+import { navItemsByLang } from "./data/content";
 
 const PortfolioSection = lazy(() => import("./sections/PortfolioSection"));
 const ServicesSection = lazy(() => import("./sections/ServicesSection"));
+const PackagesSection = lazy(() => import("./sections/PackagesSection"));
 const TestimonialsSection = lazy(() => import("./sections/TestimonialsSection"));
 const FaqSection = lazy(() => import("./sections/FaqSection"));
 const AboutSection = lazy(() => import("./sections/AboutSection"));
 const ContactSection = lazy(() => import("./sections/ContactSection"));
 
 function App({ page }) {
+  const [lang, setLang] = useState(() => {
+    const stored = window.localStorage.getItem("siapdigital-lang");
+    if (stored === "id" || stored === "en") return stored;
+
+    return window.navigator.language?.toLowerCase().startsWith("id") ? "id" : "en";
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [portfolioBrowserOpen, setPortfolioBrowserOpen] = useState(false);
+  const [templateListOpen, setTemplateListOpen] = useState(false);
   const [pageReady, setPageReady] = useState(false);
+  const navItems = navItemsByLang[lang];
+
+  useEffect(() => {
+    window.localStorage.setItem("siapdigital-lang", lang);
+  }, [lang]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 48,
+    });
+  }, []);
+
+  useEffect(() => {
+    AOS.refreshHard();
+  }, [lang]);
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -38,7 +67,7 @@ function App({ page }) {
       window.cancelAnimationFrame(rafId);
       window.removeEventListener("pageshow", resetScroll);
     };
-  }, []);
+  }, [navItems]);
 
   useEffect(() => {
     const heroImages = Array.from(
@@ -69,6 +98,8 @@ function App({ page }) {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
         setSelectedProject(null);
+        setPortfolioBrowserOpen(false);
+        setTemplateListOpen(false);
       }
     };
 
@@ -120,59 +151,87 @@ function App({ page }) {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-ink">
-      <PageLoader hidden={pageReady} />
-      <div className="pointer-events-none fixed inset-0 editorial-grid opacity-60" />
+      <PageLoader hidden={pageReady} lang={lang} />
 
       <Header
         activeSection={activeSection}
+        homeHref="#home"
+        isPortfolioPage={false}
+        lang={lang}
         menuOpen={menuOpen}
+        navItems={navItems}
+        setLang={setLang}
         setActiveSection={setActiveSection}
         setMenuOpen={setMenuOpen}
       />
 
       <main>
-        <HeroSection page={page} />
-        <SeoContentSection page={page} />
+        <HeroSection lang={lang} page={page} />
 
-        <DeferredSection id="work" minHeightClass="min-h-[1200px]">
+        <DeferredSection id="packages" minHeightClass="min-h-[980px]">
           <Suspense fallback={null}>
-            <PortfolioSection setSelectedProject={setSelectedProject} />
+            <PackagesSection
+              lang={lang}
+              onOpenTemplateList={() => setTemplateListOpen(true)}
+            />
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection id="services" minHeightClass="min-h-[640px] bg-surface-low">
+        <DeferredSection id="services" minHeightClass="min-h-[760px] bg-surface-low">
           <Suspense fallback={null}>
-            <ServicesSection />
+            <ServicesSection lang={lang} />
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection minHeightClass="min-h-[640px] bg-surface-mid">
+        <DeferredSection id="work" minHeightClass="min-h-[980px]">
           <Suspense fallback={null}>
-            <TestimonialsSection />
+            <PortfolioSection
+              lang={lang}
+              onOpenPortfolioBrowser={() => setPortfolioBrowserOpen(true)}
+              setSelectedProject={setSelectedProject}
+            />
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection id="faq" minHeightClass="min-h-[760px]">
+        <DeferredSection minHeightClass="min-h-[520px] bg-surface-mid">
           <Suspense fallback={null}>
-            <FaqSection />
+            <TestimonialsSection lang={lang} />
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection id="about" minHeightClass="min-h-[980px]">
+        <DeferredSection id="faq" minHeightClass="min-h-[620px]">
           <Suspense fallback={null}>
-            <AboutSection />
+            <FaqSection lang={lang} />
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection id="contact" minHeightClass="min-h-[420px]">
+        <DeferredSection id="about" minHeightClass="min-h-[760px]">
           <Suspense fallback={null}>
-            <ContactSection />
+            <AboutSection lang={lang} />
+          </Suspense>
+        </DeferredSection>
+
+        <DeferredSection id="contact" minHeightClass="min-h-[320px]">
+          <Suspense fallback={null}>
+            <ContactSection lang={lang} />
           </Suspense>
         </DeferredSection>
       </main>
 
-      <Footer />
+      <Footer isPortfolioPage={false} lang={lang} />
+      <TemplateListModal
+        isOpen={templateListOpen}
+        lang={lang}
+        onClose={() => setTemplateListOpen(false)}
+      />
+      <PortfolioBrowserModal
+        isOpen={portfolioBrowserOpen}
+        lang={lang}
+        onClose={() => setPortfolioBrowserOpen(false)}
+        setSelectedProject={setSelectedProject}
+      />
       <ProjectModal
+        lang={lang}
         selectedProject={selectedProject}
         setSelectedProject={setSelectedProject}
       />
