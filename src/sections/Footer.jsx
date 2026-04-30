@@ -32,7 +32,7 @@ function Footer({ isPortfolioPage, lang }) {
 
   return (
     <>
-      <footer className="border-t border-slate-900/8 bg-[#92c5ff] px-4 py-14 text-[#10223e] sm:px-6 lg:px-8">
+      <footer className="border-t border-slate-900/8 bg-[#e0e0e0] px-4 py-14 text-[#10223e] sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <OptimizedPicture
@@ -45,7 +45,9 @@ function Footer({ isPortfolioPage, lang }) {
               height={45}
               className="h-11 w-auto object-contain"
             />
-            <p className="mt-5 max-w-md text-sm leading-7 text-[#10223e]/74">{footerBody}</p>
+            <p className="mt-5 max-w-md text-sm leading-7 text-[#10223e]/74">
+              {footerBody}
+            </p>
             <a
               href="https://wa.me/62895426290208"
               target="_blank"
@@ -62,11 +64,13 @@ function Footer({ isPortfolioPage, lang }) {
               {copy.navTitle}
             </div>
             <div className="mt-4 flex flex-col gap-3 text-sm font-semibold text-[#10223e]/78">
-              {(isPortfolioPage ? portfolioLinks : navItems.slice(1, 6)).map((item) => (
-                <a key={item.id} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
+              {(isPortfolioPage ? portfolioLinks : navItems.slice(1, 6)).map(
+                (item) => (
+                  <a key={item.id} href={item.href}>
+                    {item.label}
+                  </a>
+                ),
+              )}
             </div>
           </div>
 
