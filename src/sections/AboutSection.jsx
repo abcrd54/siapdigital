@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { AnimatedMailIcon, AnimatedMapPinIcon } from "../components/AppIcons";
 import LordIcon from "../components/LordIcon";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { siteCopy } from "../data/content";
 import { trackWhatsAppClick } from "../lib/analytics";
 
 function AboutSection({ lang }) {
-  const [mapLoaded, setMapLoaded] = useState(false);
   const copy = siteCopy[lang].about;
 
   return (
@@ -48,12 +47,14 @@ function AboutSection({ lang }) {
                 className="flex flex-col items-center border border-slate-900/8 bg-white p-6 text-center shadow-[0_16px_32px_rgba(15,23,42,0.05)] transition hover:-translate-y-1"
               >
                 <div className="mb-5 inline-flex items-center justify-center text-[#25D366]">
-                  <WhatsAppIcon size={60} />
+                  <WhatsAppIcon animated size={60} />
                 </div>
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
                   {copy.whatsappLabel}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-muted">0895426290208</p>
+                <p className="mt-3 text-sm leading-7 text-muted">
+                  0895426290208
+                </p>
               </a>
 
               <a
@@ -63,18 +64,14 @@ function AboutSection({ lang }) {
                 className="flex flex-col items-center border border-slate-900/8 bg-white p-6 text-center shadow-[0_16px_32px_rgba(15,23,42,0.05)] transition hover:-translate-y-1"
               >
                 <div className="mb-5 inline-flex items-center justify-center text-primary">
-                  <LordIcon
-                    src="/lordicons/extension-morph.json"
-                    size={60}
-                    trigger="in-reveal"
-                    colors="primary:#2563ff,secondary:#0f172a"
-                    state="hover-swirl"
-                  />
+                  <AnimatedMailIcon size={62} className="scale-[1.50]" />
                 </div>
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
                   {copy.emailLabel}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-muted">siapdigital@gmail.com</p>
+                <p className="mt-3 text-sm leading-7 text-muted">
+                  siapdigital@gmail.com
+                </p>
               </a>
 
               <div
@@ -108,44 +105,29 @@ function AboutSection({ lang }) {
             <div
               data-aos="fade-up"
               data-aos-delay="160"
-              className="grid gap-5 border border-slate-900/8 bg-white p-5 shadow-[0_20px_48px_rgba(15,23,42,0.06)] lg:grid-cols-[1.08fr_0.92fr]"
+              className="grid items-stretch gap-5 border border-slate-900/8 bg-white p-5 shadow-[0_20px_48px_rgba(15,23,42,0.06)] lg:grid-cols-[1.08fr_0.92fr]"
             >
-              <div className="relative min-h-[320px] overflow-hidden border border-slate-900/8 bg-surface-low">
-                {!mapLoaded ? (
-                  <div className="absolute inset-0 z-10 grid place-items-center bg-surface-low">
-                    <div className="px-6 text-center">
-                      <div className="mx-auto mb-4 h-12 w-12 rounded-full border-4 border-primary/20 border-t-primary map-spinner" />
-                      <p className="text-sm font-semibold text-ink">{copy.mapLoadingTitle}</p>
-                      <p className="mt-2 text-xs leading-6 text-muted">{copy.mapLoadingBody}</p>
-                    </div>
-                  </div>
-                ) : null}
+              <div className="relative min-h-[320px] overflow-hidden border border-slate-900/8 bg-surface-low lg:min-h-full">
                 <iframe
                   title="Google Maps location"
-                  src="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396&z=16&output=embed"
-                  className={`h-full min-h-[320px] w-full transition duration-500 ${
-                    mapLoaded ? "opacity-100" : "opacity-0"
-                  }`}
+                  src="https://www.google.com/maps?q=SiapDigital&ll=-6.6335129,110.7227586&z=17&output=embed"
+                  className="h-full min-h-[320px] w-full"
                   loading="lazy"
-                  onLoad={() => setMapLoaded(true)}
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
 
               <div className="grid gap-4">
                 <a
-                  href="https://www.google.com/maps?q=-6.633487734087801,110.72275555814396"
+                  href="https://maps.app.goo.gl/vEwvWWXX2wCBtPue7"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex flex-col items-center border border-slate-900/8 bg-slate-50 p-5 text-center transition hover:-translate-y-1"
+                  className="group flex flex-col items-center border border-slate-900/8 bg-slate-50 p-5 text-center transition hover:-translate-y-1"
                 >
                   <div className="mb-5 inline-flex items-center justify-center text-primary">
-                    <LordIcon
-                      src="/lordicons/home.json"
-                      size={60}
-                      trigger="in-reveal"
-                      colors="primary:#2563ff,secondary:#0f172a"
-                      state="hover"
+                    <AnimatedMapPinIcon
+                      size={62}
+                      className="group-hover:[animation-play-state:running]"
                     />
                   </div>
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
@@ -171,7 +153,9 @@ function AboutSection({ lang }) {
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
                     {copy.storyLabel}
                   </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">{copy.brandStory}</p>
+                  <p className="mt-3 text-sm leading-7 text-muted">
+                    {copy.brandStory}
+                  </p>
                 </div>
               </div>
             </div>

@@ -61,6 +61,38 @@ export const siteCopy = {
         },
       ],
     },
+    orderFlow: {
+      eyebrow: "Alur Pemesanan",
+      title: "Proses kerja dibuat ringkas supaya owner bisnis tahu langkah berikutnya tanpa bingung.",
+      body:
+        "Mulai dari diskusi awal sampai website siap online, setiap tahap dibuat jelas agar keputusan lebih cepat dan revisi tetap terarah.",
+      items: [
+        {
+          step: "1",
+          title: "Diskusi Kebutuhan",
+          body:
+            "Ceritakan bisnis, tujuan website, referensi yang disukai, dan fitur yang dibutuhkan supaya scope awal langsung jelas.",
+        },
+        {
+          step: "2",
+          title: "Penawaran & Arah Desain",
+          body:
+            "Setelah kebutuhan dipahami, SiapDigital siapkan penawaran, struktur halaman, dan arah visual yang paling relevan.",
+        },
+        {
+          step: "3",
+          title: "Proses Build & Revisi",
+          body:
+            "Website atau sistem mulai dikerjakan bertahap, lalu direview bersama agar hasil akhirnya tetap sesuai kebutuhan bisnis.",
+        },
+        {
+          step: "4",
+          title: "Launch & Pendampingan",
+          body:
+            "Setelah final, project dipublish, dites ulang, lalu dibantu sampai siap dipakai untuk promosi atau operasional.",
+        },
+      ],
+    },
     packages: {
       eyebrow: "Paket Website & Digital Solution",
       title: "Paket yang membantu brand terlihat lebih profesional tanpa membuat owner bisnis bingung memilih.",
@@ -240,7 +272,7 @@ export const siteCopy = {
       navTitle: "Navigasi",
       seoTitle: "Layanan SEO",
       locationTitle: "Lokasi",
-      locationValue: "Jepara",
+      locationValue: "Indonesia",
     },
     loader: "Menyiapkan landing page SiapDigital...",
   },
@@ -282,6 +314,38 @@ export const siteCopy = {
           title: "Complete Service",
           body:
             "From landing pages and company profiles to online stores and custom systems, everything can grow step by step while keeping brand information easy to access.",
+        },
+      ],
+    },
+    orderFlow: {
+      eyebrow: "Order Flow",
+      title: "The process stays simple so business owners always know the next step.",
+      body:
+        "From the first discussion to launch, each stage is kept clear so decisions move faster and revisions stay focused.",
+      items: [
+        {
+          step: "1",
+          title: "Discuss The Need",
+          body:
+            "Share your business context, goals, preferred references, and required features so the initial scope is clear.",
+        },
+        {
+          step: "2",
+          title: "Proposal & Direction",
+          body:
+            "Once the need is understood, SiapDigital prepares the proposal, page structure, and the most relevant visual direction.",
+        },
+        {
+          step: "3",
+          title: "Build & Revision",
+          body:
+            "The website or system is built step by step, then reviewed together so the final result stays aligned with the business need.",
+        },
+        {
+          step: "4",
+          title: "Launch & Handover",
+          body:
+            "After final approval, the project is published, tested again, and guided until it is ready for promotion or operations.",
         },
       ],
     },
@@ -465,7 +529,7 @@ export const siteCopy = {
       navTitle: "Navigation",
       seoTitle: "SEO Pages",
       locationTitle: "Location",
-      locationValue: "Jepara",
+      locationValue: "Indonesia",
     },
     loader: "Preparing the SiapDigital landing page...",
   },
@@ -658,75 +722,137 @@ export const sharedProjectData = {
     id: [
       {
         name: "Dimas Pratama",
-        role: "Founder, Studio Meraki",
+        role: "Founder",
+        company: "Studio Meraki",
+        location: "Jepara",
+        projectType: "Website Studio Kreatif",
+        focus: "Company profile dan presentasi layanan",
+        outcome: "Brand terasa lebih rapi dan lebih mudah dijelaskan ke calon client.",
         quote:
-          "Yang paling terasa, website kami jadi lebih rapi dan lebih gampang dijelaskan ke client.",
+          "Yang paling terasa, website kami jadi lebih rapi dan lebih gampang dijelaskan ke calon client saat presentasi.",
       },
       {
         name: "Nadia Kurnia",
-        role: "Creative Lead, Homa",
+        role: "Creative Lead",
+        company: "Homa",
+        location: "Semarang",
+        projectType: "Landing Page Brand",
+        focus: "Visual brand dan penyederhanaan pesan",
+        outcome: "Tampilan terasa khas brand, bukan template yang generik.",
         quote:
-          "Tampilannya terasa dibuat khusus untuk brand kami, bukan template biasa.",
+          "Tampilannya terasa dibuat khusus untuk brand kami, bukan template biasa. Itu penting karena kami cukup sensitif soal visual.",
       },
       {
         name: "Rizky Ananta",
         role: "Product Designer",
+        company: "Konsultan Produk Digital",
+        location: "Yogyakarta",
+        projectType: "Website Portofolio Profesional",
+        focus: "Struktur halaman dan first impression",
+        outcome: "Alur terasa jelas sejak layar pertama dibuka.",
         quote:
-          "Alurnya jelas dan hasil akhirnya terlihat profesional sejak pertama dibuka.",
+          "Alurnya jelas dan hasil akhirnya terlihat profesional sejak pertama dibuka. Orang jadi lebih cepat paham kami menawarkan apa.",
       },
       {
         name: "Tasha Livia",
         role: "Brand Strategist",
-        quote: "Versi mobile-nya nyaman. Itu penting karena banyak traffic datang dari WhatsApp.",
+        company: "Livia Consulting",
+        location: "Bandung",
+        projectType: "Landing Page Jasa",
+        focus: "Optimasi tampilan mobile",
+        outcome: "Pengunjung dari WhatsApp tetap nyaman membaca dan lanjut kontak.",
+        quote:
+          "Versi mobile-nya nyaman. Itu penting karena banyak traffic datang dari WhatsApp, jadi halaman harus tetap enak dibuka di HP.",
       },
       {
         name: "Bayu Mahesa",
         role: "Independent Developer",
+        company: "Bayu Build",
+        location: "Solo",
+        projectType: "Website Service Profile",
+        focus: "Penerjemahan kebutuhan ke struktur halaman",
+        outcome: "Diskusi lebih efisien dan keputusan desain jadi cepat.",
         quote:
-          "Diskusinya enak dan kebutuhan kami cepat diterjemahkan jadi struktur yang rapi.",
+          "Diskusinya enak dan kebutuhan kami cepat diterjemahkan jadi struktur yang rapi. Jadi revisinya tidak muter-muter.",
       },
       {
         name: "Alicia Dewi",
         role: "Marketing Director",
-        quote: "Kesan brand kami jadi lebih kuat dan lebih siap untuk presentasi bisnis.",
+        company: "Arunika Properti",
+        location: "Surabaya",
+        projectType: "Website Presentasi Bisnis",
+        focus: "Kredibilitas brand untuk presentasi dan promosi",
+        outcome: "Brand terasa lebih siap dibawa ke meeting dan materi promosi.",
+        quote:
+          "Kesan brand kami jadi lebih kuat dan lebih siap untuk presentasi bisnis. Secara visual terasa lebih matang dan meyakinkan.",
       },
     ],
     en: [
       {
         name: "Dimas Pratama",
-        role: "Founder, Studio Meraki",
+        role: "Founder",
+        company: "Studio Meraki",
+        location: "Jepara",
+        projectType: "Creative Studio Website",
+        focus: "Company profile and service presentation",
+        outcome: "The brand feels cleaner and easier to explain to prospective clients.",
         quote:
-          "The biggest impact was how much clearer and more presentable our website became for clients.",
+          "The biggest impact was how much clearer and more presentable our website became during client presentations.",
       },
       {
         name: "Nadia Kurnia",
-        role: "Creative Lead, Homa",
+        role: "Creative Lead",
+        company: "Homa",
+        location: "Semarang",
+        projectType: "Brand Landing Page",
+        focus: "Brand visual direction and message clarity",
+        outcome: "It feels specific to the brand rather than generic.",
         quote:
-          "It felt custom-made for our brand, not just another generic template.",
+          "It felt custom-made for our brand, not just another generic template. That matters a lot when the visual direction is part of the product.",
       },
       {
         name: "Rizky Ananta",
         role: "Product Designer",
+        company: "Digital Product Consultant",
+        location: "Yogyakarta",
+        projectType: "Professional Portfolio Website",
+        focus: "Page structure and first impression",
+        outcome: "Visitors understand the offer faster from the first screen.",
         quote:
-          "The flow is clear and the final result looks professional from the first screen.",
+          "The flow is clear and the final result looks professional from the first screen. People understand what we do much faster now.",
       },
       {
         name: "Tasha Livia",
         role: "Brand Strategist",
+        company: "Livia Consulting",
+        location: "Bandung",
+        projectType: "Service Landing Page",
+        focus: "Mobile-first presentation",
+        outcome: "WhatsApp traffic can browse comfortably before reaching out.",
         quote:
-          "The mobile version feels smooth, which matters because most of our traffic comes from WhatsApp.",
+          "The mobile version feels smooth, which matters because most of our traffic comes from WhatsApp and people open the site on their phones first.",
       },
       {
         name: "Bayu Mahesa",
         role: "Independent Developer",
+        company: "Bayu Build",
+        location: "Solo",
+        projectType: "Service Profile Website",
+        focus: "Translating requirements into page structure",
+        outcome: "Discussion stays efficient and revisions do not drift.",
         quote:
-          "The discussion was efficient and our needs were translated into a cleaner structure quickly.",
+          "The discussion was efficient and our needs were translated into a cleaner structure quickly, so revisions did not go in circles.",
       },
       {
         name: "Alicia Dewi",
         role: "Marketing Director",
+        company: "Arunika Properti",
+        location: "Surabaya",
+        projectType: "Business Presentation Website",
+        focus: "Brand credibility for meetings and promotion",
+        outcome: "The brand feels more ready for meetings and business decks.",
         quote:
-          "Our brand feels stronger and more ready for business presentations now.",
+          "Our brand feels stronger and more ready for business presentations now. Visually it feels more mature and more convincing.",
       },
     ],
   },

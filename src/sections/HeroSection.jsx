@@ -1,5 +1,5 @@
 import { ArrowUpRightIcon, SparklesIcon } from "../components/AppIcons";
-import OptimizedImage from "../components/OptimizedImage";
+import OptimizedPicture from "../components/OptimizedPicture";
 import { siteCopy } from "../data/content";
 
 const highlights = {
@@ -98,11 +98,14 @@ function HomeHero({ lang, page }) {
 
         <div data-aos="fade-left" className="relative flex items-center justify-center lg:justify-end">
           <div className="hero-illustration-shell relative w-full max-w-[1240px]">
-            <OptimizedImage
-              src="/images/hero.png"
+            <OptimizedPicture
+              src="/images/hero-1280.webp"
+              srcSet="/images/hero-768.webp 768w, /images/hero-1280.webp 1280w, /images/hero-1536.webp 1536w"
+              avifSrcSet="/images/hero-768.avif 768w, /images/hero-1280.avif 1280w, /images/hero-1536.avif 1536w"
+              sizes="(min-width: 1024px) 58vw, 100vw"
               alt="Visual hero SiapDigital untuk website dan aplikasi"
-              width={2048}
-              height={1536}
+              width={1536}
+              height={1024}
               loading="eager"
               fetchPriority="high"
               className="relative z-10 h-auto w-full scale-[1.06] object-contain lg:scale-[1.12]"

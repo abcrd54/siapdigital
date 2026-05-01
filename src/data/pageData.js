@@ -100,9 +100,9 @@ export const pageConfigs = {
 
 export const serviceLandingLinks = [
   { label: "Jasa Website Jepara", href: "/jasa-website-jepara/" },
-  { label: "Custom Website Murah Jepara", href: "/custom-website-murah-jepara/" },
-  { label: "Landing Page Jepara", href: "/jasa-landing-page-jepara/" },
-  { label: "Company Profile Jepara", href: "/jasa-company-profile-jepara/" },
+  { label: "Landing Page Bisnis", href: "#packages" },
+  { label: "Alur Pengerjaan", href: "#services" },
+  { label: "Hubungi SiapDigital", href: "#contact" },
 ];
 
 export function getPageConfig(pathname) {

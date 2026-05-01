@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
   --font-body:
     "Segoe UI", "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
 
@@ -75,6 +75,86 @@ body {
   animation: whatsapp-pop 2.6s ease-in-out infinite;
 }
 
+.whatsapp-icon-animated {
+  animation: whatsapp-icon-float 2.9s ease-in-out infinite;
+}
+
+.order-flow-badge {
+  animation: order-badge-pop 3.2s ease-in-out infinite;
+}
+
+.map-pin-animated {
+  animation: map-pin-float 2.8s ease-in-out infinite;
+}
+
+.mail-icon-animated {
+  animation: mail-icon-float 3.1s ease-in-out infinite;
+}
+
+.mail-icon-core {
+  overflow: visible;
+}
+
+.whatsapp-icon-core {
+  transform-origin: center center;
+  animation: whatsapp-icon-sway 2.9s ease-in-out infinite;
+}
+
+.whatsapp-icon-ring {
+  animation: whatsapp-icon-ring 2.9s ease-out infinite;
+}
+
+.whatsapp-icon-glow {
+  animation: whatsapp-icon-glow 2.9s ease-in-out infinite;
+}
+
+.mail-icon-ring {
+  animation: mail-icon-ring 3.1s ease-out infinite;
+}
+
+.mail-icon-glow {
+  animation: mail-icon-glow 3.1s ease-in-out infinite;
+}
+
+.mail-icon-letter {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: mail-letter-rise 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.mail-icon-letter-line {
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: mail-letter-rise 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.mail-icon-flap {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: mail-flap-open 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.mail-icon-spark {
+  animation: mail-sparkle 3.1s ease-out infinite;
+}
+
+.mail-icon-spark-two {
+  animation-delay: 0.24s;
+}
+
+.map-pin-core {
+  transform-origin: center 78%;
+  animation: map-pin-sway 2.8s ease-in-out infinite;
+}
+
+.map-pin-ring {
+  animation: map-pin-ring 2.8s ease-out infinite;
+}
+
+.map-pin-dot {
+  animation: map-pin-shadow 2.8s ease-in-out infinite;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -138,6 +218,216 @@ body {
   }
   50% {
     transform: translate3d(0, -5px, 0) scale(1.04);
+  }
+}
+
+@keyframes whatsapp-icon-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+@keyframes whatsapp-icon-sway {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  22% {
+    transform: rotate(-4deg) scale(1.02);
+  }
+  48% {
+    transform: rotate(3deg) scale(1.04);
+  }
+  72% {
+    transform: rotate(-2deg) scale(1.01);
+  }
+}
+
+@keyframes whatsapp-icon-ring {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.36;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.08;
+  }
+}
+
+@keyframes whatsapp-icon-glow {
+  0%,
+  100% {
+    opacity: 0.32;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.18;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes order-badge-pop {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes map-pin-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes mail-icon-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+@keyframes mail-letter-rise {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.88;
+  }
+  18% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.88;
+  }
+  42% {
+    transform: translate3d(0, -7px, 0);
+    opacity: 1;
+  }
+  62% {
+    transform: translate3d(0, -4px, 0);
+    opacity: 1;
+  }
+  80% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9;
+  }
+}
+
+@keyframes mail-flap-open {
+  0%,
+  100% {
+    transform: rotateX(0deg);
+  }
+  22% {
+    transform: rotateX(0deg);
+  }
+  40% {
+    transform: translateY(-1px) rotateX(18deg);
+  }
+  62% {
+    transform: translateY(-0.5px) rotateX(6deg);
+  }
+  80% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes mail-icon-ring {
+  0% {
+    opacity: 0.12;
+    transform: scale(0.82);
+  }
+  55% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes mail-icon-glow {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes mail-sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  22% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  38% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  55% {
+    opacity: 0.2;
+    transform: scale(1.16);
+  }
+}
+
+@keyframes map-pin-sway {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-4deg) scale(1.02);
+  }
+  75% {
+    transform: rotate(4deg) scale(1.02);
+  }
+}
+
+@keyframes map-pin-ring {
+  0% {
+    opacity: 0.16;
+    transform: scale(0.78);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+}
+
+@keyframes map-pin-shadow {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.18;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.28;
   }
 }
 
@@ -216,12 +506,27 @@ body {
   .loader-mark,
   .loader-bar span,
   .map-spinner,
+  .mail-icon-animated,
+  .mail-icon-ring,
+  .mail-icon-glow,
+  .mail-icon-letter,
+  .mail-icon-letter-line,
+  .mail-icon-flap,
+  .mail-icon-spark,
+  .map-pin-animated,
+  .map-pin-core,
+  .map-pin-ring,
+  .map-pin-dot,
   .hero-illustration-shell,
   .reason-icon-shell,
   .whatsapp-floater {
     animation: none !important;
     opacity: 1;
     transform: none;
+  }
+
+  .order-flow-badge {
+    animation: none !important;
   }
 
   .reveal-motion,

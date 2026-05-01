@@ -18,6 +18,7 @@ const TestimonialsSection = lazy(() => import("./sections/TestimonialsSection"))
 const FaqSection = lazy(() => import("./sections/FaqSection"));
 const AboutSection = lazy(() => import("./sections/AboutSection"));
 const ContactSection = lazy(() => import("./sections/ContactSection"));
+const HEADER_OFFSET = 112;
 
 function App({ page }) {
   const [lang, setLang] = useState(() => {
@@ -56,6 +57,9 @@ function App({ page }) {
       window.history.scrollRestoration = "manual";
     }
 
+    const hasHash = Boolean(window.location.hash);
+    if (hasHash) return undefined;
+
     const resetScroll = () => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     };
@@ -68,7 +72,7 @@ function App({ page }) {
       window.cancelAnimationFrame(rafId);
       window.removeEventListener("pageshow", resetScroll);
     };
-  }, [navItems]);
+  }, []);
 
   useEffect(() => {
     const heroImages = Array.from(
@@ -117,18 +121,36 @@ function App({ page }) {
   useEffect(() => {
     let ticking = false;
 
-    const updateActiveSection = () => {
-      const sections = navItems
+    const getSections = () =>
+      navItems
         .map((item) => document.getElementById(item.id))
         .filter(Boolean);
 
+    const updateFromHash = () => {
+      const hashId = window.location.hash.replace("#", "");
+      if (!hashId) return false;
+
+      const matched = navItems.find((item) => item.id === hashId);
+      if (!matched) return false;
+
+      setActiveSection(matched.id);
+      return true;
+    };
+
+    const updateActiveSection = () => {
+      const sections = getSections();
       if (!sections.length) return;
 
-      const anchorLine = window.scrollY + window.innerHeight * 0.32;
+      if (updateFromHash() && window.scrollY <= HEADER_OFFSET) {
+        return;
+      }
+
+      const anchorLine = HEADER_OFFSET + window.innerHeight * 0.24;
       let currentSection = sections[0].id;
 
       for (const section of sections) {
-        if (section.offsetTop <= anchorLine) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= anchorLine) {
           currentSection = section.id;
         }
       }
@@ -146,15 +168,26 @@ function App({ page }) {
       });
     };
 
+    const timeoutIds = [
+      window.setTimeout(requestUpdate, 60),
+      window.setTimeout(requestUpdate, 220),
+      window.setTimeout(requestUpdate, 700),
+    ];
+
     updateActiveSection();
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
+    window.addEventListener("load", requestUpdate);
 
     return () => {
+      timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId));
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
+      window.removeEventListener("hashchange", requestUpdate);
+      window.removeEventListener("load", requestUpdate);
     };
-  }, []);
+  }, [navItems]);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-ink">
