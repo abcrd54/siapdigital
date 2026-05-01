@@ -2,6 +2,7 @@ import { useState } from "react";
 import LordIcon from "../components/LordIcon";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { siteCopy } from "../data/content";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 function AboutSection({ lang }) {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -43,6 +44,7 @@ function AboutSection({ lang }) {
                 href="https://wa.me/62895426290208"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackWhatsAppClick("about_section")}
                 className="flex flex-col items-center border border-slate-900/8 bg-white p-6 text-center shadow-[0_16px_32px_rgba(15,23,42,0.05)] transition hover:-translate-y-1"
               >
                 <div className="mb-5 inline-flex items-center justify-center text-[#25D366]">

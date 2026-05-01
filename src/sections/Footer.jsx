@@ -3,6 +3,7 @@ import OptimizedPicture from "../components/OptimizedPicture";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { serviceLandingLinks } from "../data/pageData";
 import { navItemsByLang, siteCopy } from "../data/content";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 function Footer({ isPortfolioPage, lang }) {
   const copy = siteCopy[lang].footer;
@@ -52,6 +53,9 @@ function Footer({ isPortfolioPage, lang }) {
               href="https://wa.me/62895426290208"
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                trackWhatsAppClick(isPortfolioPage ? "footer_portfolio_cta" : "footer_cta")
+              }
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#10223e]"
             >
               {footerCta}
@@ -116,6 +120,7 @@ function Footer({ isPortfolioPage, lang }) {
           target="_blank"
           rel="noreferrer"
           aria-label="Chat WhatsApp siapdigital"
+          onClick={() => trackWhatsAppClick("whatsapp_floater")}
           className="whatsapp-floater fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#128C4A] text-white shadow-[0_20px_40px_rgba(18,140,74,0.32)] transition hover:-translate-y-1 hover:bg-[#0f7a40]"
         >
           <WhatsAppIcon size={30} invert />

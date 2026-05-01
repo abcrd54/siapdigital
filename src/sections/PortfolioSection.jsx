@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import OptimizedImage from "../components/OptimizedImage";
 import { sharedProjectData, siteCopy } from "../data/content";
+import { trackPortfolioClick } from "../lib/analytics";
 
 const portfolioThemes = [
   "bg-[linear-gradient(180deg,#fffaf4_0%,#ffffff_100%)]",
@@ -76,7 +77,14 @@ function PortfolioSection({ lang, onOpenPortfolioBrowser, setSelectedProject }) 
               type="button"
               data-aos="fade-up"
               data-aos-delay={index * 60}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => {
+                trackPortfolioClick(project.title, {
+                  portfolio_surface: "homepage_grid",
+                  portfolio_position: index + 1,
+                  portfolio_tag: project.tag,
+                });
+                setSelectedProject(project);
+              }}
               className={`group overflow-hidden border border-slate-900/8 text-left shadow-[0_18px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 ${portfolioThemes[index % portfolioThemes.length]}`}
             >
               <div className="relative h-[280px] overflow-hidden bg-white/60">
@@ -119,7 +127,13 @@ function PortfolioSection({ lang, onOpenPortfolioBrowser, setSelectedProject }) 
         <div className="mt-10 flex justify-center">
           <button
             type="button"
-            onClick={onOpenPortfolioBrowser}
+            onClick={() => {
+              trackPortfolioClick("portfolio_browser", {
+                portfolio_surface: "homepage_grid",
+                portfolio_action: "open_browser",
+              });
+              onOpenPortfolioBrowser();
+            }}
             className="inline-flex items-center gap-2 border border-slate-900/10 bg-white px-6 py-4 text-sm font-semibold text-ink transition hover:bg-surface-low"
           >
             {copy.moreLabel}

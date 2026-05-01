@@ -1,6 +1,7 @@
 import Reveal from "../components/Reveal";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { siteCopy } from "../data/content";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 function ContactSection({ lang }) {
   const copy = siteCopy[lang].contact;
@@ -29,6 +30,7 @@ function ContactSection({ lang }) {
                 href="https://wa.me/62895426290208"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackWhatsAppClick("contact_section")}
                 className="liquid-button shine-sweep inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-1"
               >
                 {copy.cta}

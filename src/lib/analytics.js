@@ -65,3 +65,40 @@ export function trackPortfolioView(projectTitle, params = {}) {
     ...params,
   });
 }
+
+export function trackWhatsAppClick(location, params = {}) {
+  trackLead("whatsapp_click", {
+    method: "whatsapp",
+    contact_channel: "whatsapp",
+    location,
+    ...params,
+  });
+}
+
+export function trackPackageClick(packageName, params = {}) {
+  trackEvent("select_item", {
+    item_list_id: "website_packages",
+    item_list_name: "Website Packages",
+    items: [
+      {
+        item_name: packageName,
+        item_category: "package",
+      },
+    ],
+    ...params,
+  });
+}
+
+export function trackPortfolioClick(projectTitle, params = {}) {
+  trackEvent("select_item", {
+    item_list_id: "portfolio_projects",
+    item_list_name: "Portfolio Projects",
+    items: [
+      {
+        item_name: projectTitle,
+        item_category: "portfolio",
+      },
+    ],
+    ...params,
+  });
+}

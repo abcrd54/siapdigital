@@ -44,17 +44,79 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Website Company Profile Jepara untuk Furniture dan Sekolah",
-        "serviceType": "Jasa Website Company Profile Jepara",
-        "provider": {
-          "@type": "ProfessionalService",
-          "name": "siapdigital",
-          "url": "https://siapdigital.web.id/"
-        },
-        "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
-        "url": "https://siapdigital.web.id/jasa-company-profile-jepara/",
-        "description": "Jasa website company profile Jepara untuk brand dan bisnis yang membutuhkan profil usaha rapi, profesional, dan siap menjangkau audience lebih luas."
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://siapdigital.web.id/#business",
+            "name": "SiapDigital",
+            "url": "https://siapdigital.web.id/",
+            "image": "https://siapdigital.web.id/images/siapdigital-logo-360.webp",
+            "email": "siapdigital@gmail.com",
+            "telephone": "+62-895-4262-90208",
+            "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
+            "sameAs": ["https://wa.me/62895426290208"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://siapdigital.web.id/#website",
+            "url": "https://siapdigital.web.id/",
+            "name": "SiapDigital",
+            "inLanguage": "id-ID",
+            "publisher": {
+              "@id": "https://siapdigital.web.id/#business"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://siapdigital.web.id/jasa-company-profile-jepara/#webpage",
+            "url": "https://siapdigital.web.id/jasa-company-profile-jepara/",
+            "name": "Website Company Profile Jepara untuk Furniture dan Sekolah | SiapDigital",
+            "isPartOf": {
+              "@id": "https://siapdigital.web.id/#website"
+            },
+            "about": {
+              "@id": "https://siapdigital.web.id/#business"
+            },
+            "description": "Jasa website company profile Jepara untuk perusahaan, supplier, studio, sekolah, brand, dan bisnis yang ingin tampil lebih kredibel dengan profil usaha yang rapi dan mudah diakses.",
+            "inLanguage": "id-ID",
+            "breadcrumb": {
+              "@id": "https://siapdigital.web.id/jasa-company-profile-jepara/#breadcrumb"
+            },
+            "mainEntity": {
+              "@id": "https://siapdigital.web.id/jasa-company-profile-jepara/#service"
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://siapdigital.web.id/jasa-company-profile-jepara/#service",
+            "name": "Website Company Profile Jepara untuk Furniture dan Sekolah",
+            "serviceType": "Jasa Website Company Profile Jepara",
+            "provider": {
+              "@id": "https://siapdigital.web.id/#business"
+            },
+            "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
+            "url": "https://siapdigital.web.id/jasa-company-profile-jepara/",
+            "description": "Jasa website company profile Jepara untuk brand dan bisnis yang membutuhkan profil usaha rapi, profesional, dan siap menjangkau audience lebih luas."
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://siapdigital.web.id/jasa-company-profile-jepara/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://siapdigital.web.id/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Jasa Company Profile Jepara",
+                "item": "https://siapdigital.web.id/jasa-company-profile-jepara/"
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>

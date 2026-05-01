@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon, XIcon } from "../components/AppIcons";
 import OptimizedImage from "../components/OptimizedImage";
+import { trackPortfolioClick } from "../lib/analytics";
 
 function ProjectModal({ lang, selectedProject, setSelectedProject }) {
   const hasProjectLink =
@@ -64,6 +65,13 @@ function ProjectModal({ lang, selectedProject, setSelectedProject }) {
                   href={selectedProject.link}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() =>
+                    trackPortfolioClick(selectedProject.title, {
+                      portfolio_surface: "project_modal",
+                      portfolio_action: "open_project",
+                      portfolio_tag: selectedProject.tag,
+                    })
+                  }
                   className="inline-flex items-center gap-2 rounded-full bg-[#141b2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
                 >
                   {lang === "id" ? "Buka Project" : "Open Project"}

@@ -9,6 +9,7 @@ import Footer from "./sections/Footer";
 import DeferredSection from "./components/DeferredSection";
 import PageLoader from "./components/PageLoader";
 import { navItemsByLang } from "./data/content";
+import { trackPortfolioView } from "./lib/analytics";
 
 const PortfolioSection = lazy(() => import("./sections/PortfolioSection"));
 const ServicesSection = lazy(() => import("./sections/ServicesSection"));
@@ -94,6 +95,12 @@ function App({ page }) {
 
   useEffect(() => {
     if (!selectedProject) return undefined;
+
+    trackPortfolioView(selectedProject.title, {
+      item_brand: selectedProject.tag,
+      item_variant: selectedProject.year,
+      page_type: page.key,
+    });
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {

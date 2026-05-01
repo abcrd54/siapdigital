@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { XIcon } from "../components/AppIcons";
 import OptimizedImage from "../components/OptimizedImage";
 import { sharedProjectData, siteCopy } from "../data/content";
+import { trackPortfolioClick } from "../lib/analytics";
 
 const portfolioThemes = [
   "bg-[linear-gradient(180deg,#fffaf4_0%,#ffffff_100%)]",
@@ -90,7 +91,14 @@ function PortfolioBrowserModal({
               <button
                 key={project.title}
                 type="button"
-                onClick={() => setSelectedProject(project)}
+                onClick={() => {
+                  trackPortfolioClick(project.title, {
+                    portfolio_surface: "portfolio_browser",
+                    portfolio_position: index + 1,
+                    portfolio_tag: project.tag,
+                  });
+                  setSelectedProject(project);
+                }}
                 className={`group overflow-hidden border border-slate-900/8 text-left shadow-[0_18px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 ${portfolioThemes[index % portfolioThemes.length]}`}
               >
                 <div className="relative h-[280px] overflow-hidden bg-white/60">

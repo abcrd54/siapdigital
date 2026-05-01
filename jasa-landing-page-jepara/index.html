@@ -44,17 +44,79 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Jasa Landing Page Jepara",
-        "serviceType": "Jasa Landing Page Jepara",
-        "provider": {
-          "@type": "ProfessionalService",
-          "name": "siapdigital",
-          "url": "https://siapdigital.web.id/"
-        },
-        "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
-        "url": "https://siapdigital.web.id/jasa-landing-page-jepara/",
-        "description": "Jasa landing page Jepara untuk promosi jasa, produk, campaign, dan bisnis yang membutuhkan halaman fokus conversion dan siap menjangkau pasar lebih luas."
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://siapdigital.web.id/#business",
+            "name": "SiapDigital",
+            "url": "https://siapdigital.web.id/",
+            "image": "https://siapdigital.web.id/images/siapdigital-logo-360.webp",
+            "email": "siapdigital@gmail.com",
+            "telephone": "+62-895-4262-90208",
+            "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
+            "sameAs": ["https://wa.me/62895426290208"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://siapdigital.web.id/#website",
+            "url": "https://siapdigital.web.id/",
+            "name": "SiapDigital",
+            "inLanguage": "id-ID",
+            "publisher": {
+              "@id": "https://siapdigital.web.id/#business"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://siapdigital.web.id/jasa-landing-page-jepara/#webpage",
+            "url": "https://siapdigital.web.id/jasa-landing-page-jepara/",
+            "name": "Jasa Landing Page Jepara | SiapDigital",
+            "isPartOf": {
+              "@id": "https://siapdigital.web.id/#website"
+            },
+            "about": {
+              "@id": "https://siapdigital.web.id/#business"
+            },
+            "description": "Jasa landing page Jepara untuk campaign promosi, produk, jasa, dan bisnis yang membutuhkan halaman fokus conversion dengan tampilan modern, CTA jelas, dan siap menjangkau audience lebih luas.",
+            "inLanguage": "id-ID",
+            "breadcrumb": {
+              "@id": "https://siapdigital.web.id/jasa-landing-page-jepara/#breadcrumb"
+            },
+            "mainEntity": {
+              "@id": "https://siapdigital.web.id/jasa-landing-page-jepara/#service"
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://siapdigital.web.id/jasa-landing-page-jepara/#service",
+            "name": "Jasa Landing Page Jepara",
+            "serviceType": "Jasa Landing Page Jepara",
+            "provider": {
+              "@id": "https://siapdigital.web.id/#business"
+            },
+            "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
+            "url": "https://siapdigital.web.id/jasa-landing-page-jepara/",
+            "description": "Jasa landing page Jepara untuk promosi jasa, produk, campaign, dan bisnis yang membutuhkan halaman fokus conversion dan siap menjangkau pasar lebih luas."
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://siapdigital.web.id/jasa-landing-page-jepara/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://siapdigital.web.id/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Jasa Landing Page Jepara",
+                "item": "https://siapdigital.web.id/jasa-landing-page-jepara/"
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>

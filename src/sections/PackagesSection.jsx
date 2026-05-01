@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import LordIcon from "../components/LordIcon";
 import { siteCopy } from "../data/content";
+import { trackPackageClick } from "../lib/analytics";
 
 const packageCardThemes = [
   "bg-[linear-gradient(180deg,#fff7ef_0%,#fffdf8_100%)]",
@@ -87,6 +88,12 @@ function PackagesSection({ lang, onOpenTemplateList }) {
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href="#contact"
+                  onClick={() =>
+                    trackPackageClick(item.name, {
+                      package_position: index + 1,
+                      package_price: item.price,
+                    })
+                  }
                   className="inline-flex items-center gap-2 bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
                 >
                   {copy.cta}

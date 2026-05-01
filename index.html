@@ -64,38 +64,16 @@
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "WebSite",
-            "@id": "https://siapdigital.web.id/#website",
-            "url": "https://siapdigital.web.id/",
-            "name": "siapdigital",
-            "inLanguage": "id-ID",
-            "description": "Jasa website dan aplikasi untuk UMKM, brand, dan bisnis yang ingin terlihat lebih profesional, lebih dipercaya, dan lebih mudah diakses."
-          },
-          {
             "@type": "ProfessionalService",
             "@id": "https://siapdigital.web.id/#business",
-            "name": "siapdigital",
+            "name": "SiapDigital",
             "url": "https://siapdigital.web.id/",
             "description": "Jasa website, landing page, company profile, toko online, dan aplikasi custom untuk UMKM, brand, dan bisnis di Jepara, Jawa Tengah, dan seluruh Indonesia.",
             "image": "https://siapdigital.web.id/images/siapdigital-logo-360.webp",
             "email": "siapdigital@gmail.com",
             "telephone": "+62-895-4262-90208",
             "priceRange": "$$",
-            "areaServed": [
-              "Jepara",
-              "Jawa Tengah",
-              "Indonesia"
-            ],
-            "keywords": [
-              "jasa pembuatan website",
-              "jasa website profesional",
-              "jasa website UMKM",
-              "website company profile",
-              "jasa pembuatan aplikasi",
-              "jasa landing page",
-              "jasa toko online",
-              "digital solution bisnis"
-            ],
+            "areaServed": ["Jepara", "Jawa Tengah", "Indonesia"],
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Bawu RT 30 RW 06, Batealit",
@@ -108,9 +86,7 @@
               "latitude": -6.633487734087801,
               "longitude": 110.72275555814396
             },
-            "sameAs": [
-              "https://wa.me/62895426290208"
-            ],
+            "sameAs": ["https://wa.me/62895426290208"],
             "serviceType": [
               "Jasa Pembuatan Website",
               "Jasa Pembuatan Aplikasi",
@@ -118,12 +94,82 @@
               "Company Profile",
               "Toko Online",
               "Sistem Web Custom"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Paket Website & Digital Solution",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "price": "500000",
+                  "priceCurrency": "IDR",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Paket Launch"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "price": "900000",
+                  "priceCurrency": "IDR",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Paket Growth"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "price": "1500000",
+                  "priceCurrency": "IDR",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Paket Prime"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://siapdigital.web.id/#website",
+            "url": "https://siapdigital.web.id/",
+            "name": "SiapDigital",
+            "inLanguage": "id-ID",
+            "description": "Jasa website dan aplikasi untuk UMKM, brand, dan bisnis yang ingin terlihat lebih profesional, lebih dipercaya, dan lebih mudah diakses.",
+            "publisher": {
+              "@id": "https://siapdigital.web.id/#business"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://siapdigital.web.id/#webpage",
+            "url": "https://siapdigital.web.id/",
+            "name": "Jasa Website dan Aplikasi untuk UMKM, Brand, dan Bisnis | SiapDigital",
+            "isPartOf": {
+              "@id": "https://siapdigital.web.id/#website"
+            },
+            "about": {
+              "@id": "https://siapdigital.web.id/#business"
+            },
+            "description": "SiapDigital membantu UMKM, brand, dan bisnis membangun website, landing page, company profile, toko online, dan aplikasi custom agar terlihat lebih profesional, lebih dipercaya, dan lebih mudah diakses.",
+            "inLanguage": "id-ID",
+            "breadcrumb": {
+              "@id": "https://siapdigital.web.id/#breadcrumb"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://siapdigital.web.id/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://siapdigital.web.id/"
+              }
             ]
           }
-        ],
-        "publisher": {
-          "@id": "https://siapdigital.web.id/#business"
-        }
+        ]
       }
     </script>
   </head>
