@@ -47,30 +47,32 @@ function PortfolioSection({ lang, onOpenPortfolioBrowser, setSelectedProject }) 
           </p>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          {projectTags.map((tag, index) => {
-            const isActive = activeProjectTag === tag;
+        <div className="mobile-scroll-hidden -mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <div className="flex min-w-max gap-3 pb-2 sm:flex-wrap">
+            {projectTags.map((tag, index) => {
+              const isActive = activeProjectTag === tag;
 
-            return (
-              <button
-                key={tag}
-                type="button"
-                data-aos="fade-up"
-                data-aos-delay={index * 40}
-                onClick={() => setActiveProjectTag(tag)}
-                className={`border px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition ${
-                  isActive
-                    ? "border-ink bg-ink text-white"
-                    : "border-slate-900/8 bg-white text-muted hover:text-ink"
-                }`}
-              >
-                {tag}
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={tag}
+                  type="button"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 40}
+                  onClick={() => setActiveProjectTag(tag)}
+                  className={`shrink-0 border px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition ${
+                    isActive
+                      ? "border-ink bg-ink text-white"
+                      : "border-slate-900/8 bg-white text-muted hover:text-ink"
+                  }`}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <button
               key={project.title}
@@ -87,8 +89,8 @@ function PortfolioSection({ lang, onOpenPortfolioBrowser, setSelectedProject }) 
               }}
               className={`group overflow-hidden border border-slate-900/8 text-left shadow-[0_18px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 ${portfolioThemes[index % portfolioThemes.length]}`}
             >
-              <div className="relative h-[280px] overflow-hidden bg-white/60">
-                <div className="flex h-full w-full items-center justify-center p-5">
+              <div className="relative h-[180px] overflow-hidden bg-white/60 sm:h-[240px] xl:h-[280px]">
+                <div className="flex h-full w-full items-center justify-center p-3 sm:p-5">
                   <OptimizedImage
                     src={project.image}
                     alt={project.title}
@@ -99,23 +101,25 @@ function PortfolioSection({ lang, onOpenPortfolioBrowser, setSelectedProject }) 
                   />
                 </div>
 
-                <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
-                  <span className="border border-white/10 bg-white/90 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+                <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3 sm:p-5">
+                  <span className="border border-white/10 bg-white/90 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em]">
                     {project.tag}
                   </span>
-                  <span className="bg-[#141b2b]/86 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+                  <span className="bg-[#141b2b]/86 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em]">
                     {project.year}
                   </span>
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-6">
-                <h3 className="font-display text-2xl font-bold tracking-[-0.04em] text-ink">
+              <div className="px-4 pb-4 pt-4 sm:px-6 sm:pb-6 sm:pt-6">
+                <h3 className="font-display text-lg font-bold tracking-[-0.04em] text-ink sm:text-2xl">
                   {project.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-muted">{project.summary[lang]}</p>
+                <p className="mt-3 line-clamp-3 text-xs leading-6 text-muted sm:mt-4 sm:text-sm sm:leading-7">
+                  {project.summary[lang]}
+                </p>
 
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                <div className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-primary sm:mt-6 sm:text-sm">
                   {copy.demoLabel}
                   <ArrowUpRight size={15} />
                 </div>

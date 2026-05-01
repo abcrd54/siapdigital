@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { siteCopy } from "../data/content";
 
-function FaqSection({ lang }) {
+function FaqSection({ lang, page }) {
   const [openFaq, setOpenFaq] = useState(0);
-  const copy = siteCopy[lang];
-  const faqs = copy.faqs.slice(0, 4);
+  const pageCopy = page.sectionOverrides?.[lang];
+  const copy = {
+    ...siteCopy[lang],
+    faqIntro: pageCopy?.faqIntro ?? siteCopy[lang].faqIntro,
+  };
+  const faqs = (pageCopy?.faqs ?? siteCopy[lang].faqs).slice(0, 4);
 
   useEffect(() => {
     setOpenFaq(0);

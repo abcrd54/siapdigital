@@ -723,7 +723,7 @@ export const sharedProjectData = {
       {
         name: "Dimas Pratama",
         role: "Founder",
-        company: "Studio Meraki",
+        company: "Batik Larasati",
         location: "Jepara",
         projectType: "Website Studio Kreatif",
         focus: "Company profile dan presentasi layanan",
@@ -734,7 +734,7 @@ export const sharedProjectData = {
       {
         name: "Nadia Kurnia",
         role: "Creative Lead",
-        company: "Homa",
+        company: "Dapur Homa",
         location: "Semarang",
         projectType: "Landing Page Brand",
         focus: "Visual brand dan penyederhanaan pesan",
@@ -745,7 +745,7 @@ export const sharedProjectData = {
       {
         name: "Rizky Ananta",
         role: "Product Designer",
-        company: "Konsultan Produk Digital",
+        company: "Toko Rizky Jaya",
         location: "Yogyakarta",
         projectType: "Website Portofolio Profesional",
         focus: "Struktur halaman dan first impression",
@@ -756,7 +756,7 @@ export const sharedProjectData = {
       {
         name: "Tasha Livia",
         role: "Brand Strategist",
-        company: "Livia Consulting",
+        company: "Livia Hijab",
         location: "Bandung",
         projectType: "Landing Page Jasa",
         focus: "Optimasi tampilan mobile",
@@ -767,7 +767,7 @@ export const sharedProjectData = {
       {
         name: "Bayu Mahesa",
         role: "Independent Developer",
-        company: "Bayu Build",
+        company: "Bayu Mebel",
         location: "Solo",
         projectType: "Website Service Profile",
         focus: "Penerjemahan kebutuhan ke struktur halaman",
@@ -778,7 +778,7 @@ export const sharedProjectData = {
       {
         name: "Alicia Dewi",
         role: "Marketing Director",
-        company: "Arunika Properti",
+        company: "Arunika Florist",
         location: "Surabaya",
         projectType: "Website Presentasi Bisnis",
         focus: "Kredibilitas brand untuk presentasi dan promosi",
@@ -791,7 +791,7 @@ export const sharedProjectData = {
       {
         name: "Dimas Pratama",
         role: "Founder",
-        company: "Studio Meraki",
+        company: "Batik Larasati",
         location: "Jepara",
         projectType: "Creative Studio Website",
         focus: "Company profile and service presentation",
@@ -802,7 +802,7 @@ export const sharedProjectData = {
       {
         name: "Nadia Kurnia",
         role: "Creative Lead",
-        company: "Homa",
+        company: "Dapur Homa",
         location: "Semarang",
         projectType: "Brand Landing Page",
         focus: "Brand visual direction and message clarity",
@@ -813,7 +813,7 @@ export const sharedProjectData = {
       {
         name: "Rizky Ananta",
         role: "Product Designer",
-        company: "Digital Product Consultant",
+        company: "Toko Rizky Jaya",
         location: "Yogyakarta",
         projectType: "Professional Portfolio Website",
         focus: "Page structure and first impression",
@@ -824,7 +824,7 @@ export const sharedProjectData = {
       {
         name: "Tasha Livia",
         role: "Brand Strategist",
-        company: "Livia Consulting",
+        company: "Livia Hijab",
         location: "Bandung",
         projectType: "Service Landing Page",
         focus: "Mobile-first presentation",
@@ -835,7 +835,7 @@ export const sharedProjectData = {
       {
         name: "Bayu Mahesa",
         role: "Independent Developer",
-        company: "Bayu Build",
+        company: "Bayu Mebel",
         location: "Solo",
         projectType: "Service Profile Website",
         focus: "Translating requirements into page structure",
@@ -846,7 +846,7 @@ export const sharedProjectData = {
       {
         name: "Alicia Dewi",
         role: "Marketing Director",
-        company: "Arunika Properti",
+        company: "Arunika Florist",
         location: "Surabaya",
         projectType: "Business Presentation Website",
         focus: "Brand credibility for meetings and promotion",

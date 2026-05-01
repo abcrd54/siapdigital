@@ -212,6 +212,7 @@ function App({ page }) {
           <Suspense fallback={null}>
             <PackagesSection
               lang={lang}
+              page={page}
               onOpenTemplateList={() => setTemplateListOpen(true)}
             />
           </Suspense>
@@ -219,7 +220,7 @@ function App({ page }) {
 
         <DeferredSection id="services" minHeightClass="min-h-[760px] bg-surface-low">
           <Suspense fallback={null}>
-            <ServicesSection lang={lang} />
+            <ServicesSection lang={lang} page={page} />
           </Suspense>
         </DeferredSection>
 
@@ -241,19 +242,19 @@ function App({ page }) {
 
         <DeferredSection id="faq" minHeightClass="min-h-[620px]">
           <Suspense fallback={null}>
-            <FaqSection lang={lang} />
+            <FaqSection lang={lang} page={page} />
           </Suspense>
         </DeferredSection>
 
         <DeferredSection id="about" minHeightClass="min-h-[760px]">
           <Suspense fallback={null}>
-            <AboutSection lang={lang} />
+            <AboutSection lang={lang} page={page} />
           </Suspense>
         </DeferredSection>
 
         <DeferredSection id="contact" minHeightClass="min-h-[320px]">
           <Suspense fallback={null}>
-            <ContactSection lang={lang} />
+            <ContactSection lang={lang} page={page} />
           </Suspense>
         </DeferredSection>
       </main>

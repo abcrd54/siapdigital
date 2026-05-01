@@ -68,16 +68,10 @@ const flowIcons = [
     state: "hover-rotate",
   },
 ];
-const flowThemes = [
-  "bg-[linear-gradient(180deg,#fff8ef_0%,#ffffff_100%)]",
-  "bg-[linear-gradient(180deg,#f6f2ff_0%,#ffffff_100%)]",
-  "bg-[linear-gradient(180deg,#eefaf5_0%,#ffffff_100%)]",
-  "bg-[linear-gradient(180deg,#fff2f5_0%,#ffffff_100%)]",
-];
-
-function ServicesSection({ lang }) {
-  const copy = siteCopy[lang].services;
-  const orderFlow = siteCopy[lang].orderFlow;
+function ServicesSection({ lang, page }) {
+  const pageCopy = page.sectionOverrides?.[lang];
+  const copy = pageCopy?.services ?? siteCopy[lang].services;
+  const orderFlow = pageCopy?.orderFlow ?? siteCopy[lang].orderFlow;
 
   return (
     <section className="border-y border-slate-900/8 bg-surface-low px-4 py-20 sm:px-6 lg:px-10">
@@ -97,9 +91,7 @@ function ServicesSection({ lang }) {
             data-aos-delay="80"
             className="max-w-2xl self-end text-base leading-8 text-muted sm:text-lg"
           >
-            {lang === "id"
-              ? "Section ini saya sederhanakan supaya orang langsung paham value SiapDigital tanpa harus membaca terlalu banyak panel teknis."
-              : "This section is simplified so people can understand SiapDigital's value immediately without reading too many technical panels."}
+            {copy.body}
           </p>
         </div>
 
@@ -175,30 +167,32 @@ function ServicesSection({ lang }) {
                   style={{ zIndex: orderFlow.items.length - index }}
                 >
                   <article
-                    className={`relative z-0 h-full border border-slate-900/8 px-6 pb-6 pt-10 text-center shadow-[0_18px_40px_rgba(15,23,42,0.05)] ${flowThemes[index % flowThemes.length]}`}
+                    className="floating-slab relative z-0 h-full"
                   >
-                    <span className="order-flow-badge absolute left-1/2 top-6 z-20 inline-flex h-14 w-14 -translate-x-[48%] -translate-y-1/2 items-center justify-center rounded-full border border-slate-900/8 bg-white text-base font-bold text-primary shadow-[0_12px_24px_rgba(15,23,42,0.08)]">
-                      {item.step}
-                    </span>
+                    <div className="floating-slab-panel h-full bg-white px-6 pb-6 pt-10 text-center text-ink">
+                      <span className="order-flow-badge absolute left-1/2 top-6 z-20 inline-flex h-14 w-14 items-center justify-center rounded-full border border-slate-900/8 bg-white text-base font-bold text-primary shadow-[0_12px_24px_rgba(15,23,42,0.08)]">
+                        {item.step}
+                      </span>
 
-                    <div className="flex justify-center">
-                      <div className="inline-flex items-center justify-center text-ink">
-                        <LordIcon
-                          src={icon.src}
-                          size={62}
-                          trigger="in-reveal"
-                          colors={icon.colors}
-                          state={icon.state}
-                        />
+                      <div className="flex justify-center">
+                        <div className="inline-flex items-center justify-center text-ink">
+                          <LordIcon
+                            src={icon.src}
+                            size={62}
+                            trigger="in-reveal"
+                            colors={icon.colors}
+                            state={icon.state}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <h4 className="mt-5 font-display text-[2rem] font-bold tracking-[-0.05em] text-ink">
-                      {item.title}
-                    </h4>
-                    <p className="mt-4 text-sm leading-7 text-muted">
-                      {item.body}
-                    </p>
+                      <h4 className="mt-5 font-display text-[2rem] font-bold tracking-[-0.05em] text-ink">
+                        {item.title}
+                      </h4>
+                      <p className="mt-4 text-sm leading-7 text-muted">
+                        {item.body}
+                      </p>
+                    </div>
                   </article>
 
                   {hasNext ? (

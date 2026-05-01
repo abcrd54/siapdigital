@@ -3,8 +3,8 @@ import WhatsAppIcon from "../components/WhatsAppIcon";
 import { siteCopy } from "../data/content";
 import { trackWhatsAppClick } from "../lib/analytics";
 
-function ContactSection({ lang }) {
-  const copy = siteCopy[lang].contact;
+function ContactSection({ lang, page }) {
+  const copy = page.sectionOverrides?.[lang]?.contact ?? siteCopy[lang].contact;
 
   return (
     <section className="px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pb-24">

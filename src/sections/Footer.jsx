@@ -49,7 +49,7 @@ function Footer({ isPortfolioPage, lang }) {
 
   return (
     <>
-      <footer className="relative overflow-hidden border-t border-white/10 bg-[linear-gradient(180deg,#0d1830_0%,#132447_58%,#11213f_100%)] px-4 pt-14 pb-6 text-white sm:px-6 lg:px-8">
+      <footer className="relative overflow-hidden border-t border-white/10 bg-[linear-gradient(180deg,#0d1830_0%,#132447_58%,#11213f_100%)] px-4 pt-10 pb-6 text-white sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-80">
           <div className="absolute left-[-6%] top-0 h-56 w-56 rounded-full bg-[#1d4ed8]/22 blur-3xl" />
           <div className="absolute bottom-[-4rem] right-[-3%] h-64 w-64 rounded-full bg-[#0ea5a4]/12 blur-3xl" />
@@ -58,14 +58,7 @@ function Footer({ isPortfolioPage, lang }) {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1.28fr_0.82fr_0.82fr_1fr]">
             <div>
-              <div className="inline-flex items-center gap-2 border border-white/12 bg-white/6 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/72">
-                <MapPin size={13} />
-                {lang === "id"
-                  ? "Melayani Seluruh Indonesia"
-                  : "Serving All Indonesia"}
-              </div>
-
-              <div className="mt-5">
+              <div>
                 <OptimizedPicture
                   src="/images/siapdigital-logo-180.webp"
                   srcSet="/images/siapdigital-logo-180.webp 180w, /images/siapdigital-logo-360.webp 360w"

@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { AnimatedMailIcon, AnimatedMapPinIcon } from "../components/AppIcons";
 import LordIcon from "../components/LordIcon";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import { siteCopy } from "../data/content";
 import { trackWhatsAppClick } from "../lib/analytics";
 
-function AboutSection({ lang }) {
-  const copy = siteCopy[lang].about;
+function AboutSection({ lang, page }) {
+  const copy = page.sectionOverrides?.[lang]?.about ?? siteCopy[lang].about;
+  const [isMapLoading, setIsMapLoading] = useState(true);
 
   return (
     <section className="border-y border-slate-900/8 bg-surface px-4 py-20 sm:px-6 lg:px-10">
@@ -108,11 +110,25 @@ function AboutSection({ lang }) {
               className="grid items-stretch gap-5 border border-slate-900/8 bg-white p-5 shadow-[0_20px_48px_rgba(15,23,42,0.06)] lg:grid-cols-[1.08fr_0.92fr]"
             >
               <div className="relative min-h-[320px] overflow-hidden border border-slate-900/8 bg-surface-low lg:min-h-full">
+                {isMapLoading ? (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[linear-gradient(180deg,rgba(243,246,251,0.96)_0%,rgba(234,240,248,0.96)_100%)] px-6 text-center">
+                    <div className="map-spinner h-10 w-10 rounded-full border-2 border-primary/20 border-t-primary" />
+                    <p className="mt-5 font-display text-2xl font-bold tracking-[-0.04em] text-ink">
+                      {copy.mapLoadingTitle}
+                    </p>
+                    <p className="mt-3 max-w-sm text-sm leading-7 text-muted">
+                      {copy.mapLoadingBody}
+                    </p>
+                  </div>
+                ) : null}
                 <iframe
                   title="Google Maps location"
                   src="https://www.google.com/maps?q=SiapDigital&ll=-6.6335129,110.7227586&z=17&output=embed"
-                  className="h-full min-h-[320px] w-full"
+                  className={`h-full min-h-[320px] w-full transition-opacity duration-500 ${
+                    isMapLoading ? "opacity-0" : "opacity-100"
+                  }`}
                   loading="lazy"
+                  onLoad={() => setIsMapLoading(false)}
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>

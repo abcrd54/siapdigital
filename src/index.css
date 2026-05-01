@@ -1,542 +1,615 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
-  --font-body:
-    "Segoe UI", "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
+    --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+    --font-body:
+        "Segoe UI", "Helvetica Neue", Arial, system-ui, -apple-system,
+        sans-serif;
 
-  --color-background: #f3f6fb;
-  --color-surface: #ffffff;
-  --color-surface-low: #eaf0f8;
-  --color-surface-mid: #dfe8f4;
-  --color-surface-high: #d3deee;
-  --color-surface-deep: #0f172a;
-  --color-primary: #0f5bd8;
-  --color-primary-strong: #1d4ed8;
-  --color-accent: #0ea5a4;
-  --color-ink: #0f172a;
-  --color-muted: #475569;
+    --color-background: #f3f6fb;
+    --color-surface: #ffffff;
+    --color-surface-low: #eaf0f8;
+    --color-surface-mid: #dfe8f4;
+    --color-surface-high: #d3deee;
+    --color-surface-deep: #0f172a;
+    --color-primary: #0f5bd8;
+    --color-primary-strong: #1d4ed8;
+    --color-accent: #0ea5a4;
+    --color-ink: #0f172a;
+    --color-muted: #475569;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-body);
-  background:
-    radial-gradient(circle at top left, rgba(15, 91, 216, 0.12), transparent 30%),
-    radial-gradient(circle at top right, rgba(14, 165, 164, 0.1), transparent 24%),
-    linear-gradient(180deg, #fbfdff 0%, #f3f6fb 100%);
-  color: var(--color-ink);
+    font-family: var(--font-body);
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(15, 91, 216, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at top right,
+            rgba(14, 165, 164, 0.1),
+            transparent 24%
+        ),
+        linear-gradient(180deg, #fbfdff 0%, #f3f6fb 100%);
+    color: var(--color-ink);
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ::selection {
-  background: var(--color-primary-strong);
-  color: white;
+    background: var(--color-primary-strong);
+    color: white;
 }
 
 .liquid-button {
-  background: linear-gradient(135deg, #0f172a 0%, var(--color-primary) 100%);
+    background: linear-gradient(135deg, #0f172a 0%, var(--color-primary) 100%);
 }
 
 .hero-illustration-shell,
 .reason-icon-shell {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-illustration-shell {
   animation: float-card 7s ease-in-out infinite;
 }
 
+.hero-product-frame {
+  border-radius: 0.85rem;
+}
+
+.floating-slab {
+  isolation: isolate;
+  overflow: visible;
+  border-radius: 0.8rem;
+}
+
+.floating-slab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: linear-gradient(180deg, rgba(68, 78, 96, 0.98), rgba(33, 41, 56, 0.98));
+  border-radius: 0.8rem;
+  transform: translate(12px, 12px);
+}
+
+.floating-slab::after {
+  content: "";
+  position: absolute;
+  inset: 20% 12% -14%;
+  z-index: -3;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.18), transparent 72%);
+  filter: blur(18px);
+}
+
+.floating-slab-panel {
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 0.8rem;
+}
+
 .hero-illustration-shell::after {
   content: "";
   position: absolute;
-  inset: 12% 8% 10%;
-  z-index: 0;
-  background: radial-gradient(circle, rgba(77, 121, 255, 0.34), transparent 68%);
+    inset: 12% 8% 10%;
+    z-index: 0;
+    background: radial-gradient(
+        circle,
+        rgba(77, 121, 255, 0.34),
+        transparent 68%
+    );
   filter: blur(38px);
 }
 
+@media (max-width: 1023px) {
+  .hero-illustration-shell::after {
+    inset: 12% 10% 8%;
+    background: radial-gradient(circle, rgba(77, 121, 255, 0.18), transparent 70%);
+    filter: blur(24px);
+  }
+}
+
 .reason-icon-shell {
-  border-radius: 1.2rem;
+    border-radius: 1.2rem;
 }
 
 .reason-glow {
-  opacity: 0.34;
+    opacity: 0.34;
 }
 
 .whatsapp-floater {
-  animation: whatsapp-pop 2.6s ease-in-out infinite;
+    animation: whatsapp-pop 2.6s ease-in-out infinite;
 }
 
 .whatsapp-icon-animated {
-  animation: whatsapp-icon-float 2.9s ease-in-out infinite;
+    animation: whatsapp-icon-float 2.9s ease-in-out infinite;
 }
 
 .order-flow-badge {
-  animation: order-badge-pop 3.2s ease-in-out infinite;
+    animation: order-badge-pop 3.2s ease-in-out infinite;
 }
 
 .map-pin-animated {
-  animation: map-pin-float 2.8s ease-in-out infinite;
+    animation: map-pin-float 2.8s ease-in-out infinite;
 }
 
 .mail-icon-animated {
-  animation: mail-icon-float 3.1s ease-in-out infinite;
+    animation: mail-icon-float 3.1s ease-in-out infinite;
 }
 
 .mail-icon-core {
-  overflow: visible;
+    overflow: visible;
 }
 
 .whatsapp-icon-core {
-  transform-origin: center center;
-  animation: whatsapp-icon-sway 2.9s ease-in-out infinite;
+    transform-origin: center center;
+    animation: whatsapp-icon-sway 2.9s ease-in-out infinite;
 }
 
 .whatsapp-icon-ring {
-  animation: whatsapp-icon-ring 2.9s ease-out infinite;
+    animation: whatsapp-icon-ring 2.9s ease-out infinite;
 }
 
 .whatsapp-icon-glow {
-  animation: whatsapp-icon-glow 2.9s ease-in-out infinite;
+    animation: whatsapp-icon-glow 2.9s ease-in-out infinite;
 }
 
 .mail-icon-ring {
-  animation: mail-icon-ring 3.1s ease-out infinite;
+    animation: mail-icon-ring 3.1s ease-out infinite;
 }
 
 .mail-icon-glow {
-  animation: mail-icon-glow 3.1s ease-in-out infinite;
+    animation: mail-icon-glow 3.1s ease-in-out infinite;
 }
 
 .mail-icon-letter {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  animation: mail-letter-rise 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: mail-letter-rise 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .mail-icon-letter-line {
-  transform-box: fill-box;
-  transform-origin: center center;
-  animation: mail-letter-rise 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    transform-box: fill-box;
+    transform-origin: center center;
+    animation: mail-letter-rise 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .mail-icon-flap {
-  transform-box: fill-box;
-  transform-origin: center top;
-  animation: mail-flap-open 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    transform-box: fill-box;
+    transform-origin: center top;
+    animation: mail-flap-open 3.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .mail-icon-spark {
-  animation: mail-sparkle 3.1s ease-out infinite;
+    animation: mail-sparkle 3.1s ease-out infinite;
 }
 
 .mail-icon-spark-two {
-  animation-delay: 0.24s;
+    animation-delay: 0.24s;
 }
 
 .map-pin-core {
-  transform-origin: center 78%;
-  animation: map-pin-sway 2.8s ease-in-out infinite;
+    transform-origin: center 78%;
+    animation: map-pin-sway 2.8s ease-in-out infinite;
 }
 
 .map-pin-ring {
-  animation: map-pin-ring 2.8s ease-out infinite;
+    animation: map-pin-ring 2.8s ease-out infinite;
 }
 
 .map-pin-dot {
-  animation: map-pin-shadow 2.8s ease-in-out infinite;
+    animation: map-pin-shadow 2.8s ease-in-out infinite;
 }
 
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 28px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+    from {
+        opacity: 0;
+        transform: translate3d(0, 28px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 @keyframes loader-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.06);
-  }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.06);
+    }
 }
 
 @keyframes loader-progress {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes float-card {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -10px, 0);
-  }
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -10px, 0);
+    }
 }
 
 @keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.08);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-  }
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.08);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
 }
 
 @keyframes whatsapp-pop {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -5px, 0) scale(1.04);
-  }
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -5px, 0) scale(1.04);
+    }
 }
 
 @keyframes whatsapp-icon-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -3px, 0);
-  }
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -3px, 0);
+    }
 }
 
 @keyframes whatsapp-icon-sway {
-  0%,
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-  22% {
-    transform: rotate(-4deg) scale(1.02);
-  }
-  48% {
-    transform: rotate(3deg) scale(1.04);
-  }
-  72% {
-    transform: rotate(-2deg) scale(1.01);
-  }
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+    22% {
+        transform: rotate(-4deg) scale(1.02);
+    }
+    48% {
+        transform: rotate(3deg) scale(1.04);
+    }
+    72% {
+        transform: rotate(-2deg) scale(1.01);
+    }
 }
 
 @keyframes whatsapp-icon-ring {
-  0%,
-  100% {
-    transform: scale(0.94);
-    opacity: 0.36;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 0.08;
-  }
+    0%,
+    100% {
+        transform: scale(0.94);
+        opacity: 0.36;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.08;
+    }
 }
 
 @keyframes whatsapp-icon-glow {
-  0%,
-  100% {
-    opacity: 0.32;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 0.18;
-    transform: scale(1.08);
-  }
+    0%,
+    100% {
+        opacity: 0.32;
+        transform: scale(0.92);
+    }
+    50% {
+        opacity: 0.18;
+        transform: scale(1.08);
+    }
 }
 
 @keyframes order-badge-pop {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.08);
-  }
+    0%,
+    100% {
+        transform: translate(-45%, -85%) scale(1);
+    }
+    50% {
+        transform: translate(-45%, -80%) scale(1.08);
+    }
 }
 
 @keyframes map-pin-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -4px, 0);
-  }
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -4px, 0);
+    }
 }
 
 @keyframes mail-icon-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -3px, 0);
-  }
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -3px, 0);
+    }
 }
 
 @keyframes mail-letter-rise {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.88;
-  }
-  18% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.88;
-  }
-  42% {
-    transform: translate3d(0, -7px, 0);
-    opacity: 1;
-  }
-  62% {
-    transform: translate3d(0, -4px, 0);
-    opacity: 1;
-  }
-  80% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.9;
-  }
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.88;
+    }
+    18% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.88;
+    }
+    42% {
+        transform: translate3d(0, -7px, 0);
+        opacity: 1;
+    }
+    62% {
+        transform: translate3d(0, -4px, 0);
+        opacity: 1;
+    }
+    80% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
 }
 
 @keyframes mail-flap-open {
-  0%,
-  100% {
-    transform: rotateX(0deg);
-  }
-  22% {
-    transform: rotateX(0deg);
-  }
-  40% {
-    transform: translateY(-1px) rotateX(18deg);
-  }
-  62% {
-    transform: translateY(-0.5px) rotateX(6deg);
-  }
-  80% {
-    transform: rotateX(0deg);
-  }
+    0%,
+    100% {
+        transform: rotateX(0deg);
+    }
+    22% {
+        transform: rotateX(0deg);
+    }
+    40% {
+        transform: translateY(-1px) rotateX(18deg);
+    }
+    62% {
+        transform: translateY(-0.5px) rotateX(6deg);
+    }
+    80% {
+        transform: rotateX(0deg);
+    }
 }
 
 @keyframes mail-icon-ring {
-  0% {
-    opacity: 0.12;
-    transform: scale(0.82);
-  }
-  55% {
-    opacity: 0;
-    transform: scale(1.12);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.12);
-  }
+    0% {
+        opacity: 0.12;
+        transform: scale(0.82);
+    }
+    55% {
+        opacity: 0;
+        transform: scale(1.12);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.12);
+    }
 }
 
 @keyframes mail-icon-glow {
-  0%,
-  100% {
-    opacity: 0.42;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 0.72;
-    transform: scale(1.05);
-  }
+    0%,
+    100% {
+        opacity: 0.42;
+        transform: scale(0.92);
+    }
+    50% {
+        opacity: 0.72;
+        transform: scale(1.05);
+    }
 }
 
 @keyframes mail-sparkle {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.7);
-  }
-  22% {
-    opacity: 0;
-    transform: scale(0.7);
-  }
-  38% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  55% {
-    opacity: 0.2;
-    transform: scale(1.16);
-  }
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    22% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    38% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    55% {
+        opacity: 0.2;
+        transform: scale(1.16);
+    }
 }
 
 @keyframes map-pin-sway {
-  0%,
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    transform: rotate(-4deg) scale(1.02);
-  }
-  75% {
-    transform: rotate(4deg) scale(1.02);
-  }
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-4deg) scale(1.02);
+    }
+    75% {
+        transform: rotate(4deg) scale(1.02);
+    }
 }
 
 @keyframes map-pin-ring {
-  0% {
-    opacity: 0.16;
-    transform: scale(0.78);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(1.16);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.16);
-  }
+    0% {
+        opacity: 0.16;
+        transform: scale(0.78);
+    }
+    70% {
+        opacity: 0;
+        transform: scale(1.16);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.16);
+    }
 }
 
 @keyframes map-pin-shadow {
-  0%,
-  100% {
-    transform: scale(0.92);
-    opacity: 0.18;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.28;
-  }
+    0%,
+    100% {
+        transform: scale(0.92);
+        opacity: 0.18;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.28;
+    }
 }
 
 .enter-up {
-  opacity: 0;
-  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .loader-mark {
-  animation: loader-pulse 1.3s ease-in-out infinite;
+    animation: loader-pulse 1.3s ease-in-out infinite;
 }
 
 .loader-bar span {
-  width: 58%;
-  animation: loader-progress 1.15s ease-in-out infinite;
+    width: 58%;
+    animation: loader-progress 1.15s ease-in-out infinite;
 }
 
 .map-spinner {
-  animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
 }
 
 .reveal-motion {
-  opacity: 0;
-  --reveal-x: 0;
-  --reveal-y: 32px;
-  --reveal-scale: 1;
-  transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
-  transition:
-    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.3s ease;
-  will-change: opacity, transform;
+    opacity: 0;
+    --reveal-x: 0;
+    --reveal-y: 32px;
+    --reveal-scale: 1;
+    transform: translate3d(var(--reveal-x), var(--reveal-y), 0)
+        scale(var(--reveal-scale));
+    transition:
+        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.3s ease;
+    will-change: opacity, transform;
 }
 
 .reveal-left {
-  --reveal-x: -38px;
-  --reveal-y: 0;
+    --reveal-x: -38px;
+    --reveal-y: 0;
 }
 
 .reveal-right {
-  --reveal-x: 38px;
-  --reveal-y: 0;
+    --reveal-x: 38px;
+    --reveal-y: 0;
 }
 
 .reveal-motion.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  will-change: auto;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
 }
 
 .shine-sweep {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .shine-sweep::after {
-  content: "";
-  position: absolute;
-  inset: -40% auto -40% -70%;
-  width: 45%;
-  transform: skewX(-18deg);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
-  transition: transform 0.72s ease;
+    content: "";
+    position: absolute;
+    inset: -40% auto -40% -70%;
+    width: 45%;
+    transform: skewX(-18deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.42),
+        transparent
+    );
+    transition: transform 0.72s ease;
 }
 
 .shine-sweep:hover::after {
-  transform: translateX(380%) skewX(-18deg);
+    transform: translateX(380%) skewX(-18deg);
+}
+
+.mobile-scroll-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.mobile-scroll-hidden::-webkit-scrollbar {
+    display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+    html {
+        scroll-behavior: auto;
+    }
 
-  .enter-up,
-  .loader-mark,
-  .loader-bar span,
-  .map-spinner,
-  .mail-icon-animated,
-  .mail-icon-ring,
-  .mail-icon-glow,
-  .mail-icon-letter,
-  .mail-icon-letter-line,
-  .mail-icon-flap,
-  .mail-icon-spark,
-  .map-pin-animated,
-  .map-pin-core,
-  .map-pin-ring,
-  .map-pin-dot,
-  .hero-illustration-shell,
-  .reason-icon-shell,
-  .whatsapp-floater {
-    animation: none !important;
-    opacity: 1;
-    transform: none;
-  }
+    .enter-up,
+    .loader-mark,
+    .loader-bar span,
+    .map-spinner,
+    .mail-icon-animated,
+    .mail-icon-ring,
+    .mail-icon-glow,
+    .mail-icon-letter,
+    .mail-icon-letter-line,
+    .mail-icon-flap,
+    .mail-icon-spark,
+    .map-pin-animated,
+    .map-pin-core,
+    .map-pin-ring,
+    .map-pin-dot,
+    .hero-illustration-shell,
+    .reason-icon-shell,
+    .whatsapp-floater {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
 
-  .order-flow-badge {
-    animation: none !important;
-  }
+    .order-flow-badge {
+        animation: none !important;
+    }
 
-  .reveal-motion,
-  .reveal-motion.is-visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+    .reveal-motion,
+    .reveal-motion.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 
-  .shine-sweep::after {
-    display: none;
-  }
+    .shine-sweep::after {
+        display: none;
+    }
 }
