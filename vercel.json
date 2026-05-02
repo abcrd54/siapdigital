@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/download/siapguru-latest",
+      "destination": "https://github.com/abcrd54/siapguru/releases/download/v1.0.0/Setup-SiapGuru-1.0.0.exe",
+      "statusCode": 308
+    },
+    {
+      "source": "/download/siapguru-1.0.0",
+      "destination": "https://github.com/abcrd54/siapguru/releases/download/v1.0.0/Setup-SiapGuru-1.0.0.exe",
+      "statusCode": 308
+    }
+  ]
+}
