@@ -22,94 +22,82 @@ export const navItemsByLang = {
 export const siteCopy = {
   id: {
     heroStats: [
-      { value: "6+", label: "tahun pengalaman di website dan sistem" },
-      { value: "27+", label: "project digital pernah dikerjakan" },
-      { value: "12+", label: "brand dan bisnis pernah dibantu" },
+      { value: "6+", label: "tahun pengalaman" },
+      { value: "27+", label: "project dikerjakan" },
+      { value: "12+", label: "brand dibantu" },
     ],
     portfolio: {
       eyebrow: "Portfolio",
-      title: "Contoh project yang membantu brand tampil lebih profesional dan lebih meyakinkan.",
-      body:
-        "Project di bawah ini menunjukkan bagaimana website, landing page, dan sistem yang rapi bisa membuat brand lebih mudah dipahami, lebih dipercaya, dan lebih siap dipresentasikan ke customer.",
+      title: "Project pilihan dari SiapDigital.",
+      body: "Website, landing page, dan sistem untuk berbagai kebutuhan bisnis.",
       demoLabel: "Demo",
       filterAll: "Semua",
       moreLabel: "Lihat Selengkapnya",
     },
     services: {
       eyebrow: "Kenapa Harus SiapDigital",
-      title: "Empat alasan kenapa website dan aplikasi yang rapi bisa mengangkat citra brand bisnis kamu.",
+      title: "Empat alasan memilih SiapDigital.",
       items: [
         {
           title: "Harga Terbaik",
-          body:
-            "Scope dibuat jelas dari awal supaya kamu tahu apa yang dibangun dan bagaimana hasilnya akan mendukung citra brand secara lebih profesional.",
+          body: "Scope jelas sejak awal.",
         },
         {
           title: "Pengerjaan Cepat",
-          body:
-            "Project dikerjakan dengan alur ringkas agar brand bisa lebih cepat online, lebih cepat terlihat serius, dan lebih cepat dipakai untuk promosi.",
+          body: "Proses ringkas dan efisien.",
         },
         {
           title: "Konsultasi Gratis",
-          body:
-            "Kamu bisa diskusi kebutuhan dulu agar website atau aplikasi yang dibuat benar-benar membantu brand terlihat tepat, jelas, dan meyakinkan.",
+          body: "Diskusi dulu sebelum mulai.",
         },
         {
           title: "Layanan Lengkap",
-          body:
-            "Mulai dari landing page, company profile, toko online, sampai sistem custom bisa disiapkan bertahap untuk membuat informasi brand lebih mudah diakses siapa pun.",
+          body: "Bisa mulai kecil lalu berkembang.",
         },
       ],
     },
     orderFlow: {
       eyebrow: "Alur Pemesanan",
-      title: "Proses kerja dibuat ringkas supaya owner bisnis tahu langkah berikutnya tanpa bingung.",
-      body:
-        "Mulai dari diskusi awal sampai website siap online, setiap tahap dibuat jelas agar keputusan lebih cepat dan revisi tetap terarah.",
+      title: "Proses kerja yang sederhana.",
+      body: "Setiap tahap dibuat jelas dari awal sampai launch.",
       items: [
         {
           step: "1",
           title: "Diskusi Kebutuhan",
-          body:
-            "Ceritakan bisnis, tujuan website, referensi yang disukai, dan fitur yang dibutuhkan supaya scope awal langsung jelas.",
+          body: "Kami pahami bisnis dan kebutuhanmu.",
         },
         {
           step: "2",
           title: "Penawaran & Arah Desain",
-          body:
-            "Setelah kebutuhan dipahami, SiapDigital siapkan penawaran, struktur halaman, dan arah visual yang paling relevan.",
+          body: "Kami siapkan penawaran dan arahnya.",
         },
         {
           step: "3",
           title: "Proses Build & Revisi",
-          body:
-            "Website atau sistem mulai dikerjakan bertahap, lalu direview bersama agar hasil akhirnya tetap sesuai kebutuhan bisnis.",
+          body: "Project dikerjakan lalu direview bersama.",
         },
         {
           step: "4",
           title: "Launch & Pendampingan",
-          body:
-            "Setelah final, project dipublish, dites ulang, lalu dibantu sampai siap dipakai untuk promosi atau operasional.",
+          body: "Project dipublish sampai siap dipakai.",
         },
       ],
     },
     packages: {
       eyebrow: "Paket Website & Digital Solution",
-      title: "Paket yang membantu brand terlihat lebih profesional tanpa membuat owner bisnis bingung memilih.",
-      body:
-        "Paket dibuat sederhana supaya owner bisnis lebih cepat memilih solusi yang tepat untuk membangun trust, memperjelas informasi brand, dan meningkatkan kesan profesional.",
+      title: "Pilih paket yang sesuai kebutuhanmu.",
+      body: "Semua paket dibuat sederhana dan mudah dipilih.",
       cta: "Diskusikan Paket Ini",
       featured: "Paling Laris",
       launchLink: "Lihat Template Portfolio",
       addOnEyebrow: "Add-On Maintenance Bulanan",
       addOnTitle: "Mulai Rp150.000 / bulan",
-      addOnBody:
-        "Untuk owner yang ingin website tetap aman, terpantau, dan tidak repot urus update kecil sendiri.",
+      addOnBody: "Untuk website yang ingin tetap terurus setelah launch.",
       items: [
         {
           name: "Paket Launch",
           price: "Rp500.000",
-          summary: "Untuk usaha kecil yang ingin cepat punya website profesional.",
+          summary: "Untuk usaha kecil yang ingin cepat online.",
           features: [
             "1 halaman website modern",
             "Tampilan mobile friendly",
@@ -123,8 +111,7 @@ export const siteCopy = {
         {
           name: "Paket Growth",
           price: "Rp900.000",
-          summary:
-            "Untuk bisnis yang ingin terlihat lebih meyakinkan dan siap menerima customer.",
+          summary: "Untuk bisnis yang butuh website lebih lengkap.",
           features: [
             "Hingga 5 halaman",
             "Desain custom ringan",
@@ -140,8 +127,7 @@ export const siteCopy = {
         {
           name: "Paket Prime",
           price: "Rp1.500.000",
-          summary:
-            "Untuk bisnis yang ingin tampil lebih unggul dari kompetitor.",
+          summary: "Untuk bisnis yang ingin tampil lebih serius.",
           features: [
             "Hingga 10 halaman",
             "UI/UX lebih premium",
@@ -157,7 +143,7 @@ export const siteCopy = {
         {
           name: "Paket Commerce",
           price: "Rp2.500.000",
-          summary: "Untuk bisnis yang ingin jualan langsung lewat website sendiri.",
+          summary: "Untuk bisnis yang ingin jualan lewat website.",
           features: [
             "Website toko online",
             "Upload 20 produk awal",
@@ -173,8 +159,7 @@ export const siteCopy = {
         {
           name: "Paket System Pro",
           price: "Mulai Rp4.000.000",
-          summary:
-            "Untuk bisnis yang butuh booking system, dashboard, atau fitur custom.",
+          summary: "Untuk kebutuhan dashboard dan fitur custom.",
           features: [
             "Login user",
             "Dashboard admin",
@@ -198,61 +183,60 @@ export const siteCopy = {
     },
     testimonials: {
       eyebrow: "Testimoni",
-      title: "Komentar yang paling sering kami dengar dari client.",
+      title: "Komentar dari client.",
     },
     faqs: [
       {
         q: "Kalau saya belum punya brief lengkap, apakah project tetap bisa dimulai?",
-        a: "Bisa. Cukup mulai dari tujuan bisnis, layanan, dan contoh referensi yang kamu suka. Struktur halaman bisa disusun bersama.",
+        a: "Bisa. Mulai saja dari tujuan bisnis dan referensi yang kamu suka.",
       },
       {
         q: "Apakah SiapDigital hanya membuat website?",
-        a: "Tidak. Selain website, SiapDigital juga bisa membantu landing page, toko online, dashboard admin, booking system, dan fitur custom.",
+        a: "Tidak. Kami juga mengerjakan landing page, toko online, dan sistem custom.",
       },
       {
         q: "Apakah website tetap nyaman dibuka di HP?",
-        a: "Ya. Tampilan mobile selalu jadi prioritas karena banyak calon customer datang dari WhatsApp, Instagram, atau Facebook.",
+        a: "Ya. Semua website dibuat mobile-friendly.",
       },
       {
         q: "Apakah saya bisa revisi selama proses pengerjaan?",
-        a: "Bisa. Jumlah revisi menyesuaikan paket yang dipilih agar proses tetap rapi dan hasil akhirnya sesuai arah bisnis.",
+        a: "Bisa. Jumlah revisi mengikuti paket yang dipilih.",
       },
       {
         q: "Apakah bisa dibantu domain, hosting, dan publish?",
-        a: "Bisa. SiapDigital bisa bantu dari setup awal sampai website siap online.",
+        a: "Bisa. Kami bantu sampai website siap online.",
       },
       {
         q: "Apakah website bisa dioptimasi untuk SEO?",
-        a: "Bisa. Struktur dasar, heading, kecepatan, dan keterbacaan akan dibuat lebih siap untuk SEO dasar.",
+        a: "Bisa. SEO dasar bisa disiapkan sejak awal.",
       },
       {
         q: "Kalau nanti butuh fitur baru, apakah bisa dikembangkan lagi?",
-        a: "Bisa. Website atau sistem bisa dikembangkan bertahap sesuai kebutuhan bisnis berikutnya.",
+        a: "Bisa. Website bisa dikembangkan bertahap.",
       },
       {
         q: "Apakah ada maintenance setelah website selesai?",
-        a: "Ada. Tersedia add-on maintenance bulanan untuk backup, monitoring, update ringan, dan support tambahan.",
+        a: "Ada. Tersedia add-on maintenance bulanan.",
       },
     ],
     faqIntro: {
       eyebrow: "FAQ",
-      title: "Pertanyaan yang paling sering ditanyakan sebelum mulai project.",
-      body: "Jawaban singkat supaya owner bisnis lebih cepat paham alur kerja SiapDigital.",
+      title: "Pertanyaan yang sering ditanyakan.",
+      body: "Jawaban singkat dan jelas.",
     },
     about: {
       eyebrow: "Tentang SiapDigital",
       title:
-        "SiapDigital membantu brand tampil lebih profesional, lebih dipercaya, dan lebih mudah diakses lewat website dan aplikasi.",
-      body:
-        "Fokus kami bukan hanya desain bagus. Kami membantu menyusun tampilan, alur, dan informasi agar brand lebih mudah dikenalkan, lebih jelas dipahami, dan lebih meyakinkan saat dilihat calon customer.",
+        "SiapDigital membantu bisnis tampil lebih rapi dan jelas.",
+      body: "Kami membangun website dan aplikasi yang enak dilihat dan mudah dipakai.",
       highlights: [
-        "Mulai dari kebutuhan sederhana lalu dikembangkan bertahap sesuai pertumbuhan brand",
-        "Desain dibuat mengikuti identitas brand dan tujuan bisnis",
-        "Fokus pada tampilan rapi, informasi jelas, dan hasil yang siap dipakai untuk meningkatkan trust",
+        "Bisa mulai dari scope sederhana",
+        "Desain mengikuti identitas brand",
+        "Fokus pada tampilan dan informasi",
       ],
       mapLoadingTitle: "Memuat lokasi SiapDigital...",
       mapLoadingBody: "Peta akan tampil sebentar lagi.",
-      brandStory: "SiapDigital menggabungkan tampilan yang rapi dengan build yang serius untuk kebutuhan bisnis nyata.",
+      brandStory: "SiapDigital membangun produk digital yang rapi dan siap dipakai.",
       whatsappLabel: "WhatsApp",
       emailLabel: "Email",
       addressLabel: "Alamat",
@@ -261,13 +245,11 @@ export const siteCopy = {
     contact: {
       eyebrow: "Mulai Project",
       title: "Butuh website atau aplikasi untuk bisnis kamu?",
-      body:
-        "Ceritakan kebutuhanmu. SiapDigital akan bantu arahkan solusi yang membuat brand terlihat lebih profesional, lebih dipercaya, dan lebih mudah diakses oleh calon customer.",
+      body: "Ceritakan kebutuhanmu, lalu kami bantu arahkan solusinya.",
       cta: "Konsultasi via WhatsApp",
     },
     footer: {
-      body:
-        "SiapDigital membantu brand dan bisnis membangun website, landing page, toko online, dan sistem custom agar terlihat lebih profesional, lebih dipercaya, dan lebih mudah diakses.",
+      body: "Website, landing page, toko online, dan sistem custom untuk bisnis.",
       cta: "Diskusi project",
       navTitle: "Navigasi",
       seoTitle: "Layanan SEO",
@@ -278,94 +260,82 @@ export const siteCopy = {
   },
   en: {
     heroStats: [
-      { value: "6+", label: "years of experience in websites and systems" },
-      { value: "27+", label: "digital projects completed" },
-      { value: "12+", label: "brands and businesses supported" },
+      { value: "6+", label: "years of experience" },
+      { value: "27+", label: "projects completed" },
+      { value: "12+", label: "brands supported" },
     ],
     portfolio: {
       eyebrow: "Portfolio",
-      title: "Selected work that helps brands look more professional and more convincing.",
-      body:
-        "These projects show how clean websites, landing pages, and systems can make a brand easier to understand, more trustworthy, and more ready to present to customers.",
+      title: "Selected work from SiapDigital.",
+      body: "Websites, landing pages, and systems for business needs.",
       demoLabel: "Demo",
       filterAll: "All",
       moreLabel: "See Full Portfolio",
     },
     services: {
       eyebrow: "Why SiapDigital",
-      title: "Four reasons why a cleaner website or app can elevate how your brand is perceived.",
+      title: "Four reasons to choose SiapDigital.",
       items: [
         {
           title: "Best Pricing",
-          body:
-            "The scope is clear from the start so you understand what is being built and how it supports a more professional brand presence.",
+          body: "Clear scope from the start.",
         },
         {
           title: "Fast Delivery",
-          body:
-            "Projects move through a lean process so the brand can go online faster and start looking more established sooner.",
+          body: "Lean and efficient process.",
         },
         {
           title: "Free Consultation",
-          body:
-            "You can discuss your needs first so the website or app truly helps the brand feel clear, credible, and aligned.",
+          body: "Discuss first before starting.",
         },
         {
           title: "Complete Service",
-          body:
-            "From landing pages and company profiles to online stores and custom systems, everything can grow step by step while keeping brand information easy to access.",
+          body: "Start small and grow over time.",
         },
       ],
     },
     orderFlow: {
       eyebrow: "Order Flow",
-      title: "The process stays simple so business owners always know the next step.",
-      body:
-        "From the first discussion to launch, each stage is kept clear so decisions move faster and revisions stay focused.",
+      title: "A simple working process.",
+      body: "Every stage stays clear from start to launch.",
       items: [
         {
           step: "1",
           title: "Discuss The Need",
-          body:
-            "Share your business context, goals, preferred references, and required features so the initial scope is clear.",
+          body: "We learn your business and needs.",
         },
         {
           step: "2",
           title: "Proposal & Direction",
-          body:
-            "Once the need is understood, SiapDigital prepares the proposal, page structure, and the most relevant visual direction.",
+          body: "We prepare the proposal and direction.",
         },
         {
           step: "3",
           title: "Build & Revision",
-          body:
-            "The website or system is built step by step, then reviewed together so the final result stays aligned with the business need.",
+          body: "The project is built and reviewed together.",
         },
         {
           step: "4",
           title: "Launch & Handover",
-          body:
-            "After final approval, the project is published, tested again, and guided until it is ready for promotion or operations.",
+          body: "The project is launched and ready to use.",
         },
       ],
     },
     packages: {
       eyebrow: "Website & Digital Solution Packages",
-      title: "Packages that help your brand look more professional without making the decision harder.",
-      body:
-        "The packages are kept simple so business owners can quickly choose the right setup to improve trust, clarify brand information, and strengthen their professional image.",
+      title: "Choose the package that fits your needs.",
+      body: "Simple packages that are easy to compare.",
       cta: "Discuss This Package",
       featured: "Most Chosen",
       launchLink: "View Portfolio Template",
       addOnEyebrow: "Monthly Maintenance Add-On",
       addOnTitle: "Starting from Rp150.000 / month",
-      addOnBody:
-        "For owners who want their website monitored and updated without handling small fixes themselves.",
+      addOnBody: "For websites that need ongoing care after launch.",
       items: [
         {
           name: "Launch Package",
           price: "Rp500.000",
-          summary: "For small businesses that want a professional website fast.",
+          summary: "For small businesses that want to go online fast.",
           features: [
             "1 modern landing page",
             "Mobile-friendly layout",
@@ -379,8 +349,7 @@ export const siteCopy = {
         {
           name: "Growth Package",
           price: "Rp900.000",
-          summary:
-            "For businesses that want to look more convincing and ready to receive customers.",
+          summary: "For businesses that need a fuller website.",
           features: [
             "Up to 5 pages",
             "Light custom design",
@@ -396,8 +365,7 @@ export const siteCopy = {
         {
           name: "Prime Package",
           price: "Rp1.500.000",
-          summary:
-            "For serious businesses that want to stand out from competitors.",
+          summary: "For businesses that want a stronger presence.",
           features: [
             "Up to 10 pages",
             "More premium UI/UX",
@@ -413,7 +381,7 @@ export const siteCopy = {
         {
           name: "Commerce Package",
           price: "Rp2.500.000",
-          summary: "For businesses that want to sell directly through their own website.",
+          summary: "For businesses that want to sell through their website.",
           features: [
             "Online store website",
             "Upload first 20 products",
@@ -429,8 +397,7 @@ export const siteCopy = {
         {
           name: "System Pro Package",
           price: "Starting from Rp4.000.000",
-          summary:
-            "For businesses that need booking systems, dashboards, or custom features.",
+          summary: "For dashboards and custom features.",
           features: [
             "User login",
             "Admin dashboard",
@@ -454,57 +421,56 @@ export const siteCopy = {
     },
     testimonials: {
       eyebrow: "Testimonials",
-      title: "What clients usually say after working with SiapDigital.",
+      title: "What clients say.",
     },
     faqs: [
       {
         q: "Can we start if I do not have a complete brief yet?",
-        a: "Yes. We can start from your business goal, service list, and a few references you like. The page structure can be arranged together.",
+        a: "Yes. Start with your business goal and a few references you like.",
       },
       {
         q: "Does SiapDigital only build websites?",
-        a: "No. Besides websites, SiapDigital can also help with landing pages, online stores, admin dashboards, booking systems, and custom features.",
+        a: "No. We also build landing pages, online stores, and custom systems.",
       },
       {
         q: "Will the website work well on mobile?",
-        a: "Yes. Mobile is a priority because many visitors come from WhatsApp, Instagram, and Facebook.",
+        a: "Yes. Every website is built to be mobile-friendly.",
       },
       {
         q: "Can I request revisions during the process?",
-        a: "Yes. The number of revisions depends on the package so the process stays clear and organized.",
+        a: "Yes. The revision count depends on the package.",
       },
       {
         q: "Can you help with domain, hosting, and publishing?",
-        a: "Yes. SiapDigital can help from initial setup until the website is live.",
+        a: "Yes. We help until the website is live.",
       },
       {
         q: "Can the website be optimized for SEO?",
-        a: "Yes. The basic structure, headings, speed, and readability will be prepared for basic SEO.",
+        a: "Yes. Basic SEO can be prepared from the start.",
       },
       {
         q: "Can the project be expanded later if I need new features?",
-        a: "Yes. The website or system can be developed step by step as your business grows.",
+        a: "Yes. The project can grow step by step.",
       },
       {
         q: "Do you offer maintenance after launch?",
-        a: "Yes. There is a monthly maintenance add-on for backups, monitoring, light updates, and extra support.",
+        a: "Yes. A monthly maintenance add-on is available.",
       },
     ],
     faqIntro: {
       eyebrow: "FAQ",
-      title: "Questions people often ask before starting a project.",
-      body: "Short answers so business owners can quickly understand how SiapDigital works.",
+      title: "Frequently asked questions.",
+      body: "Short and clear answers.",
     },
     about: {
       eyebrow: "About SiapDigital",
       title:
-        "SiapDigital helps brands look more professional, more trusted, and easier to access through websites and apps.",
-      body:
-        "Our focus is not only on polished visuals. We also shape the page flow, structure, and information so the brand is easier to explain, easier to trust, and easier to reach.",
+        "SiapDigital helps businesses look cleaner and clearer.",
+      body: "We build websites and apps that look good and are easy to use.",
       highlights: [
-        "Start from the essential needs and grow step by step with the brand",
-        "Design follows the brand identity and business goal",
-        "Focus on clean visuals, clear information, and outcomes that strengthen trust",
+        "Start from a simple scope",
+        "Design follows the brand identity",
+        "Focus on visuals and clarity",
       ],
       mapLoadingTitle: "Loading SiapDigital location...",
       mapLoadingBody: "The map will appear shortly.",
@@ -518,13 +484,11 @@ export const siteCopy = {
     contact: {
       eyebrow: "Start A Project",
       title: "Need a website or app for your business?",
-      body:
-        "Tell us what you need. SiapDigital will help point you to the solution that makes your brand look more professional, more trusted, and easier for customers to access.",
+      body: "Tell us what you need, and we will help point you to the right solution.",
       cta: "Consult via WhatsApp",
     },
     footer: {
-      body:
-        "SiapDigital helps brands and businesses build websites, landing pages, online stores, and custom systems that look more professional, build trust, and stay easy to access.",
+      body: "Websites, landing pages, online stores, and custom systems for businesses.",
       cta: "Discuss your project",
       navTitle: "Navigation",
       seoTitle: "SEO Pages",
