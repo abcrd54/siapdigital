@@ -108,7 +108,7 @@ export const siteCopy = {
         },
         {
           name: "Paket Growth",
-          price: "Rp1.000.000",
+          price: "Rp1.500.000",
           summary: "Untuk bisnis yang butuh website lebih lengkap.",
           features: [
             "Halaman: 5",
@@ -122,7 +122,7 @@ export const siteCopy = {
         },
         {
           name: "Paket Prime",
-          price: "Rp1.750.000",
+          price: "Rp2.500.000",
           summary: "Untuk bisnis yang ingin tampil lebih serius.",
           features: [
             "Halaman: 10",
@@ -136,7 +136,7 @@ export const siteCopy = {
         },
         {
           name: "Paket Commerce",
-          price: "Rp3.000.000",
+          price: "Rp4.000.000",
           summary: "Untuk bisnis yang ingin jualan lewat website.",
           features: [
             "Halaman: 10",
@@ -153,7 +153,7 @@ export const siteCopy = {
         },
         {
           name: "Paket System Pro",
-          price: "Mulai Rp5.000.000",
+          price: "Mulai Rp7.000.000",
           summary: "Untuk kebutuhan dashboard dan fitur custom.",
           features: [
             "Halaman: custom",
@@ -345,7 +345,7 @@ export const siteCopy = {
         },
         {
           name: "Growth Package",
-          price: "Rp1.000.000",
+          price: "Rp1.500.000",
           summary: "For businesses that need a fuller website.",
           features: [
             "Pages: 5",
@@ -359,7 +359,7 @@ export const siteCopy = {
         },
         {
           name: "Prime Package",
-          price: "Rp1.750.000",
+          price: "Rp2.500.000",
           summary: "For businesses that want a stronger presence.",
           features: [
             "Pages: 10",
@@ -373,7 +373,7 @@ export const siteCopy = {
         },
         {
           name: "Commerce Package",
-          price: "Rp3.000.000",
+          price: "Rp4.000.000",
           summary: "For businesses that want to sell through their website.",
           features: [
             "Pages: 10",
@@ -390,7 +390,7 @@ export const siteCopy = {
         },
         {
           name: "System Pro Package",
-          price: "Starting from Rp5.000.000",
+          price: "Starting from Rp7.000.000",
           summary: "For dashboards and custom features.",
           features: [
             "Pages: custom",
