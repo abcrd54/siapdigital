@@ -1,40 +1,15 @@
 import {
   ArrowUpRight,
-  BadgePercent,
-  Bell,
-  BookOpen,
-  Bot,
-  Briefcase,
-  CalendarCheck2,
-  ChartNoAxesColumn,
   CreditCard,
-  Database,
-  FileText,
-  Gauge,
-  Globe,
-  GraduationCap,
-  Grid2x2,
-  HandCoins,
-  Images,
-  Instagram,
-  LayoutPanelTop,
   LayoutDashboard,
-  LockKeyhole,
-  Mail,
-  MapPinned,
+  LayoutPanelTop,
+  DollarSign,
   MessageCircle,
   MonitorSmartphone,
   NotebookPen,
-  PackagePlus,
-  PenTool,
   Search,
-  Server,
   ShoppingBag,
-  ShoppingCart,
-  SlidersHorizontal,
   SquarePen,
-  UserRound,
-  WalletCards,
 } from "lucide-react";
 import LordIcon from "../components/LordIcon";
 import { siteCopy } from "../data/content";
@@ -70,116 +45,44 @@ function FeaturedBadge({ label }) {
   );
 }
 
+function capitalizeFirst(text) {
+  const value = text.trim();
+  if (!value) {
+    return value;
+  }
+
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 function getPackageFeatureIcon(feature) {
   const value = feature.toLowerCase();
 
-  if (value.includes("produk")) {
-    return PackagePlus;
-  }
-  if (value.includes("keranjang")) {
-    return ShoppingCart;
-  }
-  if (value.includes("checkout")) {
-    return WalletCards;
-  }
-  if (value.includes("payment") || value.includes("midtrans")) {
-    return CreditCard;
-  }
-  if (value.includes("voucher") || value.includes("promo")) {
-    return BadgePercent;
-  }
-  if (value.includes("training")) {
-    return GraduationCap;
-  }
-  if (value.includes("login user") || value.includes("login")) {
-    return LockKeyhole;
-  }
-  if (value.includes("dashboard")) {
-    return LayoutDashboard;
-  }
-  if (value.includes("booking") || value.includes("reservasi")) {
-    return CalendarCheck2;
-  }
-  if (value.includes("database") || value.includes("customer")) {
-    return Database;
-  }
-  if (value.includes("notifikasi")) {
-    return Bell;
-  }
-  if (value.includes("laporan")) {
-    return ChartNoAxesColumn;
-  }
-  if (value.includes("fitur sesuai kebutuhan") || value.includes("fitur custom")) {
-    return SlidersHorizontal;
-  }
-  if (value.includes("ui/ux")) {
-    return Grid2x2;
-  }
-  if (value.includes("copywriting")) {
-    return SquarePen;
-  }
-  if (value.includes("blog") || value.includes("artikel")) {
-    return BookOpen;
-  }
-  if (value.includes("analytics visitor") || value.includes("analytics")) {
-    return ChartNoAxesColumn;
-  }
-  if (value.includes("speed")) {
-    return Gauge;
-  }
-  if (value.includes("integrasi instagram") || value.includes("instagram")) {
-    return Instagram;
-  }
-  if (value.includes("leads")) {
-    return HandCoins;
-  }
-  if (value.includes("revisi")) {
-    return SquarePen;
-  }
-  if (value.includes("1 halaman") || value.includes("hingga") || value.includes("halaman")) {
+  if (value.includes("halaman") || value.includes("pages")) {
     return LayoutPanelTop;
+  }
+  if (value.includes("desain") || value.includes("design")) {
+    return NotebookPen;
+  }
+  if (value.includes("kontak") || value.includes("contact") || value.includes("whatsapp")) {
+    return MessageCircle;
   }
   if (value.includes("mobile")) {
     return MonitorSmartphone;
   }
-  if (value.includes("whatsapp")) {
-    return value.includes("auto") || value.includes("chatbot") ? Bot : MessageCircle;
-  }
-  if (value.includes("google maps") || value.includes("maps")) {
-    return MapPinned;
-  }
-  if (value.includes("form") || value.includes("email")) {
-    return Mail;
-  }
-  if (value.includes("hosting")) {
-    return Server;
-  }
-  if (value.includes("desain")) {
-    return PenTool;
-  }
   if (value.includes("seo")) {
     return Search;
   }
-  if (value.includes("menu")) {
-    return FileText;
+  if (value.includes("payment")) {
+    return DollarSign;
   }
-  if (value.includes("jualan")) {
+  if (value.includes("toko") || value.includes("store") || value.includes("midtrans")) {
     return ShoppingBag;
   }
-  if (value.includes("assistant")) {
-    return Bot;
+  if (value.includes("sistem") || value.includes("dashboard") || value.includes("login")) {
+    return LayoutDashboard;
   }
-  if (value.includes("admin")) {
-    return UserRound;
-  }
-  if (value.includes("website toko online")) {
-    return ShoppingBag;
-  }
-  if (value.includes("website")) {
-    return Globe;
-  }
-  if (value.includes("custom ringan")) {
-    return Images;
+  if (value.includes("revisi") || value.includes("revision")) {
+    return SquarePen;
   }
 
   return NotebookPen;
@@ -212,7 +115,7 @@ function PackagesSection({ lang, onOpenTemplateList, page }) {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 xl:grid-cols-3">
+        <div className="mt-10 grid gap-5 items-start xl:grid-cols-3">
           {copy.items.map((item, index) => {
             const theme = packageCardThemes[index % packageCardThemes.length];
 
@@ -221,10 +124,14 @@ function PackagesSection({ lang, onOpenTemplateList, page }) {
                 key={item.name}
                 data-aos="fade-up"
                 data-aos-delay={index * 60}
-                className="floating-slab relative self-start"
+                className={index < 3 ? "floating-slab relative h-full" : "floating-slab relative h-full"}
               >
                 <div
-                  className="floating-slab-panel p-5 text-ink sm:p-6"
+                  className={
+                    index < 3
+                      ? "floating-slab-panel flex h-full min-h-[330px] flex-col p-4 text-ink sm:p-5"
+                      : "floating-slab-panel flex h-full flex-col p-5 text-ink sm:p-6"
+                  }
                   style={{ background: theme.panel }}
                 >
                   <div className="flex items-start justify-between gap-4">
@@ -232,36 +139,64 @@ function PackagesSection({ lang, onOpenTemplateList, page }) {
                       <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                         {item.name}
                       </p>
-                      <h3 className="mt-3 font-display text-[2.05rem] font-bold tracking-[-0.05em] text-ink sm:text-3xl">
+                      <h3 className={index < 3 ? "mt-2 font-display text-[1.9rem] font-bold tracking-[-0.05em] text-ink sm:text-[2.55rem]" : "mt-3 font-display text-[2.05rem] font-bold tracking-[-0.05em] text-ink sm:text-3xl"}>
                         {item.price}
                       </h3>
                     </div>
                     {item.featured ? <FeaturedBadge label={copy.featured} /> : null}
                   </div>
 
-                  <p className="mt-4 text-sm leading-7 text-muted sm:mt-5">{item.summary}</p>
+                  <p className={index < 3 ? "mt-2.5 text-sm leading-6 text-muted sm:mt-3" : "mt-4 text-sm leading-7 text-muted sm:mt-5"}>{item.summary}</p>
 
-                  <div className="mt-5 border-t border-slate-900/8 pt-4 sm:mt-6 sm:pt-5">
+                  <div
+                    className={
+                      index < 3
+                      ? "mt-2.5 flex flex-1 flex-col border-t border-slate-900/8 pt-2.5 sm:mt-3 sm:pt-3"
+                        : "mt-5 flex-1 border-t border-slate-900/8 pt-4 sm:mt-6 sm:pt-5"
+                    }
+                  >
                     <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
                       {lang === "id" ? "Perbandingan Utama" : "Key Comparison"}
                     </p>
-                    <div className="mt-3 space-y-1.5">
+                    <div className={index < 3 ? "mt-2 space-y-1" : "mt-3 space-y-2"}>
                     {item.features.map((feature) => {
                       const FeatureIcon = getPackageFeatureIcon(feature);
+                      const [label, ...rest] = feature.split(":");
+                      const value = rest.join(":").trim();
+                      const displayLabel = capitalizeFirst(label);
+                      const displayFeature = capitalizeFirst(feature);
 
                       return (
-                        <div key={feature} className="flex items-start gap-3">
+                        <div
+                          key={feature}
+                          className={index < 3 ? "grid grid-cols-[18px_minmax(0,1fr)] items-start gap-3 px-1 py-[2px]" : "grid grid-cols-[18px_minmax(0,1fr)] items-start gap-3 px-1 py-0.5"}
+                        >
                           <span className="mt-0.5 inline-flex shrink-0 items-center justify-center">
                             <FeatureIcon className="h-[18px] w-[18px] text-primary" strokeWidth={1.9} />
                           </span>
-                          <p className="text-[13px] leading-6 text-muted sm:text-sm">{feature}</p>
+                          <div className="min-w-0">
+                            {value ? (
+                              <div className="flex items-baseline justify-between gap-3">
+                                <p className="text-[12px] font-medium leading-5 text-slate-600 sm:text-[13px]">
+                                  {displayLabel}
+                                </p>
+                                <p className="shrink-0 text-right text-[12px] font-semibold leading-5 text-ink sm:text-[13px]">
+                                  {capitalizeFirst(value)}
+                                </p>
+                              </div>
+                            ) : (
+                              <p className="text-[12px] font-medium leading-5 text-slate-700 sm:text-[13px]">
+                                {displayFeature}
+                              </p>
+                            )}
+                          </div>
                         </div>
                       );
                     })}
                     </div>
                   </div>
 
-                  <div className={index === 0 ? "mt-6 grid grid-cols-2 gap-2 sm:mt-7" : "mt-6 sm:mt-7"}>
+                  <div className={index === 0 ? "mt-auto grid grid-cols-2 gap-2 sm:mt-4" : index < 3 ? "mt-auto sm:mt-4" : "mt-5 sm:mt-6"}>
                     <a
                       href="#contact"
                       onClick={() =>
