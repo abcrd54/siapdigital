@@ -241,19 +241,24 @@ function PackagesSection({ lang, onOpenTemplateList, page }) {
 
                   <p className="mt-4 text-sm leading-7 text-muted sm:mt-5">{item.summary}</p>
 
-                  <div className="mt-5 space-y-1.5 sm:mt-6">
-                    {item.features.slice(0, 6).map((feature) => {
+                  <div className="mt-5 border-t border-slate-900/8 pt-4 sm:mt-6 sm:pt-5">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                      {lang === "id" ? "Perbandingan Utama" : "Key Comparison"}
+                    </p>
+                    <div className="mt-3 space-y-1.5">
+                    {item.features.map((feature) => {
                       const FeatureIcon = getPackageFeatureIcon(feature);
 
                       return (
                         <div key={feature} className="flex items-start gap-3">
-                        <span className="mt-0.5 inline-flex shrink-0 items-center justify-center">
-                          <FeatureIcon className="h-[18px] w-[18px] text-primary" strokeWidth={1.9} />
-                        </span>
-                        <p className="text-[13px] leading-6 text-muted sm:text-sm">{feature}</p>
-                      </div>
+                          <span className="mt-0.5 inline-flex shrink-0 items-center justify-center">
+                            <FeatureIcon className="h-[18px] w-[18px] text-primary" strokeWidth={1.9} />
+                          </span>
+                          <p className="text-[13px] leading-6 text-muted sm:text-sm">{feature}</p>
+                        </div>
                       );
                     })}
+                    </div>
                   </div>
 
                   <div className={index === 0 ? "mt-6 grid grid-cols-2 gap-2 sm:mt-7" : "mt-6 sm:mt-7"}>
